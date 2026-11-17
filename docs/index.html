@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/home.css">
+<script>if(matchMedia("(min-width:769px) and (min-aspect-ratio:1/1) and (prefers-reduced-motion:no-preference)").matches)document.documentElement.classList.add("hero-video")</script>
 </head>
 <body class="no-js">
 
@@ -48,18 +49,21 @@
   <section class="hero" id="intro" aria-labelledby="hero-title" data-hero>
     <div class="hero__stage">
       <div class="hero__frame">
+        <div class="hero__video" aria-hidden="true"></div>
+        <div class="hero__still">
         <div class="hero__layer" data-layer="sky">
           <img src="assets/images/hero/sky-1920.webp"
                srcset="assets/images/hero/sky-1920.webp 1920w, assets/images/hero/sky-3358.webp 3358w"
                sizes="max(100vw, 179.2svh)" width="3358" height="1874" alt="" fetchpriority="high">
         </div>
-        <div class="hero__layer" data-layer="word">
-          <p class="hero__word" aria-hidden="true"><span class="hero__word-inner">Glonari</span></p>
-        </div>
         <div class="hero__layer" data-layer="valley">
           <img src="assets/images/hero/valley-1920.webp"
                srcset="assets/images/hero/valley-1920.webp 1920w, assets/images/hero/valley-3358.webp 3358w"
                sizes="max(100vw, 179.2svh)" width="3358" height="1874" alt="" fetchpriority="high">
+        </div>
+        </div>
+        <div class="hero__layer" data-layer="word">
+          <p class="hero__word" aria-hidden="true"><span class="hero__word-inner">Glonari</span></p>
         </div>
         <div class="hero__layer" data-layer="girl">
           <img src="assets/images/hero/girl-1920.webp"

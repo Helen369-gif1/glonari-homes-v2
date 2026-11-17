@@ -177,6 +177,34 @@
   .hero__layer, .hero__word-inner, [data-copy] { transform: none !important; opacity: 1 !important; }
 }
 
+/* Hero video mode (desktop, motion allowed): the descent video is scrubbed by the scroll (js/hero.js),
+   then swaps to the still sky + valley, the word appears, the woman rises, the copy arrives.
+   Phones, portrait tablets and reduced motion keep the layered scene above. */
+:root { --video-travel: 300svh; }
+/* layered scene (default): sky < word < valley < girl; the wrapper is transparent to layout */
+.hero__still { display: contents; }
+.hero__layer[data-layer="sky"] { z-index: 1; }
+.hero__layer[data-layer="word"] { z-index: 2; }
+.hero__layer[data-layer="valley"] { z-index: 3; }
+.hero__layer[data-layer="girl"] { z-index: 4; }
+.hero__video { display: none; }
+@media (min-width: 769px) and (min-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference) {
+  .hero-video .hero__video {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: url("../assets/images/home-hero-descent-poster.jpg") center / cover no-repeat;
+  }
+  /* video mode: video / still sky + valley < word < girl (the word lies over the hills) */
+  .hero-video .hero__still { display: block; position: absolute; inset: 0; z-index: 1; }
+  .hero-video .hero__still .hero__layer { z-index: auto; }
+  .hero-video .hero__layer[data-layer="word"] { z-index: 2; }
+  .hero-video .hero__layer[data-layer="girl"] { z-index: 3; }
+  .hero__video video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .hero-video .hero__still, .hero-video .hero__layer[data-layer="girl"], .hero-video [data-copy] { opacity: 0; }
+  .js.hero-video .hero { height: calc(100svh + var(--video-travel)); }
+}
+
 /* ==========================================================
    2. The problem — image comparison, revealed by scroll
    Default CSS: a simple stacked before/after, each full width

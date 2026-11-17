@@ -2,6 +2,15 @@
 
 Last updated: 2026-11-13. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-17 (Home hero: scrubbed descent video) — not committed
+Copies before: `masters/retired/index|home|main|hero-before-hero-video-2026-11-17.*`. Files: `docs/index.html` (video box + `.hero__still` wrapper, inline class `hero-video` in head), `css/home.css` (video mode block after the hero), `js/hero.js` (`initVideoMode`, GSAP ScrollTrigger scrub), `assets/images/home-hero-descent-scrub.mp4` (reversed, no audio, all-intra, crf 20, 9.0 MB) + `home-hero-descent-poster.jpg` (78 KB). No webm (not needed).
+- Pin 300svh (`--video-travel`): 0–70% video by `currentTime` (frame-quantised), 70–78% still sky+valley fades in over it, 78–88% word fades in, woman (girl layer) rises from below, 88–100% shade + copy. Video mode only ≥769px, landscape, motion allowed; phones, portrait tablets, reduced motion keep the old layered scene (unchanged code path). Final frame = the static layered composition (valley scale 1), not the old pin-end zoom 1.11.
+- `masters/home-hero-clean-frame.png` is not in the folder: the still is the existing sky+valley layers; comparison `review/home-hero-video-last-vs-still.png`.
+- Local note: `python -m http.server` cannot seek video (no Range requests); test with a Range-capable server. Hosting must support Range (GitHub Pages does).
+
+## 2026-11-17 (Home hero end: word over the hills, wide-window fix) — not committed
+Copies before: `masters/retired/index|home|hero-before-hero-word-2026-11-17.*`. Video mode layer order is now video / still (sky + valley) < word < girl (the word wrapper moved out of `.hero__still` in `index.html`; z-indexes in `home.css`, the layered fallback keeps sky < word < valley < girl via z-index and `.hero__still{display:contents}`). Windows wider than 2:1: `measureShift()` in `hero.js` drops the girl layer so the hair is ≥16px under the header (header 92px → hair top ≥108px; measured 108.0 at 1740×800 and 1904×815, shift 53/60px; 1440×900 and 1024×768 shift 0). End frames: `review/home-hero-end-1740x800|1904x815|1440.png`, compare with the old hero `home-hero-compare-1440.png` (old left, new right).
+
 ## 2026-11-14 (FAQs built, 7 screens) — not committed
 Copies before: `masters/retired/faqs|OPEN-QUESTIONS|PROJECT-STATUS|SITE-STRUCTURE-before-faqs-2026-11-14.*`. Files: `docs/faqs.html` (`.stub` gone), new `css/faqs.css`, `js/faqs.js` (opens the group/question a #hash points to). Header, footer, other pages untouched.
 - Owner's choices: final 07 on paper (no dark band, footer is the page's only dark), group numbers 01–05, two photo pauses.
