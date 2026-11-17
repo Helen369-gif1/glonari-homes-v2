@@ -2,3 +2,5 @@ reference/
 review/
 tools/
 node_modules/
+masters/retired/
+.playwright-mcp/

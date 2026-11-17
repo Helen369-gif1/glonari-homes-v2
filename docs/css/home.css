@@ -169,6 +169,12 @@
     background: linear-gradient(0deg, rgba(5, 4, 2, .88) 0%, rgba(15, 12, 9, .66) 34%, rgba(15, 12, 9, 0) 62%);
   }
 }
+/* Layered scene, start state (p = 0) from the first paint, so phones do not flash the final layout before js/hero.js
+   takes over. Set by the class from the inline script in <head>; reduced motion and no-JS never get it. */
+.hero-layers [data-copy] { opacity: 0; transform: translate3d(0, 24px, 0); }
+.hero-layers .hero__word-inner { transform: translate3d(0, calc(var(--word-from) * 1%), 0); }
+.hero-layers .hero.is-static [data-copy] { opacity: 1; transform: none; }
+.hero-layers .hero.is-static .hero__word-inner { transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .js .hero { height: 100svh; }
   .hero__cue { display: none; }
@@ -200,8 +206,11 @@
   .hero-video .hero__still .hero__layer { z-index: auto; }
   .hero-video .hero__layer[data-layer="word"] { z-index: 2; }
   .hero-video .hero__layer[data-layer="girl"] { z-index: 3; }
+  .hero-video .hero__stage { background: #7c9fb0; }   /* mean colour of the poster: no blue flash before it paints */
   .hero__video video { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .hero-video .hero__still, .hero-video .hero__layer[data-layer="girl"], .hero-video [data-copy] { opacity: 0; }
+  /* first frame = poster only: still (sky + valley), word, woman, copy and shade stay hidden until js/hero.js reveals them */
+  .hero-video .hero__still, .hero-video .hero__layer[data-layer="word"], .hero-video .hero__layer[data-layer="girl"],
+  .hero-video [data-copy], .hero-video .hero__shade { opacity: 0; visibility: hidden; }
   .js.hero-video .hero { height: calc(100svh + var(--video-travel)); }
 }
 

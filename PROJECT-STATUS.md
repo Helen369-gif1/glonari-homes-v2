@@ -2,6 +2,17 @@
 
 Last updated: 2026-11-13. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-17 (Home hero: no flash on load) — not committed
+Copies before: `masters/retired/index|home|hero|main-before-hero-load-2026-11-17.*`. Cause: in video mode the word layer was not hidden (it showed GLONARI over the poster until the first scroll), and on phones the static final layout (copy, shade, word) painted before hero.js set the p=0 state.
+- `index.html`: inline script in `<head>` sets `hero-video` (>=769px, landscape, motion ok) or `hero-layers` (phones, portrait, motion ok); neither with reduced motion / no JS = static final layout. `<link rel="preload" as="image">` of the poster (desktop media query, fetchpriority high). The `<video muted playsinline>` is in the markup (`preload="none"`), an inline script right after it sets `preload=auto` + `src` only in `hero-video` mode, so the download starts while parsing and phones never fetch it. `fetchpriority` removed from the sky/valley `<img>`.
+- `home.css`: in video mode word, girl, still, copy and shade are `opacity:0; visibility:hidden` from CSS; stage background = poster mean colour (#7c9fb0) instead of blue. `.hero-layers` gives the layered p=0 state in CSS (copy hidden, word below), with `.is-static` overrides.
+- `hero.js`: uses the existing `<video>`, reveals layers with opacity + visibility (`show()`), girl hidden until her entrance (p>.78); if video mode cannot start, the video src is dropped.
+- Poster 77.5 KB (limit 100); first video frame vs poster: mean abs diff ~2/255 (JPEG), `review/home-hero-first-frame-vs-poster.png`. Checked: DOM probe every animation frame, desktop normal and Fast 3G: word / woman / copy never visible before scroll; console clean; no horizontal scroll (1440, 375); reduced motion and no-JS show the static final layout. First load: desktop 10.5 MB (video 9.0 MB, still layers ~0.86 MB), phone 2.2 MB. Frames `review/home-hero-load-*.png`.
+- Open: the sky/valley/girl layers (~0.86 MB) are fetched on desktop although needed only after 70% of the scroll; could be deferred. Poster is blank-white until first paint on Fast 3G (CSS and Google Fonts block rendering, ~1.4 s).
+
+## 2026-11-17 (cleanup of unused files) — not committed
+Moved (not deleted) to `masters/retired/unused-2026-11-17/` with folder structure: `docs/already-own-a-home.html`, `docs/css/own.css`, `docs/js/own.js` (the retired "Already Own a Home?" page; no links to it remain; no sitemap.xml / robots.txt exist). `own-00-*` images stay: the Properties hero uses them. `.gitignore` now also has `masters/retired/` and `.playwright-mcp/` (`review/`, `tools/`, `node_modules/` were already there). All internal links re-checked: none broken. Retired page removed from SITE-STRUCTURE.md. The "In progress — Already Own a Home?" section below is historical; the page is no longer part of the site.
+
 ## 2026-11-17 (Home hero: scrubbed descent video) — not committed
 Copies before: `masters/retired/index|home|main|hero-before-hero-video-2026-11-17.*`. Files: `docs/index.html` (video box + `.hero__still` wrapper, inline class `hero-video` in head), `css/home.css` (video mode block after the hero), `js/hero.js` (`initVideoMode`, GSAP ScrollTrigger scrub), `assets/images/home-hero-descent-scrub.mp4` (reversed, no audio, all-intra, crf 20, 9.0 MB) + `home-hero-descent-poster.jpg` (78 KB). No webm (not needed).
 - Pin 300svh (`--video-travel`): 0–70% video by `currentTime` (frame-quantised), 70–78% still sky+valley fades in over it, 78–88% word fades in, woman (girl layer) rises from below, 88–100% shade + copy. Video mode only ≥769px, landscape, motion allowed; phones, portrait tablets, reduced motion keep the old layered scene (unchanged code path). Final frame = the static layered composition (valley scale 1), not the old pin-end zoom 1.11.
@@ -298,7 +309,7 @@ Owner's decisions: the document has priority over the built site; dark bands may
   - Checked (headless Chrome) at 1440×900, 1024×768, 375×812 + reduced motion at 1440: lines one at a time and readable, overlay thins, button visible and clickable at the end (hidden before), static layout correct, images load, no horizontal scroll, no console errors (favicon 404 only).
   - Open: owner review in a real browser (the dust and the pacing).
 
-## In progress — Already Own a Home? (`docs/already-own-a-home.html`, `css/own.css`, `js/own.js`)
+## Retired 2026-11-17 — Already Own a Home? (moved to masters/retired/unused-2026-11-17/; was `docs/already-own-a-home.html`, `css/own.css`, `js/own.js`)
 
 - **Hero (2026-11-09), pinned scene, modelled on the Living hero.** Owner: the design may depart from the references doc; keep the v2 copy where possible. Layers in one 16:9 frame: sunset (back) · porch home · the word "HOME" · woman in a wicker chair (cut-out). ≥769px motion-safe (`heroScene()` in `own.js`, `--travel: 180svh`): sunset + word → the porch comes in (opacity, scale 1.12→1) → the woman (in front of the word). Owner fix (same day): "HOME" moved left and down (`--wx: 41%`, `bottom: 56%`), so it sits under the porch roof, left of the woman, clear of the header and the lanterns, with a denser text-shadow for the light column behind the H. Woman layer reduced to .86 of the source (owner's reference: she sits further back, feet and deck visible) — `WOMAN` in `own.js` (zoom .86→.94) + CSS `scale: .86` for the static layout; then moved 2% left and 2.5% down (`WX`/`WY` in `own.js`, CSS `translate: -2% 2.5%`; 5% was too low — owner) so her head is level with the top of the door and the chair stands on the deck → shared slow zoom (house 1.05, woman 1.09, origin at her face 78% 30%) → shade → copy. Headline "Your Home. More Possibilities." (owner's line, replaces v2 "Love Your Home? Make It Smarter."); sub = v2 hero copy verbatim. Phones/portrait: frame fills the height, centred on the woman (`--fx: 72%`), word above her, static final layout.
   - Images: the owner's three 2000×1126 layers (aligned 1:1) → `own-00-sunset-bg`, `-porch-house` (alpha), `-woman-cutout` (alpha), 2000/1600 WebP q 78; sources in `masters/` under the same names.
@@ -323,7 +334,7 @@ See `SITE-STRUCTURE.md` for each page's planned sections.
 
 ## Next step
 
-Finish **Already Own a Home?** (hero done; sections 1–3 next), then the remaining pages in the order listed above, each following `DESIGN-SYSTEM-HOMES.md` and the section list in `SITE-STRUCTURE.md`.
+Finish the remaining pages (see Not started above; the Already Own a Home? page is retired), each following `DESIGN-SYSTEM-HOMES.md` and the section list in `SITE-STRUCTURE.md`.
 
 ## How to resume on another computer
 

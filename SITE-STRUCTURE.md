@@ -9,7 +9,7 @@ Page list, navigation, and per-page sections. Approved English copy for each sec
 - **Footer columns:** *Explore* — the six pages above; *Legal* — Privacy, Legal & Disclosures, Contact (the last three still `#`). Tagline: "AI for Human Prosperity™".
 - **Footer disclosure** (verbatim from the document, every page): "Glonari Homes is a proposed program. Figures on this site are estimated examples, subject to definitive agreements and approval. Investment values can change. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities."
 
-`find-your-home.html` is now a top-level nav item and also the target of the header CTA. `already-own-a-home.html` is no longer in the menu or footer (the document has no such page); the file is kept unlinked.
+`find-your-home.html` is now a top-level nav item and also the target of the header CTA.
 
 ## Visitor journey (from the architecture doc)
 
@@ -61,17 +61,6 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 5+6. The possibility of ownership / What stays with you? (`#ownership`, `#what-stays-with-you`, one dark chapter, no pin) — two gold lines that never touch, sentences laid out along them
 5b. Three Years, Side by Side (`#three-years`, paper pause, no pin) — table: Traditional ownership vs Glonari Home, gold line, Cormorant figures; hard edges between the dark chapter and the final
 7. Final invitation (`#final-invitation`, scene, dark) — night villa, headline, line, "Explore Your Home" → Find Your Home
-
-### (retired) Already Own a Home? — `docs/already-own-a-home.html` — unlinked, kept as a file
-
-Page files: `css/own.css`, `js/own.js`.
-
-Planned sections:
-
-- Hero (scene) — sunset → porch home → "HOME" → woman in her chair, copy "Your Home. More Possibilities." ✅
-1. What Gia can do in your home
-2. Module vs. full Glonari Home
-3. Status and CTA
 
 ### 4. Find Your Home — `docs/find-your-home.html` — ✅ built (Page 04 of the document, 6 screens)
 
