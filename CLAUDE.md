@@ -44,4 +44,4 @@ Read, in order: this file, then `PROJECT-STATUS.md` (what's done / in progress /
 - The CTA lighting effect uses the soft version with no mask. The owner approved this.
 - `docs/assets/images/`: WebP files, named `page-section-description-width.webp`. Convert new images with ffmpeg (libwebp).
 - Scene pattern: CSS by default gives the static final layout (phones, reduced motion, no JS). The `.has-scenes` class turns on sticky stages with a `--travel` height, and gsap.matchMedia sets it at min-width 769px. In scrubbed timelines use `fromTo` instead of `from`: with invalidateOnRefresh, `from` breaks.
-- Run locally with `python -m http.server 5173 --directory site`. The same command is saved in `.claude/launch.json` as "glonari-site". Full instructions in `README.md`.
+- Run locally with `python -m http.server 5173 --directory docs`. The same command is saved in `.claude/launch.json` as "glonari-site". Full instructions in `README.md`.
