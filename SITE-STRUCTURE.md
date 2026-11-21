@@ -1,6 +1,6 @@
 # Glonari Homes — Site Structure
 
-Page list, navigation, and per-page sections. Approved English copy for each section lives in `Glonari_Homes_All_Pages_v2.md` (main source since 2026-11-12; it replaces the older `.docx`) — this file does not duplicate it, only the structure. Visual rules live in `DESIGN-SYSTEM-HOMES.md`. Build status lives in `PROJECT-STATUS.md`.
+Page list, navigation, and per-page sections. Approved English copy for each section lives in `Glonari_Homes_All_Pages_v3.1.md` (main source since 2026-11-21; it replaces the older `.docx`) — this file does not duplicate it, only the structure. Visual rules live in `DESIGN-SYSTEM-HOMES.md`. Build status lives in `PROJECT-STATUS.md`.
 
 ## Navigation (as built, every page)
 

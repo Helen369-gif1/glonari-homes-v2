@@ -1,6 +1,14 @@
 ﻿# Glonari Homes — Project Status
 
-Last updated: 2026-11-13. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
+Last updated: 2026-11-21. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
+
+## 2026-11-21 (text source changed to v3.1; documents only, HTML NOT changed) — not committed
+
+New Glonari Homes and Glonari Properties brochures (v2, 2026-11-15) replace the old model. Main source is now `Glonari_Homes_All_Pages_v3.1.md` (companion: `V3.1-CHANGES-AND-OPEN-QUESTIONS.md`). `Glonari_Homes_All_Pages_v2.md` and `PROMPTS-FOR-STUDIO-v2.txt` moved to `masters/retired/`. References updated in CLAUDE.md, DESIGN-SYSTEM-HOMES.md (§1 item 5, §10), SITE-STRUCTURE.md, OPEN-QUESTIONS.md (name/date only); one rule added to CLAUDE.md.
+- **Replaced:** cost model $7,500 against $8,155.75 (about $656 less; old $8,333 / $7,469 / "$1,636 less" gone); 12 months and 90 days' notice; Properties $400,000 / $1.4M becomes $579,071 / $1,579,071; $100 -> $402.32 (old $437.83 gone); new page "GPA and your credit line" (05B, not in the menu); new screens 02B Properties, 04B Living (next move without a house sale).
+- **On hold:** Global Connections benefit ($2,500) and "Gia helps you earn" (Gia = AI concierge); Properties 04B unit economics; Class A/B on the main pages.
+- **Working conditions awaiting Kert (published as in the document, italic "to confirm" notes stay off the site):** 20% GPA or a sponsor, minimum number of shares, Home Fee not returned, own-home path. Questions in OPEN-QUESTIONS.md, section "v3.1 (2026-11-21)".
+- **Site not yet changed.** Page order for the rebuild: Home, How It Works, Living, Find, Properties (+ 05B), FAQs. Footer disclosure also changes.
 
 ## 2026-11-17 (Home hero: no flash on load) — not committed
 Copies before: `masters/retired/index|home|hero|main-before-hero-load-2026-11-17.*`. Cause: in video mode the word layer was not hidden (it showed GLONARI over the poster until the first scroll), and on phones the static final layout (copy, shade, word) painted before hero.js set the p=0 state.

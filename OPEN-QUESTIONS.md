@@ -1,4 +1,4 @@
-# Open questions from `Glonari_Homes_All_Pages_v2.md`
+# Open questions from `Glonari_Homes_All_Pages_v3.1.md`
 
 The italic notes in the document are questions for the owner, not site copy: they are never published. They are collected here, page by page and screen by screen, as each page is rebuilt. Home (Page 01) and the pages after How It Works will be added when they are processed.
 
@@ -148,3 +148,29 @@ From `website_numerical_additions_from_brochure.md`; they conflict with the owne
 
 - find-arch сделано из горизонтального 720p, при желании заменить вертикальным 1080×1620 тем же именем (docs/assets/images/find-arch.mp4/.webm/-poster.jpg).
 - видео обрезано на 5 с, дальше кадр размывается и в стекле двери появляется артефакт.
+
+## v3.1 (2026-11-21)
+
+Source: `V3.1-CHANGES-AND-OPEN-QUESTIONS.md` (section 6 of the v3 part and section C of the v3.1 part). Earlier sections above are unchanged. Italic "to confirm with Kert" notes in `Glonari_Homes_All_Pages_v3.1.md` are collected here, never published.
+
+### For Kert
+1. Is there an entry condition for a Glonari Home that involves GPA (the 20% rule, sponsor, a different amount, none)?
+2. Does GPA stay required for living in the Home, or is it optional?
+3. Does the minimum-number-of-shares rule exist at all?
+4. Does any Global Connections benefit reach residents, or is Global Connections only a company income stream? Does the earning programme survive?
+5. Agreement term, renewal, termination; what happens if Glonari sells the home; Home Fee increase rules.
+6. How the then-current purchase value is set; whether earlier fees count; transfer charges; separate deposits.
+7. Is the Home Fee refundable in any case (the "none of it is returned" line)?
+8. Does the own-home path (sell to Glonari or keep the home and hold GPA) still stand?
+9. Does the accredited-investor / SEC sentence still stand? (v3.1 replaced it with the "applicable requirements" line; confirm the exact wording of the participation line.)
+10. Is the Class A / Class B split (half of the operating increment each) a fact Class A holders should see on the site? (v3.1: not on the main pages.)
+11. What the "working conditions" in v3.1 section A really are.
+
+### For the owner
+1. How It Works 02B: v2 had a big figure of $2,050 (tax, insurance, upkeep, repairs); the new documents have none. v3.1 keeps 02B without a big figure. Add $200,000 on 02B as well?
+2. Gia chat: the user's side of the conversation (Home "Meet Gia" and Living "By the sea"), and which of the four working lines goes where.
+3. Required wording of the long disclaimers on Page 05B and where they stand (confirm before publication).
+4. Five- and ten-year numbers (Living 06, FAQs): need confirmed calculations; for now a note, no numbers.
+5. Page 05B: all the "$0 monthly cash" disclaimers on the page, or a shorter set (16px, contrast 4.5:1, calm background).
+6. Properties 04B (unit economics): on hold, not to be built until the owner's go-ahead.
+7. Reconcile before publishing: flat $7,500 member fees vs 5% fee growth in the company model (presentation p. 24); $579,071 is a residual from the selected DCF, not an independent appraisal.
