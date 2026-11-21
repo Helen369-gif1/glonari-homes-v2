@@ -29,10 +29,10 @@ Read, in order: this file, then `PROJECT-STATUS.md` (what's done / in progress /
 - Site text stays in English; talk to the owner in Russian.
 - No `git commit`, `push`, or other remote-repository action without the owner's explicit go-ahead.
 - Work only inside this project folder; don't start a second project or restructure the site without a clear need.
-- Рабочие условия из v3.1 (20% GPA или спонсор, минимум акций, Home Fee не возвращается, путь «я уже владею домом») публикуются как в документе; пометки to confirm with Kert в italic на сайт не идут, а собираются в OPEN-QUESTIONS.md.
+- Рабочие условия из v3.2 (20% GPA или спонсор, минимум акций, Home Fee не возвращается, путь «я уже владею домом») публикуются как в документе; пометки to confirm with Kert в italic на сайт не идут, а собираются в OPEN-QUESTIONS.md.
 
 ## Sources (in this folder)
-- `Glonari_Homes_All_Pages_v3.1.md` (2026-11-21): **the main source** for page list, navigation, section order and all copy. It replaces `Glonari Homes — Website Architecture & Copy v2.docx`, which is now historical. Italic notes in it are open questions, not copy: never publish them; collect them in `OPEN-QUESTIONS.md`. Use the copy as-is, do not rewrite or invent text.
+- `Glonari_Homes_All_Pages_v3.2.md` (2026-11-21): **the main source** for page list, navigation, section order and all copy. It replaces `Glonari Homes — Website Architecture & Copy v2.docx`, which is now historical. Italic notes in it are open questions, not copy: never publish them; collect them in `OPEN-QUESTIONS.md`. Use the copy as-is, do not rewrite or invent text.
 - `Glonari Homes — референсы по секциям11.docx`: what each section should look like, reference sites, image rules (types Т1–Т6, size limits) and the rhythm rule (2–3 pinned "scenes" per page, the rest calm "pauses").
 - `скрины.zip`: screenshots of the references. `картини.zip`: source images. `glonari-homes-hero.zip`: the owner's original hero (already moved into `docs/`).
 - Zip filenames inside use CP866 encoding. Extract with `[IO.Compression.ZipFile]::ExtractToDirectory(zip, dir, [Text.Encoding]::GetEncoding(866))`.
@@ -41,7 +41,7 @@ Read, in order: this file, then `PROJECT-STATUS.md` (what's done / in progress /
 ## Stack and decisions
 - Plain static HTML/CSS/JS, no build step. GSAP 3.12.5 + ScrollTrigger (cdnjs) and Lenis 1.1.13 (unpkg) load from CDNs.
 - Header and footer live once in `docs/partials/header.html` and `footer.html`, embedded into every page between `<!-- partial:header -->` / `<!-- partial:footer -->` markers. After editing a partial, run `python scripts/sync-partials.py` to propagate the change into every page before previewing or committing. The active menu item (`aria-current="page"`) is set by `docs/js/main.js`, not in the markup.
-- Hero: the layered visual (the word "GLONARI", valley, woman) stays; the copy is now from `Glonari_Homes_All_Pages_v3.1.md` Page 01 Screen 01 (owner's decision, 2026-11-12: the document has priority).
+- Hero: the layered visual (the word "GLONARI", valley, woman) stays; the copy is now from `Glonari_Homes_All_Pages_v3.2.md` Page 01 Screen 01 (owner's decision, 2026-11-12: the document has priority).
 - The CTA lighting effect uses the soft version with no mask. The owner approved this.
 - `docs/assets/images/`: WebP files, named `page-section-description-width.webp`. Convert new images with ffmpeg (libwebp).
 - Scene pattern: CSS by default gives the static final layout (phones, reduced motion, no JS). The `.has-scenes` class turns on sticky stages with a `--travel` height, and gsap.matchMedia sets it at min-width 769px. In scrubbed timelines use `fromTo` instead of `from`: with invalidateOnRefresh, `from` breaks.

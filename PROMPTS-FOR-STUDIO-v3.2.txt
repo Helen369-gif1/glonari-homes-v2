@@ -1,4 +1,4 @@
-GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). Заменяет PROMPTS-FOR-STUDIO-v2.txt (старый файл не удалять, перенести в masters/retired/).
+GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 5 (2026-11-21, под текст v3.2). Заменяет PROMPTS-FOR-STUDIO-v3.txt (старый файл не удалять, перенести в masters/retired/).
 
 ЧТО ЗДЕСЬ
 ЧАСТЬ 0 - разовый промпт: переключить проект на новый источник текста (без изменений в сайте).
@@ -6,25 +6,24 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 ЧАСТЬ 2 - ПРАВИЛА для всех страниц (Claude Code читает сам).
 ЧАСТЬ 3 - разделы по страницам: файлы, что не менять, что учесть, список текстовых правок (Claude Code читает свой раздел сам).
 
-ПОРЯДОК: ЧАСТЬ 0, затем страницы: HOME, HOW IT WORKS, LIVING WITH GLONARI, FIND YOUR HOME, GLONARI PROPERTIES (вместе с новой страницей GPA и кредитной линией), FAQs. К следующей странице переходи после моей команды.
-Источник текста: Glonari_Homes_All_Pages_v3.1.md в корне проекта. Что убрано из v2 и где это лежит: V3.1-CHANGES-AND-OPEN-QUESTIONS.md (раздел 3 части v3 и раздел A части v3.1).
+ПОРЯДОК: ЧАСТЬ 0 (переход на v3.2), затем страницы: HOME (если уже сделана по v3.1, только добавка), HOW IT WORKS, LIVING WITH GLONARI, FIND YOUR HOME, GLONARI PROPERTIES, FAQs. Страницы «GPA и кредитная линия» больше нет: она отложена. К следующей странице переходи после моей команды.
+Источник текста: Glonari_Homes_All_Pages_v3.2.md в корне проекта. Что убрано из v2 и где это лежит: V3.2-CHANGES-AND-OPEN-QUESTIONS.md (раздел 3 части v3, раздел A части v3.2 и раздел D). Что отложено на сайте: DEFERRED-2026-11-21.md.
 
 ======================================================================
-ЧАСТЬ 0. РАЗОВЫЙ ПРОМПТ (отправить первым, это только документы, код сайта не трогать)
+ЧАСТЬ 0. РАЗОВЫЙ ПРОМПТ ПЕРЕХОДА НА v3.2 (отправить первым, это только документы, код сайта не трогать)
 ======================================================================
 
 Работаем только с документами проекта. HTML, CSS, JS и картинки не менять. Commit и push не делать.
 
-Контекст: владелец утвердила новую версию текста сайта. Новые брошюры Glonari Homes и Glonari Properties (v2, 15 ноября 2026) заменяют старую модель. Главный источник текста теперь Glonari_Homes_All_Pages_v3.1.md (раньше был Glonari_Homes_All_Pages_v2.md).
+Контекст: владелец утвердила Glonari_Homes_All_Pages_v3.2.md как главный источник текста вместо v3.1. Изменения: страница «GPA и кредитная линия» (05B), четыре финансовых сценария, ставки, LTV и таблицы, группа FAQ «Your credit line» и таблица «Three Years, Side by Side» на Living отложены и лежат в DEFERRED-2026-11-21.md. Кредитная линия остаётся только короткими предложениями на Glonari Properties (экран 07) и одним вопросом в FAQs.
 
-1. Проверь, что в корне проекта лежат: Glonari_Homes_All_Pages_v3.1.md, V3.1-CHANGES-AND-OPEN-QUESTIONS.md, Glonari_Homes_All_Pages_v2.md, DESIGN-BRIEF.md, DESIGN-SYSTEM-HOMES.md, SITE-STRUCTURE.md, OPEN-QUESTIONS.md, PROJECT-STATUS.md, CLAUDE.md. Скажи, чего не хватает. Проверь, что ни v3.1, ни файл изменений не попали в папку docs/ (она публикуется).
-2. Проверь, что в DESIGN-SYSTEM-HOMES.md есть разделы 5.1 и 5.2 (Spacing QA gate и Spacing check). Если нет, скажи.
-3. Перенеси Glonari_Homes_All_Pages_v2.md в masters/retired/ (не удалять, оставить копию там). Перенеси PROMPTS-FOR-STUDIO-v2.txt в masters/retired/, если новый файл PROMPTS-FOR-STUDIO-v3.txt уже лежит в корне.
-4. Замени ссылки на старый источник на Glonari_Homes_All_Pages_v3.1.md в CLAUDE.md (раздел Sources, правило про italic notes, "Hero: copy is now from..."), в DESIGN-SYSTEM-HOMES.md (раздел 1, пункт 5 приоритета; раздел 10), в SITE-STRUCTURE.md (первая строка и заголовки). Меняй только имя файла и дату в этих ссылках. Остальной текст правил не переписывать.
-5. В CLAUDE.md в раздел правил добавь одну строку: "Рабочие условия из v3.1 (20% GPA или спонсор, минимум акций, Home Fee не возвращается, путь «я уже владею домом») публикуются как в документе; пометки to confirm with Kert в italic на сайт не идут, а собираются в OPEN-QUESTIONS.md."
-6. В OPEN-QUESTIONS.md добавь раздел "v3.1 (2026-11-21)": открытые вопросы из V3.1-CHANGES-AND-OPEN-QUESTIONS.md (раздел 6 части v3 и раздел C части v3.1, вопросы Керту и вопросы владельцу). Старые разделы не менять.
-7. В PROJECT-STATUS.md добавь запись от 2026-11-21 в стиле остальных: источник текста сменился на v3.1; что заменено (модель $7,500 против $8,155.75, 12 месяцев и 90 дней, $579,071 / $1,579,071, $100 → $402.32, новая страница GPA и кредитная линия, 5B); на паузе: выгода Global Connections и «Gia helps you earn»; рабочие условия, ожидающие Керта; сайт ещё не изменён, порядок страниц Home, How It Works, Living, Find, Properties (+ 05B), FAQs.
-8. Отчёт 3-6 строк: что нашёл, что перенёс, что изменил, чего не хватает.
+1. Проверь, что в корне лежат: Glonari_Homes_All_Pages_v3.2.md, V3.2-CHANGES-AND-OPEN-QUESTIONS.md, DEFERRED-2026-11-21.md, PROMPTS-FOR-STUDIO-v3.2.txt. Скажи, чего не хватает. Проверь, что они не попали в docs/.
+2. Перенеси в masters/retired/: Glonari_Homes_All_Pages_v3.1.md, V3.1-CHANGES-AND-OPEN-QUESTIONS.md, PROMPTS-FOR-STUDIO-v3.txt (не удалять).
+3. Замени ссылки на v3.1 на v3.2 в CLAUDE.md, DESIGN-SYSTEM-HOMES.md, SITE-STRUCTURE.md, OPEN-QUESTIONS.md и PROMPTS-FOR-STUDIO-v3.2.txt, если там ещё осталось. Меняй только имя файла и дату. Остальной текст правил не переписывать.
+4. В OPEN-QUESTIONS.md в раздел «v3.1 (2026-11-21)» добавь строку: «v3.2: страница 05B и группа FAQ про кредитную линию, таблица Three Years на Living отложены, см. DEFERRED-2026-11-21.md». Вопросы из раздела D файла V3.2-CHANGES-AND-OPEN-QUESTIONS.md добавь в тот же раздел.
+5. В PROJECT-STATUS.md добавь запись от 2026-11-21: источник текста v3.2; отложено (05B, четыре сценария, ставки, LTV, таблицы, группа FAQ про кредитную линию, Three Years на Living); на сайте остаётся: короткое объяснение про залог GPA на Properties 07 и один вопрос в FAQs; Home сделан по v3.1, нужна добавка: в «Meet Gia» последняя строка «Explore a move or GPA shares.» (без «or an approved credit line»).
+6. Если Home уже реализован по v3.1: найди в html фразы «approved credit line» и «A few things to know before you choose». Скажи, где они стоят, но не меняй, пока я не подтвержу.
+7. Отчёт 3-6 строк: что нашёл, что перенёс, что изменил.
 
 ======================================================================
 ЧАСТЬ 1. РАБОЧИЙ ПРОМПТ (отправлять в Claude Code)
@@ -37,9 +36,9 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 Прочитай CLAUDE.md, DESIGN-BRIEF.md, DESIGN-SYSTEM-HOMES.md, PROJECT-STATUS.md, SITE-STRUCTURE.md и OPEN-QUESTIONS.md.
 
 Используй:
-- Glonari_Homes_All_Pages_v3.1.md - основной источник текстов.
-- V3.1-CHANGES-AND-OPEN-QUESTIONS.md - что изменилось по экранам и что убрано.
-- PROMPTS-FOR-STUDIO-v3.txt (этот же файл в корне проекта): ЧАСТЬ 2 (ПРАВИЛА) и раздел своей страницы в ЧАСТИ 3 (файлы, НЕ МЕНЯТЬ, что учесть, список текстовых правок). ЧАСТЬ 1 (этот рабочий промпт) повторно читать не нужно.
+- Glonari_Homes_All_Pages_v3.2.md - основной источник текстов.
+- V3.2-CHANGES-AND-OPEN-QUESTIONS.md - что изменилось по экранам и что убрано; DEFERRED-2026-11-21.md - что отложено (на сайт не идёт).
+- PROMPTS-FOR-STUDIO-v3.2.txt (этот же файл в корне проекта): ЧАСТЬ 2 (ПРАВИЛА) и раздел своей страницы в ЧАСТИ 3 (файлы, НЕ МЕНЯТЬ, что учесть, список текстовых правок). ЧАСТЬ 1 (этот рабочий промпт) повторно читать не нужно.
 
 Все необходимые текстовые правки, цифры, ограничения и технические требования из ЧАСТИ 2 и ЧАСТИ 3 должны быть сохранены.
 
@@ -67,7 +66,7 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 
 Не предлагай изменения ради изменений. Если существующее решение хорошо работает, сохрани его.
 
-Все опубликованные тексты строго из документа v3.1. Ничего не придумывай (заголовки, эйброу, подписи, реплики чата, кроме реплик Gia из рабочего набора владельца в v3.1). Если экрану нужно слово, которого нет в документе, запиши предложение в OPEN-QUESTIONS.md. Курсив из документа не публикуй.
+Все опубликованные тексты строго из документа v3.2. Ничего не придумывай (заголовки, эйброу, подписи, реплики чата, кроме реплик Gia из рабочего набора владельца в v3.2). Если экрану нужно слово, которого нет в документе, запиши предложение в OPEN-QUESTIONS.md. Курсив из документа не публикуй.
 
 Покажи короткий план только необходимых изменений, в чате, без файлов и без MAP.md. Дождись моего согласования.
 
@@ -99,8 +98,6 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 
 После завершения страницы остановись. К следующей странице переходи только по моей команде.
 
-Для новой страницы GPA и кредитная линия сначала предложи полноценную дизайнерскую концепцию, затем дождись согласования и только после этого создавай страницу.
-
 **Сейчас выполни только этап 1 для HOME. Код не меняй.**
 
 ======================================================================
@@ -108,7 +105,7 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 ======================================================================
 
 ПРАВИЛА (обязательны, это уроки Home):
-1. Текст дословно из документа v3.1. Заголовки, эйброу, подписи, кнопки и реплики чата придумывать нельзя (исключение: рабочий набор реплик Gia, который владелец дала в v3.1). Если экрану нужно слово, которого нет в документе, не ставь его: запиши предложение в OPEN-QUESTIONS.md и оставь экран без этого слова. Курсив из документа не публиковать.
+1. Текст дословно из документа v3.2. Заголовки, эйброу, подписи, кнопки и реплики чата придумывать нельзя (исключение: рабочий набор реплик Gia, который владелец дала в v3.2). Если экрану нужно слово, которого нет в документе, не ставь его: запиши предложение в OPEN-QUESTIONS.md и оставь экран без этого слова. Курсив из документа не публиковать.
 2. Заголовки (.h2, .lead) набирай Playfair Display. Cormorant Garamond допустим для слова-hero, крупных цифр и крупных фраз-заявлений, которые на утверждённых экранах страницы уже набраны им (например "A Home for Today. Possibilities for Tomorrow."). Шрифт уже утверждённого заголовка не менять ради единообразия без моего согласия. Цифры lining (правило уже стоит на html в main.css).
 3. Отступы: у секции только padding-top: var(--section-y), без margin-top и padding-bottom (исключения: последняя секция перед подвалом и секция на своём фоне, раздел 5). Зазор между экранами мерь числом: от нижнего края предыдущего блока до первой строки следующего. Если два отступа сложились, это ошибка, исправь.
 4. Никаких вуалей с видимым краем, пятен, свечения, стеклянных панелей. Текст на фото делай читаемым спокойным градиентом без края или перенеси на ровный фон. Дисклеймеры не меньше 16px, контраст не меньше 4.5:1, не на фото.
@@ -117,9 +114,9 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 7. Слова "brochure", "illustrative", "illustration" (кроме id="cost-illustration") и "Home Business" убрать из видимого текста, alt и aria. Alt "brochures and bills" у фото настоящих листовок оставить.
 8. Скриншоты делай через tools/shot.mjs и сохраняй в review/. Имена: <страница>-<экран>-<ширина>.png, на 1440x900 и 375; для экрана с эффектом по скроллу ещё кадр, когда эффект в середине.
 9. Картинки и видео, которых нет: placeholder-... и в отчёте тема, формат, размер.
-10. Рабочие условия из v3.1 публикуются как написано, без пометок на сайте: 20% GPA или спонсор (с примером $200,000 для дома за $1 million), минимум акций снижается каждый месяц, после въезда докупать акции не нужно, Home Fee не возвращается и не засчитывается в покупку, путь "я уже владею домом", long-term lease with an option to buy. Italic-пометки "to confirm with Kert" на сайт не идут, они собираются в OPEN-QUESTIONS.md.
-11. На паузе, на сайте быть не должно: выгода Global Connections ($2,500), "Gia helps you earn", Case-Shiller, "you never have to worry about it", "you know your minimum monthly cost for many years ahead", "rights very close to those of an owner", "After that, anyone can hold it", "ordinary families cannot join at first". Эти строки не удалять из проекта: они сохранены в V3.1-CHANGES-AND-OPEN-QUESTIONS.md (раздел 3) и в архиве v2.
-12. Не публиковать: Class A / Class B, Properties 04B (на паузе), пятилетние и десятилетние примеры с цифрами (цифр пока нет, только заметка в OPEN-QUESTIONS.md).
+10. Рабочие условия из v3.2 публикуются как написано, без пометок на сайте: 20% GPA или спонсор (с примером $200,000 для дома за $1 million), минимум акций снижается каждый месяц, после въезда докупать акции не нужно, Home Fee не возвращается и не засчитывается в покупку, путь "я уже владею домом", long-term lease with an option to buy. Italic-пометки "to confirm with Kert" на сайт не идут, они собираются в OPEN-QUESTIONS.md.
+11. На паузе, на сайте быть не должно: выгода Global Connections ($2,500), "Gia helps you earn", Case-Shiller, "you never have to worry about it", "you know your minimum monthly cost for many years ahead", "rights very close to those of an owner", "After that, anyone can hold it", "ordinary families cannot join at first". Эти строки не удалять из проекта: они сохранены в V3.2-CHANGES-AND-OPEN-QUESTIONS.md (раздел 3) и в архиве v2.
+12. Не публиковать: Class A / Class B, Properties 04B (на паузе), страницу «GPA и кредитная линия» (05B), четыре финансовых сценария, ставки, LTV и таблицы с кредитной линией, таблицу «Three Years, Side by Side» на Living, пятилетние и десятилетние примеры. Всё это отложено и лежит в DEFERRED-2026-11-21.md. Не удалять и не переносить в html: только в этот файл.
 13. Где старый экран строился вокруг старых чисел, сохрани композицию и замени только числа и слова. Сначала выясни, что из построенного можно оставить.
 
 ======================================================================
@@ -129,7 +126,7 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 ======================================================================
 СТРАНИЦА - HOME
 ======================================================================
-Раздел документа: PAGE 01 - HOME (экраны 01-07 v3.1) и SITE-WIDE FOOTER.
+Раздел документа: PAGE 01 - HOME (экраны 01-07 v3.2) и SITE-WIDE FOOTER.
 Файлы: docs/index.html, docs/css/home.css, docs/js/home.js, docs/partials/footer.html (после правки запусти python scripts/sync-partials.py).
 
 НЕ МЕНЯТЬ без моего согласия: hero (в том числе видео по скроллу), сцену "Why Glonari" (wipe), арку с видео в "Find your home", закреплённые сцены (их уже четыре, новых не добавлять), композицию тёмной полосы "Your future".
@@ -138,19 +135,19 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 - Pinned-цифры в сцене economics сейчас $7,469 · $8,333 · -$2,500 · $5,833. По документу числа теперь $8,155.75 (Without Glonari), $7,500 (Home Fee) и "About $656 less per month". Предложи, как сцена показывает три числа вместо четырёх, не меняя механику. Подписи только из документа.
 - Экран "Cost compared" (.ledger): две таблицы. По документу слева Without Glonari (пять строк и total $8,155.75), справа Home Fee $7,500. Средняя подпись "approx. $1,636 less per month" теперь про $656. Не ломай строку золотой линии и подписи.
 - Сцена economics, ledger и "Important" повторяют те же числа на соседних экранах. Скажи, как их различить, чтобы не было трёх одинаковых блоков подряд.
-- Чат Gia: вопрос пользователя про Global Connections earnings остаётся без слов (в документе нет). Реплики Gia только из рабочего набора владельца в v3.1.
+- Чат Gia: вопрос пользователя про Global Connections earnings остаётся без слов (в документе нет). Реплики Gia только из рабочего набора владельца в v3.2.
 - "Your future": три панели на золотой линии уже есть, подписи теперь Stay / Transfer / Buy.
 - Footer partial затрагивает все страницы: покажи в плане, как меняется абзац.
 
 СПИСОК ТЕКСТОВЫХ ПРАВОК (цитаты сокращены, полный текст бери из документа):
 1. Hero: текст не менять. Третье предложение про 20% на сайте не опубликовано и остаётся вне hero.
 2. Why Glonari: убрать "a long-term lease with an option to buy, with rights very close to those of an owner" и абзац про "one all-inclusive monthly fee". Взять документные: "Glonari owns and manages the residence. You make it your Home. We take care of owning it." и "Enjoy Home life with less ownership administration to manage. Add Gia, your personal AI concierge, and a larger property network...".
-3. The cost: заголовок "Look Beyond the Mortgage Payment." и "Compare the whole monthly budget."; строка "Same $1 million reference Home. Same $200,000 starting cash. Traditional mortgage: 7% fixed for 30 years."; таблица из v3.1; "About $656 less per month in this example when the Home Fee covers the same costs, with Gia and coordinated support alongside it."; текст "Important" целиком из v3.1 (в том числе "The selected Home agreement sets covered work, exclusions, separate charges and price changes. Do not assume every repair, utility, insurance policy or HOA charge is included."). Убрать "Where the $2,500 comes from" и "What the $8,333 covers".
+3. The cost: заголовок "Look Beyond the Mortgage Payment." и "Compare the whole monthly budget."; строка "Same $1 million reference Home. Same $200,000 starting cash. Traditional mortgage: 7% fixed for 30 years."; таблица из v3.2; "About $656 less per month in this example when the Home Fee covers the same costs, with Gia and coordinated support alongside it."; текст "Important" целиком из v3.2 (в том числе "The selected Home agreement sets covered work, exclusions, separate charges and price changes. Do not assume every repair, utility, insurance policy or HOA charge is included."). Предложения про "A few things to know before you choose" в v3.2 нет, оно отложено. Убрать "Where the $2,500 comes from" и "What the $8,333 covers".
 4. Find your home: текст как есть, ссылки и арка без изменений. Предложение "keep it, hold GPA shares instead, and use their appreciating value to help with other household expenses..." заменить на "or keep it and hold GPA shares instead."
-5. Meet Gia: убрать абзац "Gia also helps you earn..." Добавить из документа "Start with a question..." и три строки: Help around Home / Clarity about cost / Confidence in your choices. Дисклеймер "Gia is an AI agent within Glonari technologies and services. Confirm live features. You approve commitments. Gia does not replace qualified legal, tax or financial advice." не меньше 16px на спокойном фоне.
-6. Your future: три панели Stay / Transfer / Buy с текстами из v3.1; абзац "Glonari Homes and Glonari Properties are connected experiences, while your Home agreement and your GPA remain separate..."; сноска под кнопкой "Transfers depend on availability and agreement terms..." и фраза "The monthly fee is a fee for living in your home... none of it is returned."
+5. Meet Gia: убрать абзац "Gia also helps you earn..." Добавить из документа "Start with a question..." и три строки: Help around Home / Clarity about cost / Confidence in your choices (последняя строка: "Explore a move or GPA shares." без слов про credit line). Дисклеймер "Gia is an AI agent within Glonari technologies and services. Confirm live features. You approve commitments. Gia does not replace qualified legal, tax or financial advice." не меньше 16px на спокойном фоне.
+6. Your future: три панели Stay / Transfer / Buy с текстами из v3.2; абзац "Glonari Homes and Glonari Properties are connected experiences, while your Home agreement and your GPA remain separate..."; сноска под кнопкой "Transfers depend on availability and agreement terms..." и фраза "The monthly fee is a fee for living in your home... none of it is returned."
 7. Final invitation: добавить "Availability, eligibility and terms apply." Кнопка "Find My Glonari Home".
-8. Footer (partial): абзац раскрытия заменить документным из v3.1 SITE-WIDE FOOTER ("...not guarantees or cash sale proceeds... Credit is not assured..."). Sync во все страницы.
+8. Footer (partial): абзац раскрытия заменить документным из v3.2 SITE-WIDE FOOTER ("...not guarantees or cash sale proceeds... Credit is not assured..."). Sync во все страницы.
 
 ======================================================================
 СТРАНИЦА - HOW IT WORKS
@@ -162,29 +159,30 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 
 ЧТО УЧЕСТЬ В ПЛАНЕ ЭТАПА 1 (проверь и скажи в плане):
 - В ch-04 (тёмная полоса, hiw-cost) стоит ledger-фигура "$5,833", а экран 04B показывает лестницу $8,333 -> -$2,500 -> $5,833. По документу теперь три числа: $8,155.75 / $7,500 / "about $656 less". Они повторяют друг друга и ledger на Home. Скажи, как различить ch-04 и 04B, чтобы не было двух одинаковых экранов.
-- ch-02b: в v2 была крупная цифра $2,050 (налоги, страховка, обслуживание). В новых документах $2,050 нет; слагаемые бюджета в сумме $2,833.33, но договор определяет, что покрыто. В v3.1 на 02B крупной цифры нет. Предложи композицию без цифры или с цифрой, помеченной как assumption; решение за владельцем.
+- ch-02b: в v2 была крупная цифра $2,050 (налоги, страховка, обслуживание). В новых документах $2,050 нет; слагаемые бюджета в сумме $2,833.33, но договор определяет, что покрыто. В v3.2 на 02B крупной цифры нет. Предложи композицию без цифры или с цифрой, помеченной как assumption; решение за владельцем.
 - Сколько глав в rail сейчас (9); ничего не меняется.
 - Как сделаны входы и выходы тёмной полосы; не менять, замерить.
 
 СПИСОК ТЕКСТОВЫХ ПРАВОК:
 1. ch-02 "Who does what?": Glonari Homes - "provides the residential living experience under a long-term lease with an option to buy"; Gia - "helps you understand your Home services, bring next steps together and explore the choices ahead."; You - "...and join as a Glonari Member". Карточки и раздачу не менять. Фразу про earn убрать.
 2. ch-02b (id="ch-02b"): заголовок "One Home. A Whole Network Behind It."; три утверждения Many Homes / One coordinator / Your benefit; текст "The selected Home agreement sets covered work, exclusions, separate charges and price changes. Do not assume every repair, utility, insurance policy or HOA charge is included. Conceptual service scene." (подпись не меньше 16px). "Savings You Don't Have to Chase." и $2,050 / $24,600 убрать.
-3. ch-03 "Choose your home": как раньше, текст из v3.1. Композицию с фото не трогать.
-4. ch-04 "Know what you pay" (тёмная полоса): абзацы из v3.1 ("For an example $1 million Home, the Home Fee is $7,500 per month.", сравнение с $8,155.75 и "About $656 less per month...", "The selected Home agreement sets..."). Убрать абзацы про $2,500 и "minimum monthly cost for many years". Кнопка "See the Monthly Cost Example" ведёт на find-your-home.html#cost-illustration.
+3. ch-03 "Choose your home": как раньше, текст из v3.2. Композицию с фото не трогать.
+4. ch-04 "Know what you pay" (тёмная полоса): абзацы из v3.2 ("For an example $1 million Home, the Home Fee is $7,500 per month.", сравнение с $8,155.75 и "About $656 less per month...", "The selected Home agreement sets..."). Убрать абзацы про $2,500 и "minimum monthly cost for many years". Кнопка "See the Monthly Cost Example" ведёт на find-your-home.html#cost-illustration.
 5. ch-04b "One Month in a Glonari Home.": три шага 01 Without Glonari ($8,155.75) / 02 With Glonari ($7,500) / 03 The difference (about $656). Подпись "Estimated example for a $1 million home. ... Savings require equivalent coverage." не меньше 16px. Если это повторяет ch-04, следуй решению плана.
-6. ch-05 "Who can join?": текст из v3.1 целиком: "A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home's value, or have a sponsor who provides the shares. For an example $1 million Home, that is $200,000 of GPA." + "This is a modeled example of a qualifying position, not a non-refundable entry fee or a down payment on the Home." + абзацы про минимум акций, GPA Class A, нейтральная фраза "Participation in GPA and the acquisition of GPA shares depend on applicable requirements...". Строки про accredited/SEC и "anyone can hold it" заменить. Café-parallax и пин не трогать.
-7. ch-06 "The journey": шаги 01-04 из v3.1 (02 = "Join as a Member. Hold GPA equal to at least 20%..."). Линию и узлы не менять.
-8. ch-07: текст из v3.1 без изменений.
+6. ch-05 "Who can join?": текст из v3.2 целиком: "A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home's value, or have a sponsor who provides the shares. For an example $1 million Home, that is $200,000 of GPA." + "This is a modeled example of a qualifying position, not a non-refundable entry fee or a down payment on the Home." + абзацы про минимум акций, GPA Class A, нейтральная фраза "Participation in GPA and the acquisition of GPA shares depend on applicable requirements...". Строки про accredited/SEC и "anyone can hold it" заменить. Café-parallax и пин не трогать.
+7. ch-06 "The journey": шаги 01-04 из v3.2 (02 = "Join as a Member. Hold GPA equal to at least 20%..."). Линию и узлы не менять.
+8. ch-07: текст из v3.2 без изменений.
 
 ======================================================================
 СТРАНИЦА - LIVING WITH GLONARI
 ======================================================================
-Раздел документа: PAGE 03 - LIVING WITH GLONARI (экраны 01-07, новый 04B и таблица Three Years, Side by Side).
+Раздел документа: PAGE 03 - LIVING WITH GLONARI (экраны 01-07 и новый 04B; таблицы Three Years на странице больше нет).
 Файлы: docs/living-with-glonari.html, docs/css/living.css, docs/js/living.js.
 
 НЕ МЕНЯТЬ без моего согласия: hero, сцену Gia с видео, "When life changes" (сценарии, пилюли, шаги Gia), пины (их три), раскладку тёмной главы #ownership (две золотые линии, фразы по ним).
 
 ЧТО УЧЕСТЬ В ПЛАНЕ ЭТАПА 1:
+- Экран "Three Years, Side by Side" (#three-years) убран по решению владельца: Living сосредоточена на доме, Gia, услугах, условиях проживания и переездах. Покажи в плане, как тёмная глава #ownership переходит в #final-invitation без этого экрана: жёсткие края, один --section-y внутри каждой полосы, расстояния числами. Стили и разметку #three-years не удалять, перенеси их копии в masters/retired/ (-before-living-v3-2026-11-21).
 - Новый экран 04B "Make room for your next chapter" между "When life changes" (светлый, самоходная сцена) и тёмной главой #ownership: светлая пауза без пина. Проверь ритм: что стоит до и после, нет ли двух текстовых экранов подряд. Края и расстояния числами.
 - Есть ли светлая пауза "Your Home. Your Life. Your Gia." после ленты с золотой линией (.liv-rail, --tl-x): где линия начинается и кончается; шрифт строки.
 - Hero: читаемость нижнего заголовка и меню (только сообщить, не править).
@@ -192,13 +190,13 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 
 СПИСОК ТЕКСТОВЫХ ПРАВОК:
 1. Gia chat "By the sea": см. выше. Других упоминаний earnings и Home Business быть не должно.
-2. Экран 02: добавить из v3.1 "Start with a question. Gia helps you understand your Home services..." и дисклеймер "Gia is an AI agent... You approve commitments..." (не меньше 16px).
+2. Экран 02: добавить из v3.2 "Start with a question. Gia helps you understand your Home services..." и дисклеймер "Gia is an AI agent... You approve commitments..." (не меньше 16px).
 3. #feeling-at-home: абзац "Glonari owns and manages the residence. You make it your Home. We take care of owning it." и "Your Glonari Home is a long-term lease with an option to buy." Фразу "you know your minimum monthly cost for many years ahead" убрать. Не ломай полосу с фото и золотую линию.
 4. Экран 04 "When life changes": добавить две строки: "90 DAYS' NOTICE. Explore a transfer to another qualifying property when your needs change. Your GPA stays separate." и "Transfer is available after 12 months, with 90 days' notice, subject to availability and agreement terms. Glonari transfer fees may apply." Остальное не трогать.
-5. НОВЫЙ ПОЛНЫЙ ЭКРАН 04B (id="next-move"): "Your Next Move Need Not Start With a House Sale." Две дорожки Traditional Home (4 шага) и Glonari Home (3 шага) из v3.1; подпись про 6-10% не меньше 16px. Светлый, без пина, своя композиция, один эффект.
+5. НОВЫЙ ПОЛНЫЙ ЭКРАН 04B (id="next-move"): "Your Next Move Need Not Start With a House Sale." Две дорожки Traditional Home (4 шага) и Glonari Home (3 шага) из v3.2; подпись про 6-10% не меньше 16px. Светлый, без пина, своя композиция, один эффект.
 6. #ownership (тёмная глава): "Yes. Your Glonari lease includes an option to buy. Purchase is at then-current value under the purchase terms, with cash or an independently approved mortgage." + абзацы про GPA Class A и "GPA does not automatically convert into the Home or its price, and your Home Fee is not credited toward the purchase...". Фразы остаются по золотым линиям.
 7. #what-stays-with-you: "Your monthly fee covers the cost of living in your home and its services; none of it is returned. What you build comes from your GPA." + "As GPA appreciates, the minimum number of shares you must hold goes down each month. After you move in, you are never required to buy more." + "GPA shares have the potential for long-term value growth. Growth depends on property and business performance. Total assets can grow while shares increase; per-share growth matters."
-8. #three-years: заменить строки таблицы по v3.1 (Upfront commitment / Debt after 36 months $773,816 vs $0 / Monthly cash requirement $8,155.75 vs $7,500 / Net equity after 3 years $383,809 vs $804,642 / If your plans change). Цифры Cormorant, форма та же. Подпись "Modeled example for a $1 million Home..." не меньше 16px.
+8. #three-years: экран убрать целиком (см. выше). Содержание таблицы лежит в DEFERRED-2026-11-21.md.
 9. #final-invitation: не менять.
 
 ======================================================================
@@ -220,53 +218,50 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 4 (2026-11-21). 
 3. Экран 06: "Request your personalized cost overview and payment schedule." + кнопка "Request a Consultation" + строка "Request a personal consultation through your Glonari representative." Ссылка кнопки по-прежнему плейсхолдер href="#" до решения владельца.
 
 ======================================================================
-СТРАНИЦА - GLONARI PROPERTIES & GPA (+ НОВАЯ СТРАНИЦА GPA И КРЕДИТНАЯ ЛИНИЯ)
+СТРАНИЦА - GLONARI PROPERTIES & GPA
 ======================================================================
-Раздел документа: PAGE 05 (экраны 01-07, новый 02B) и PAGE 05B (экраны 01-08).
-Файлы: docs/glonari-properties.html, docs/css/properties.css, docs/js/properties.js. Новая страница: docs/gpa-credit-line.html, docs/css/gpa.css, docs/js/gpa.js (не в главном меню; ссылки с Properties 07 и из FAQs).
+Раздел документа: PAGE 05 - GLONARI PROPERTIES & GPA (экраны 01-07, новый 02B).
+Файлы: docs/glonari-properties.html, docs/css/properties.css, docs/js/properties.js. Страницы «GPA и кредитная линия» нет: она отложена (DEFERRED-2026-11-21.md).
 
 НЕ МЕНЯТЬ без моего согласия: шапку, подвал, остальные страницы, hero (экран 01), реальные картинки на 02 и 06.
 
 ЧТО УЧЕСТЬ В ПЛАНЕ ЭТАПА 1:
-- Properties: новая пауза 02B "A Better Home. A More Productive Asset." (светлая, без пина). У Properties пины: hero и экран 04, больше нет. Одна тёмная полоса (экран 05). Проверь ритм: нет ли двух текстовых экранов подряд.
-- Properties 04: числа $1,000,000 + $579,071 = $1,579,071 вместо $400,000 + $1.4 million. Подпись не меньше 16px.
-- Properties 05: одна цифра $100 -> $402.32 за 36 месяцев, рядом оговорки (modeled scenarios, "Can values fall? Yes.") не менее заметные, 16px и больше, на спокойном фоне.
-- Новая страница GPA и кредитная линия: СНАЧАЛА полноценная дизайнерская концепция всей страницы в чате, потом моё согласие, потом создание. До 3 пинов, одна тёмная полоса, эйброу только числами, как на Properties. Дисклеймеры на 05B короче, у цифр; полный текст в экране 07 "A Few Things to Know Before You Choose". Экран 04: четыре выбора; предложи способ показать их без четырёх одинаковых блоков.
-- Слова "$0" всегда рядом с "Fees are financed, not free."
+- Новая пауза 02B "A Better Home. A More Productive Asset." (светлая, без пина). У Properties пины: hero и экран 04, больше нет. Одна тёмная полоса (экран 05). Проверь ритм: нет ли двух текстовых экранов подряд.
+- Экран 04: числа $1,000,000 + $579,071 = $1,579,071 вместо $400,000 + $1.4 million. Подпись не меньше 16px.
+- Экран 05: одна цифра $100 -> $402.32 за 36 месяцев, рядом оговорки (modeled scenarios, "Can values fall? Yes.") не менее заметные, 16px и больше, на спокойном фоне.
+- Экран 07: теперь короткий. Кредитная линия только как объяснение (залог, одобрение кредитора), без примеров, ставок, LTV и таблиц. Одна кнопка "Review the Investment Materials" (href="#"). Скажи, как сидит экран без второй кнопки и без длинного текста, и какой у него ритм после экрана 06.
 - Properties 04B: на паузе, не строить.
 
-СПИСОК ТЕКСТОВЫХ ПРАВОК (Properties):
+СПИСОК ТЕКСТОВЫХ ПРАВОК:
 1. Экран 01: без изменений.
 2. Экран 02: без изменений.
 3. НОВЫЙ ЭКРАН 02B: "A Better Home. A More Productive Asset." с тремя утверждениями (Earn more / Spend less / Create more value) и оговоркой "Higher collections and lower costs are operating objectives, not independently demonstrated results...".
 4. Экран 03: убрать "GPA is initially limited to accredited investors ... After that, anyone can hold it." Поставить "Participation in GPA and the acquisition of GPA shares depend on applicable requirements and on the investor meeting the established conditions." Добавить "More capital is not itself a gain. Percentage ownership can fall..." и "Glonari Members hold GPA equal to at least 20% of the value of their home." Class A / Class B не показывать.
 5. Экран 04: "Our model pairs a $1 million home with a $579,071 modeled operating increment-an integrated value of $1,579,071 at an 8% discount rate." + "This is management's modeled estimate under stated assumptions, not an independent appraisal ... $1,579,071 is an estimated economic value of an operating asset, not the market price of the building."
 6. Экран 05: "In the base case, a GPA share starts at $100 and reaches a modeled $402.32 after 36 months." + "These figures are modeled scenarios, not available cash or guaranteed sale prices." + "Can values fall? Yes..." + три измерения (reported, NAV+, what a buyer pays). Case-Shiller и $437.83 убрать.
-7. Экран 06: текст из v3.1 (в том числе "As GPA appreciates, a member's required minimum goes down each month...").
-8. Экран 07: "Our GPA models show strategies involving a credit line..." Кнопки "Explore GPA and the Credit Line" (ведёт на новую страницу) и "Review the Investment Materials" (href="#").
-
-СПИСОК ТЕКСТОВЫХ ПРАВОК (новая страница): все экраны 01-08 PAGE 05B из v3.1 дословно, в том числе таблицы (четыре выбора, три года), цифры месяца 1 ($7,500, +$2,000, $200,000 -> $209,500), раздел "A Few Things to Know Before You Choose". Слово "illustrative" в нём заменено на "estimated example"/"conceptual images".
+7. Экран 06: текст из v3.2 (в том числе "As GPA appreciates, a member's required minimum goes down each month...").
+8. Экран 07: "Investment Decisions Deserve Their Own Conversation." + "GPA shares can be pledged as collateral for a credit line, if a lender approves. A credit line (LOC) is a separate loan and pledge, subject to approval and permitted uses." + "Leverage can increase both gains and losses. Availability of credit, collateral acceptance, interest rates, and investment performance are not guaranteed." Кнопка "Review the Investment Materials". Кнопку "Explore GPA and the Credit Line" не ставить.
 
 ======================================================================
 СТРАНИЦА - FAQs
 ======================================================================
-Раздел документа: PAGE 06 - FAQs (экраны 01-07 и новая группа 04B).
+Раздел документа: PAGE 06 - FAQs (экраны 01-07).
 Файлы: docs/faqs.html, docs/css/faqs.css, docs/js/faqs.js.
 
 НЕ МЕНЯТЬ без моего согласия: шапку, подвал, остальные страницы, печатную вёрстку вопросов, фото-паузы.
 
 ЧТО УЧЕСТЬ В ПЛАНЕ ЭТАПА 1:
-- Новая группа "Your credit line" (v3.1, 04B): как нумеровать группы (сейчас 01-05; станет 7: Living in a Glonari Home, Monthly payments, GPA and investment, Your credit line, Gia & Everyday Living, Leaving or moving). Предложи нумерацию и якоря; существующие id не ломать.
+- Группа "Your credit line" отложена. Групп остаётся пять: Living in a Glonari Home, Monthly payments, GPA and investment, Gia & Everyday Living, Leaving or moving; id и номера как были. Кредитная линия в FAQs только одним вопросом "Can I borrow against GPA shares?" в группе GPA and investment.
 - Группа про Gia теперь называется "Gia & Everyday Living".
 - Сколько вопросов станет и самые длинные ответы.
 - Вопросы с одним italic-пояснением и без ответа показывают "The final terms will be set out in the program agreements."
 
 СПИСОК ТЕКСТОВЫХ ПРАВОК:
-Вопросы и ответы дословно из v3.1. Изменены практически все ответы в группах Monthly payments ($7,500, $8,155.75, $656, состав Home Fee определяет договор), GPA and investment (20% как рабочее условие, нейтральная фраза про участие, Values can fall, LOC), Gia (concierge, You approve commitments), Leaving or moving (12 месяцев и 90 дней, transfer против продажи, 6-10%). Убрать вопросы про $5,833, $2,500, "Does Gia help me earn?" и про Global Connections без Glonari Properties. Они сохранены в V3.1-CHANGES-AND-OPEN-QUESTIONS.md.
+Вопросы и ответы дословно из v3.2. Изменены практически все ответы в группах Monthly payments ($7,500, $8,155.75, $656, состав Home Fee определяет договор), GPA and investment (20% как рабочее условие, нейтральная фраза про участие, Values can fall, один вопрос про кредит под GPA), Gia (concierge, You approve commitments), Leaving or moving (12 месяцев и 90 дней, transfer против продажи, 6-10%). Убрать вопросы про $5,833, $2,500, "Does Gia help me earn?" и про Global Connections без Glonari Properties. Они сохранены в V3.2-CHANGES-AND-OPEN-QUESTIONS.md.
 
 ======================================================================
 ЗАМЕЧАНИЯ
 ======================================================================
-- На How It Works и Living закреплённых сцен по три, на Home четыре, на Find три, на Properties две. Новые экраны (02B, 04B, Living 04B, Properties 02B) делаются паузами без пина.
-- Все условия, помеченные в v3.1 как "to confirm with Kert", опубликованы как рабочие. Если Керт их изменит, места перечислены в V3.1-CHANGES-AND-OPEN-QUESTIONS.md.
-- Что осталось открытым по тексту, см. OPEN-QUESTIONS.md, раздел v3.1.
+- На How It Works и Living закреплённых сцен по три, на Home четыре, на Find три, на Properties две. Новые экраны (How It Works 02B и 04B, Living 04B, Properties 02B) делаются паузами без пина.
+- Все условия, помеченные в v3.2 как "to confirm with Kert", опубликованы как рабочие. Если Керт их изменит, места перечислены в V3.2-CHANGES-AND-OPEN-QUESTIONS.md.
+- Что осталось открытым по тексту, см. OPEN-QUESTIONS.md, раздел v3.2.

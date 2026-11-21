@@ -403,7 +403,28 @@
   font-variant-numeric: lining-nums;
   text-shadow: 0 4px 40px rgba(140, 70, 40, .22);
 }
+.econ__num small {   /* the word "About" in front of $656: one small line above the figure */
+  display: block;
+  margin-bottom: .14em;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: clamp(14px, 1.3vw, 18px);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
 .econ__house { position: relative; z-index: 0; width: min(100%, 1100px); margin: 0 auto; }
+/* "Savings require equivalent coverage." — a calm paper strip under the scene, not on the photo (16px, ink-2 on paper ≈ 7:1) */
+.econ__note {
+  margin: 0;
+  padding: 24px var(--page-pad);
+  background: var(--gh-paper);
+  border-bottom: 1px solid var(--gh-line);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gh-ink-2);
+}
 
 /* Pinned version */
 .has-scenes .econ__stage { padding: 0; }
@@ -417,11 +438,11 @@
 .has-scenes .econ__steps { position: absolute; inset: 0; margin: 0; max-width: none; display: block; }
 .has-scenes .econ__step { gap: 1.6svh; }
 .has-scenes .econ__step .econ__label { font-size: 13px; max-width: 520px; }
-.has-scenes .econ__num { font-size: min(30vw, 44svh); line-height: .8; }
-.has-scenes .econ__num { font-size: min(30vw, 44svh); line-height: .8; }
-.has-scenes .econ__step--split { flex-direction: row; align-items: flex-start; gap: 7vw; }
-.has-scenes .econ__step--split .econ__num { font-size: min(14vw, 25svh); }
-.has-scenes .econ__step--split .econ__label { max-width: 300px; }
+.has-scenes .econ__num { font-size: min(21vw, 44svh); line-height: .8; }   /* $8,155.75 is 9 characters wide */
+.has-scenes .econ__num small { font-size: clamp(14px, 2.2svh, 20px); }
+.has-scenes .econ__step--split { flex-direction: row; justify-content: center; align-items: flex-start; gap: 4vw; }
+.has-scenes .econ__step--split .econ__num { font-size: min(17vw, 34svh); }
+.has-scenes .econ__step--split .econ__label { max-width: 280px; margin-top: 4.5svh; text-align: left; }
 .has-scenes .econ__house {
   position: absolute;
   left: 0;
@@ -457,7 +478,9 @@
   margin-inline: auto;
   padding-inline: var(--page-pad);
 }
-.ledger__title { margin: 0; max-width: 11em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }   /* Playfair defaults to old-style figures: "1" reads as "I" */
+.ledger__title { margin: 0; max-width: 15em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.ledger__title strong { font-weight: 500; color: var(--gh-gold-ink); }
+.ledger__eyebrow { margin: 0 0 24px; }   /* Playfair defaults to old-style figures: "1" reads as "I" */
 
 .ledger__portrait {   /* tall 4:5 photo under the title, in the otherwise empty left column */
   display: block;
@@ -472,8 +495,10 @@
 .ledger__cols {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(168px, 13vw, 208px) minmax(0, 1fr);   /* the label needs ≥32px of air on both sides */
-  align-items: end;   /* different heights, bottoms (the totals) on one line */
+  align-items: stretch;   /* both tables end on one line: the totals */
 }
+.ledger__col--glonari { align-self: stretch; }   /* the Home Fee row stands at the top, the total at the bottom: one line against five */
+.ledger__col--glonari tbody th, .ledger__col--glonari tbody td { vertical-align: top; }
 .ledger__col { width: 100%; border-collapse: collapse; }
 .ledger__col caption {
   padding-bottom: 16px;
@@ -548,22 +573,6 @@
 }
 .ledger__result strong { font-weight: 500; color: var(--gh-gold-ink); }
 
-.ledger__notes {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px clamp(32px, 4vw, 64px);
-  margin-top: clamp(48px, 5vw, 72px);
-}
-.ledger__notes p {
-  margin: 0;
-  padding-top: 20px;
-  border-top: 1px solid rgba(31, 26, 20, .28);
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--gh-ink-2);
-}
-.ledger__notes strong { font-weight: 600; color: var(--gh-ink); }
-
 @media (max-width: 1199px) {
   .ledger__grid { grid-template-columns: minmax(0, 1fr); }
   .ledger__portrait { display: none; }   /* single column: the photo would push the tables a screen away */
@@ -573,7 +582,7 @@
   .ledger__col caption { padding-top: 0; }
   .ledger__between { padding: 40px 0 36px; }
   .ledger__delta { margin-bottom: 14px; }
-  .ledger__notes { grid-template-columns: minmax(0, 1fr); }
+  .ledger__col--glonari { height: auto; }
 }
 
 /* ==========================================================
@@ -735,8 +744,33 @@
   object-position: 50% 60%;
 }
 .gia__foot { padding-top: calc(56px + clamp(40px, 5vw, 72px)); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px clamp(40px, 6vw, 96px); align-items: end; }
+.gia__points {   /* three lines, a staircase echoing the headline's three steps; lower right, clear of the chat */
+  grid-column: 1 / -1;
+  width: min(100%, 680px);
+  margin: 0 0 clamp(56px, 6vw, 96px) auto;
+  padding: 0;
+  list-style: none;
+}
+.gia__points li {
+  padding: 18px 0 20px;
+  border-top: 1px solid var(--gh-line);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--gh-ink-2);
+}
+.gia__points li:nth-child(2) { margin-left: clamp(0px, 4vw, 56px); }
+.gia__points li:nth-child(3) { margin-left: clamp(0px, 8vw, 112px); }
+.gia__points strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(21px, 1.8vw, 26px);
+  line-height: 1.25;
+  color: var(--gh-ink);
+}
 .gia__closing { margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(34px, 4.4vw, 64px); line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
-.gia__note { margin: 0; font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); max-width: 420px; padding-top: 16px; border-top: 1px solid var(--gh-line); }
+.gia__note { margin: 0; font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); max-width: 460px; padding-top: 16px; border-top: 1px solid var(--gh-line); }
 @media (max-width: 1023px) {
   .gia__foot { grid-template-columns: minmax(0, 1fr); }
 }
@@ -749,7 +783,7 @@
 }
 
 /* the typing dots share the cell of Gia's (still invisible) answer, so the card never changes height while it types */
-.gia .chat__body > .msg--you { grid-row: 1; }
+.gia .chat__body > .msg--gia.msg--first { grid-row: 1; grid-column: 1; }
 .gia .chat__body > .msg--typing, .gia .chat__body > .msg--gia { grid-row: 2; grid-column: 1; align-self: start; }
 
 .js .gia .chat [data-msg] { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
@@ -868,12 +902,6 @@
 }
 .future__body { grid-area: body; padding-top: 24px; border-top: 1px solid rgba(197, 142, 66, .6); }
 .future__body p { color: var(--gp-text-2); max-width: 460px; }
-.future__body .future__lead {
-  font-family: var(--font-display);
-  font-size: clamp(21px, 1.8vw, 26px);
-  line-height: 1.3;
-  color: var(--gp-text);
-}
 .future__body .btn { margin-top: 20px; }
 /* the fee note: a narrow light strip right under the dark band, plain text, no picture */
 .future__note {
@@ -946,3 +974,14 @@
 .cta__small { font-size: 15px; }
 .cta__small a { font-weight: 500; text-underline-offset: 4px; }
 .cta + * { margin-top: 0; }
+/* "Availability, eligibility and terms apply." — a calm paper strip under the scene (16px, not on the photo) */
+.cta__note {
+  margin: 0;
+  padding: 28px var(--page-pad);
+  background: var(--gh-paper);
+  border-top: 1px solid var(--gh-line);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gh-ink-2);
+}

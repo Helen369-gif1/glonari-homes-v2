@@ -442,8 +442,9 @@ html:not(.has-scenes) .hiw-hero__cue { display: none; }
   color: var(--gp-text);
 }
 .hiw-cost__p strong { font-weight: 600; color: var(--gp-champagne); }
+.hiw-cost__p--note { max-width: 520px; margin-top: 8px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .18); font-size: 18px; color: var(--gp-text-2, var(--gp-text)); }
 .hiw-cost__btn { margin-top: 20px; }
-/* the answer: one figure (the arithmetic lives on 04B). Caption is real text, 18px on brown. */
+/* the fee: one figure (the three-step comparison lives on 04B). Caption is real text, 18px on brown. */
 .hiw-cost__fig { margin: 0; justify-self: end; text-align: right; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
 .hiw-cost__big { margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(72px, 9vw, 132px); line-height: 1; color: var(--gp-gold); }
 .hiw-cost__cap { margin: 20px 0 0; padding-top: 16px; border-top: 1px solid var(--gp-champagne); font-size: 18px; line-height: 1.5; color: var(--gp-text); }
@@ -451,15 +452,27 @@ html:not(.has-scenes) .hiw-hero__cue { display: none; }
   .hiw-cost__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(48px, 6vw, 96px); align-items: center; }
 }
 
-/* ---------- 05 · Who can join? — text under the parallax opener ---------- */
+/* ---------- 05 · Who can join? — text under the parallax opener ----------
+   The lead, then one figure standing on a 1px gold line ("$200,000" with the modeled-example
+   sentence beside it, on the line's baseline), then three paragraphs in two columns. */
 .hiw-join { display: grid; gap: 32px; }
 .hiw-join__lead { max-width: none; margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.15; text-wrap: pretty; }
-.hiw-join__side { display: grid; gap: 24px; }
-.hiw-join__small { max-width: 420px; margin: 0; padding-top: 20px; border-top: 1px solid var(--gh-line); font-size: 18px; line-height: 1.55; color: var(--gh-ink-2); }
+.hiw-join__fig { display: grid; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid var(--gh-gold-ink); }
+.hiw-join__eg { margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(22px, 2.1vw, 28px); line-height: 1.2; color: var(--gh-ink); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.hiw-join__eg-pre { display: block; margin-bottom: 4px; }
+.hiw-join__nb { white-space: nowrap; }
+.hiw-join__big { font-weight: 500; font-size: clamp(64px, 8vw, 120px); line-height: .95; color: var(--gh-gold-ink); }
+.hiw-join__caveat { max-width: 420px; margin: 0; font-size: 18px; line-height: 1.55; color: var(--gh-ink-2); }
+.hiw-join__cols { display: grid; gap: 24px; }
+.hiw-join__col2 { display: grid; gap: 24px; align-content: start; }
+.hiw-join__small { max-width: 480px; margin: 0; padding-top: 20px; border-top: 1px solid var(--gh-line); font-size: 18px; line-height: 1.55; color: var(--gh-ink-2); }
 @media (min-width: 900px) {
-  .hiw-join { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: end; }
-  .hiw-join__lead { grid-column: 1 / 8; }
-  .hiw-join__side { grid-column: 8 / 13; }
+  .hiw-join { row-gap: clamp(40px, 4vw, 64px); }
+  .hiw-join__lead { max-width: 820px; }
+  .hiw-join__fig { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); column-gap: clamp(32px, 5vw, 96px); align-items: end; }
+  .hiw-join__cols { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
+  .hiw-join__cols > .hiw-join__small { grid-column: 1 / 6; }
+  .hiw-join__col2 { grid-column: 7 / 13; }
 }
 
 /* ---------- 06 · The journey — four nodes on a gold line (no pin) ----------
@@ -492,36 +505,40 @@ html:not(.has-scenes) .hiw-hero__cue { display: none; }
 .hiw-end__after { display: grid; justify-items: start; gap: 32px; padding-top: clamp(64px, 6vw, 96px); }
 .hiw-end__lead { max-width: 760px; margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.16; text-wrap: balance; }
 
-/* ---------- 02B · Savings You Don't Have to Chase ----------
-   Calm, no pin. One big figure on the left (standing on a 1px gold line, static), the three
-   statements on the right with different offsets. $2,050 is a cost that is included, never "savings". */
+/* ---------- 02B · One Home. A Whole Network Behind It. ----------
+   Calm, no pin, no figure. The headline spans the grid; the photo (cols 1-5) is set lower than
+   the statements, which start higher on cols 7-12 and step the other way (the last one is the
+   most indented in the old staircases; here the first is). Caption sits under the photo on paper. */
 .hiw-save__grid { display: grid; gap: 48px; }
 .hiw-save__head { margin: 0; }
-.hiw-save__big { margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(80px, 9.6vw, 150px); line-height: .95; color: var(--gh-ink); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
-.hiw-save__big span { display: block; margin-top: 12px; font-family: var(--font-mono); font-weight: 600; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--gh-gold-ink); }
-.hiw-save__what { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid var(--gh-gold-ink); font-family: var(--font-word); font-weight: 600; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.15; color: var(--gh-ink); }
-.hiw-save__note { margin: 20px 0 0; max-width: 360px; font-size: 16px; line-height: 1.5; color: var(--gh-ink-2); }
+.hiw-save__fig { margin: 0; }
+.hiw-save__fig img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.hiw-save__cap { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--gh-gold-ink); font-size: 16px; line-height: 1.5; color: var(--gh-ink-2); }
 .hiw-save__list { display: grid; gap: 40px; }
 .hiw-save__p { margin: 0; padding-top: 20px; border-top: 1px solid var(--gh-line); font-size: 18px; line-height: 1.55; color: var(--gh-ink-2); }
 .hiw-save__p strong { display: block; margin-bottom: 8px; font-family: var(--font-word); font-weight: 600; font-size: clamp(26px, 2.4vw, 32px); line-height: 1.1; color: var(--gh-ink); }
+.hiw-save__note { max-width: 440px; margin: 0; padding-top: 20px; border-top: 1px solid var(--gh-gold-ink); font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); }
 @media (min-width: 1024px) {
-  .hiw-save__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: clamp(64px, 6vw, 96px); align-items: start; }
+  .hiw-save__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: clamp(48px, 4vw, 64px); align-items: start; }
   .hiw-save__head { grid-column: 1 / 13; }
-  .hiw-save__fig { grid-column: 1 / 6; }
+  .hiw-save__fig { grid-column: 1 / 6; margin-top: clamp(72px, 8vw, 128px); }
   .hiw-save__list { grid-column: 7 / 13; gap: 48px; }
-  .hiw-save__p:nth-child(2) { margin-left: 12%; }
-  .hiw-save__p:nth-child(3) { margin-left: 24%; }
+  .hiw-save__p:nth-child(1) { margin-left: 22%; }
+  .hiw-save__p:nth-child(2) { margin-left: 0; }
+  .hiw-save__p:nth-child(3) { margin-left: 11%; }
+  .hiw-save__note { margin-left: 22%; }
 }
 
 /* ---------- 04B · One Month in a Glonari Home ----------
-   A stair line: each step's figure stands on its own tread, a riser drops to the next one
-   (the fee falls to what you pay). Static default: a vertical list with a gold rule on the left.
-   >=1024px stepsScene-like monthScene() draws treads, risers and figures by the scroll. */
+   A stair line: each step's figure stands on its own tread, a riser drops to the next one.
+   Static default: a vertical list with a gold rule on the left.
+   >=1024px monthScene() draws treads, risers and figures by the scroll.
+   Figures are $8,155.75 / $7,500 / "ABOUT $656": sized so the nine-character one fits a column. */
 .hiw-month__steps { display: grid; gap: 40px; margin: clamp(56px, 5vw, 88px) 0 0; padding: 0; list-style: none; }
 .hiw-month__step { display: grid; padding-left: 24px; border-left: 1px solid var(--gh-gold-ink); }
 .hiw-month__n { font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: .08em; color: var(--gh-gold-ink); }
-.hiw-month__fig { margin: 4px 0 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(56px, 15vw, 88px); line-height: 1; color: var(--gh-ink); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
-.hiw-month__fig span { color: var(--gh-gold-ink); margin-right: .06em; }
+.hiw-month__fig { margin: 4px 0 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(48px, 13vw, 72px); line-height: 1; color: var(--gh-ink); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; white-space: nowrap; }
+.hiw-month__pre { margin-right: 10px; font-family: var(--font-mono); font-weight: 600; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--gh-gold-ink); }
 .hiw-month__step:last-child .hiw-month__fig { color: var(--gh-gold-ink); }
 .hiw-month__line { display: none; }
 .hiw-month__p { margin: 16px 0 0; font-size: 17px; line-height: 1.55; color: var(--gh-ink-2); }
@@ -530,13 +547,11 @@ html:not(.has-scenes) .hiw-hero__cue { display: none; }
 @media (min-width: 1024px) {
   .hiw-month__steps { --gap: 40px; --drop: clamp(56px, 6vw, 88px); grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); align-items: start; }
   .hiw-month__step { position: relative; padding-left: 0; border-left: 0; margin-top: calc(var(--i) * var(--drop)); }
-  .hiw-month__fig { margin: 8px 0 20px; font-size: clamp(64px, 6.6vw, 100px); }
+  .hiw-month__fig { margin: 8px 0 20px; font-size: clamp(44px, 4.8vw, 72px); }
   .hiw-month__line { display: block; position: relative; height: 1px; }
   .hiw-month__line::before { content: ""; position: absolute; left: 0; right: calc(-1 * var(--gap)); top: 0; height: 1px; background: var(--gh-gold-ink); transform-origin: 0 50%; transform: scaleX(var(--t, 1)); }
   .hiw-month__step:last-child .hiw-month__line::before { right: 0; }
   .hiw-month__line i { position: absolute; right: calc(-1 * var(--gap)); top: 0; width: 1px; height: var(--drop); background: var(--gh-gold-ink); transform-origin: 50% 0; transform: scaleY(var(--r, 1)); }
   .hiw-month__step:last-child .hiw-month__line i { display: none; }
-  .hiw-month__step:nth-child(2) .hiw-month__fig,
-  .hiw-month__step:nth-child(3) .hiw-month__fig { padding-left: 20px; } /* the minus must not touch the riser at the step's left edge */
   .hiw-month__p { margin-top: 24px; padding-right: 12px; }
 }

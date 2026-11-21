@@ -1,6 +1,6 @@
 # Glonari Homes — Site Structure
 
-Page list, navigation, and per-page sections. Approved English copy for each section lives in `Glonari_Homes_All_Pages_v3.1.md` (main source since 2026-11-21; it replaces the older `.docx`) — this file does not duplicate it, only the structure. Visual rules live in `DESIGN-SYSTEM-HOMES.md`. Build status lives in `PROJECT-STATUS.md`.
+Page list, navigation, and per-page sections. Approved English copy for each section lives in `Glonari_Homes_All_Pages_v3.2.md` (main source since 2026-11-21; it replaces the older `.docx`) — this file does not duplicate it, only the structure. Visual rules live in `DESIGN-SYSTEM-HOMES.md`. Build status lives in `PROJECT-STATUS.md`.
 
 ## Navigation (as built, every page)
 
@@ -34,7 +34,7 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 2. Why Glonari? (wipe scene, "More Than a Place to Live.")
 3. The cost (pinned numbers: $7,469 · $8,333 · −$2,500 · $5,833), then **Cost compared** (new full screen, paper: two ledger tables + two footnotes), then the "Important" note
 4. Find your home — no pin: headline + phrase left, one arch with a video right (plays once at 40% visible, stays on the last frame; poster under reduced motion), then a quiet paper strip (two paragraphs, "Explore Your Home Options", eligibility note). Home pinned scenes: hero, problem, econ, cta.
-5. Meet Gia (chat: Global Connections earnings, no Home Business)
+5. Meet Gia (chat: two Gia lines, no user message; three statements; AI disclaimer)
 6. Your future (dark band; the three panels on the gold line carry the three statements)
 7. Final invitation
 

@@ -1,4 +1,4 @@
-# Open questions from `Glonari_Homes_All_Pages_v3.1.md`
+# Open questions from `Glonari_Homes_All_Pages_v3.2.md`
 
 The italic notes in the document are questions for the owner, not site copy: they are never published. They are collected here, page by page and screen by screen, as each page is rebuilt. Home (Page 01) and the pages after How It Works will be added when they are processed.
 
@@ -174,3 +174,27 @@ Source: `V3.1-CHANGES-AND-OPEN-QUESTIONS.md` (section 6 of the v3 part and secti
 5. Page 05B: all the "$0 monthly cash" disclaimers on the page, or a shorter set (16px, contrast 4.5:1, calm background).
 6. Properties 04B (unit economics): on hold, not to be built until the owner's go-ahead.
 7. Reconcile before publishing: flat $7,500 member fees vs 5% fee growth in the company model (presentation p. 24); $579,071 is a residual from the selected DCF, not an independent appraisal.
+
+### v3.2 (2026-11-21)
+v3.2: страница 05B и группа FAQ про кредитную линию, таблица Three Years на Living отложены, см. DEFERRED-2026-11-21.md
+
+Still open (V3.2-CHANGES-AND-OPEN-QUESTIONS.md, section D):
+- **To Kert:** (1) agreement term, renewal, termination; what happens if Glonari sells the home; Home Fee increases. (2) How the then-current purchase value is set; transfer charges; separate deposits. (3) What the working conditions really are (20% or sponsor, minimum shares, no refund, own-home path); whether the Global Connections earning programme survives; exact wording of the participation line. (4) If the credit line returns later: lender terms, limit, rates and permitted uses.
+- **To the owner:** (1) The user's side of the Gia chat (Home and Living); which of the four chat lines goes where. (2) Whether a big figure stays on How It Works 02B (the budget pieces add up to $2,833.33, but the agreement decides what is covered). (3) Whether the placeholder "Buy" photo on Home is wanted. (4) Five- and ten-year examples: deferred together with the table; return them on Properties only if confirmed calculations appear.
+
+### Home, built to v3.1 (2026-11-21)
+1. **Link in "Important" is not published.** The last sentence of Home screen 03 ("The assumptions are explained in 'A few things to know before you choose' on the GPA and credit line page.") is left out until `gpa-credit-line.html` exists. **To restore:** add it as a fourth row of `.important__rows` in `docs/index.html`, with the phrase linking to that page's "A Few Things to Know Before You Choose" section.
+2. **Gia chat on Home.** The user's side is removed (the document has no question). Gia writes two lines from the owner's working set, confirmed by the owner: "Let's explore what Glonari offers." then "I can help you understand your Home Fee." The two remaining lines of the set ("I can help you explore your options.", "Let's see what your home plan could look like.") are not used on Home; the second goes to Living "By the sea".
+3. **Third pinned number.** "About" + "$656" + "less per month in this example" is cut from the document sentence "About $656 less per month in this example when the Home Fee covers the same costs…". Confirmed by the owner.
+4. **Table header "Monthly cost"** (document table header) is used as a small mono label above the two ledger tables.
+5. **Why Glonari, wipe caption "after".** "A home you love. Thoughtful services." (Hero text, Screen 01) is used so that it does not repeat the paragraph on the same screen.
+6. **Placeholder for the "Buy" panel:** `placeholder-future-3-buy-1200/800.webp` is a square crop of the sunset villa (`masters/how-03-choose-home-final.png`). Replace with the owner's photo (keys / front door).
+7. **"Savings require equivalent coverage."** stands on a paper strip under the pinned econ scene and again as the first row of "Important" (owner's decision).
+
+### How It Works, built to v3.2 (2026-11-21)
+1. **Hero:** keeps "potentially more affordable" (owner's decision); the v3.2 document says "more affordable".
+2. **02B:** no big figure (owner's decision). The photo `placeholder-how-02b-service-scene-1200/800.webp` is a crop of `living-00-kitchen-table`; replace with a real "service scene" photo (4:5, 1200x1500 and 800x1000). The document paragraph is split: "Conceptual service scene." is the photo caption, the rest is the 16px note under the three statements.
+3. **Repeated sentence:** "About $656 less per month when the Home Fee covers the same costs…" stands in 04 (full, with Gia) and in 04B step 03 (shorter). Both kept as in the document; consider cutting one in the document.
+4. **05 and 06 repeat** the 20% / sponsor sentence (05 lead, 06 step 02). Kept as in the document.
+5. **Broken markup, not fixed:** in `#ch-05` the `div.hiw-after.hiw-join` has no closing `</div>` (the browser closes it at `</section>`). Screenshots with and without the fix at 1440 and 375 did not match exactly (animation frames differ by 1px rows and reveal states), so by the owner's rule the markup was left as is. Fix when a pixel-identical comparison is possible.
+6. **04 figure:** "$7,500" with the caption "per month" (words from the document sentence); the document has no caption for it.

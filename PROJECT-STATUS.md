@@ -2,6 +2,28 @@
 
 Last updated: 2026-11-21. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-21 (How It Works brought to v3.2) — not committed
+
+Copies before: `masters/retired/how-it-works|OPEN-QUESTIONS|PROJECT-STATUS-before-how-it-works-v3-2026-11-21.*`. Files: `docs/how-it-works.html`, `css/how-it-works.css` (js untouched). Hero, pins (01, 05, 07), card deal, ch-03, ch-07, rail (9): untouched. Pins still three.
+- ch-02: Gia card text. 02B: new headline + three statements, no figure; placeholder photo (4:5) set low on cols 1-5, statements on cols 7-12 offset the other way, caption under the photo, agreement note 16px under the statements. 04 (dark, hard edges kept): the four v3.2 paragraphs, one figure "$7,500 / per month", $656 sentence and button -> `find-your-home.html#cost-illustration` (verified, anchor exists). 04B: stair line kept, figures $8,155.75 / $7,500 / "ABOUT $656", step text verbatim, figure size reduced to fit a column. 05: lead, "$200,000" standing on a 1px gold line with the modeled-example sentence beside it, three paragraphs in two columns. 06 step 04: "Enter the Home agreement".
+- Roles: 04 = what the fee is and what the traditional budget contains (text, one figure); 04B = the result as three figures, no components.
+- Open: see OPEN-QUESTIONS.md "How It Works, built to v3.2" (placeholder photo, repeated $656 sentence, unclosed div in ch-05 left as is).
+
+## 2026-11-21 (text source changed to v3.2; documents only) — not committed
+
+Main source is now `Glonari_Homes_All_Pages_v3.2.md` (companion `V3.2-CHANGES-AND-OPEN-QUESTIONS.md`, deferred material in `DEFERRED-2026-11-21.md`, prompts `PROMPTS-FOR-STUDIO-v3.2.txt`). v3.1 file, `V3.1-CHANGES-AND-OPEN-QUESTIONS.md` and `PROMPTS-FOR-STUDIO-v3.txt` moved to `masters/retired/`. Source names updated in CLAUDE.md, DESIGN-SYSTEM-HOMES.md, SITE-STRUCTURE.md, OPEN-QUESTIONS.md; section D questions added to OPEN-QUESTIONS.md.
+- **Deferred:** page 05B (GPA and credit line), the four financial scenarios, rates, LTV, tables, the FAQs group "Your credit line", the Three Years table on Living.
+- **Stays on the site:** the short explanation of GPA as collateral on Properties 07 and one question in FAQs.
+- **Home** was built to v3.1 and needs one addition: in "Meet Gia" the last line is "Explore a move or GPA shares." (no "or an approved credit line"). Done the same day in `docs/index.html:312`; "A few things to know before you choose" is not on the page. HTML not otherwise changed in this step.
+
+## 2026-11-21 (Home brought to v3.1) — not committed
+
+Copies before: `masters/retired/index|home|footer|OPEN-QUESTIONS|PROJECT-STATUS-before-home-v3-2026-11-21.*`. Files: `docs/index.html`, `css/home.css`, `partials/footer.html` (synced to all pages); `home.js` untouched. Hero, wipe, arch video, Your-future composition: untouched. Pins still four.
+- Why Glonari: new paragraphs ("Glonari owns and manages the residence…", "Enjoy Home life…"); wipe caption "after" = "A home you love. Thoughtful services."
+- The cost, three roles: pinned econ = three numbers only ($8,155.75 · $7,500 · About $656, `--travel` 330svh, third step uses `econ__step--split`) + "Savings require equivalent coverage." on a paper strip under the scene; ledger = the proof (five rows against one Home Fee, totals on one line, gold line and label "about $656 less per month" kept, old footnotes removed); Important = the three document rows with no numbers (the link sentence to the GPA page is held back, see OPEN-QUESTIONS).
+- Find: clause replaced by "…or keep it and hold GPA shares instead." Gia: earning paragraph out, "Start with a question…" in, three lines as a staircase (`gia__points`), disclaimer 16px, chat = two Gia lines. Future: Stay / Transfer / Buy (new placeholder photo for Buy), new paragraph, longer note strip. Final: paper strip "Availability, eligibility and terms apply." under the scene. Footer disclosure replaced.
+- Checked 1440/1024/768/375: console clean, no horizontal scroll, ledger totals bottoms equal (≥861px), notes 16px. Shots `review/home-*.png`. Real-browser feel of the pinned third step to be seen by the owner.
+
 ## 2026-11-21 (text source changed to v3.1; documents only, HTML NOT changed) — not committed
 
 New Glonari Homes and Glonari Properties brochures (v2, 2026-11-15) replace the old model. Main source is now `Glonari_Homes_All_Pages_v3.1.md` (companion: `V3.1-CHANGES-AND-OPEN-QUESTIONS.md`). `Glonari_Homes_All_Pages_v2.md` and `PROMPTS-FOR-STUDIO-v2.txt` moved to `masters/retired/`. References updated in CLAUDE.md, DESIGN-SYSTEM-HOMES.md (§1 item 5, §10), SITE-STRUCTURE.md, OPEN-QUESTIONS.md (name/date only); one rule added to CLAUDE.md.
