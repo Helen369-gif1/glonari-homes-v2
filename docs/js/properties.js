@@ -75,9 +75,12 @@
       const to = parseFloat(live.dataset.count), from = parseFloat(live.dataset.from);
       const o = { v: 0 };
       const fmt = (v) => "$" + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      const tl = gsap.timeline({ scrollTrigger: st(fig, "top 42%", "top 14%"), defaults: { ease: "none" } });
+      // the count ends at 90% of the scroll range (the last 10% holds the final figure), and leaving the range forces the exact value,
+      // so rounding or smoothing of the scroll can never leave an in-between number on screen
+      const tl = gsap.timeline({ scrollTrigger: { ...st(fig, "top 30%", "top 12%"), onLeave: () => { live.textContent = fmt(to); } }, defaults: { ease: "none" } });
       tl.fromTo($(".np-nav__rule", fig), { scaleX: 0 }, { scaleX: 1, duration: .5 }, 0)
-        .fromTo(o, { v: from }, { v: to, duration: 1, onUpdate: () => { live.textContent = fmt(o.v); } }, 0);
+        .fromTo(o, { v: from }, { v: to, duration: .9, onUpdate: () => { live.textContent = fmt(o.v); } }, 0)
+        .to({}, { duration: .1 }, .9);
     }
     // 03: the gold line across the container is drawn
     const r3 = $(".np-shares__rule");

@@ -75,12 +75,12 @@ Page files: `css/find.css`, `js/find.js`. Media are `placeholder-find-…` until
 
 Pinned scenes: 01, 03, 06 (03 can lose its pin if three feel heavy: the questions then change with normal scroll).
 
-### 6. FAQs — `docs/faqs.html` — ✅ built 2026-11-14 (Page 06, 7 screens; two photo pauses are placeholders)
+### 6. FAQs — `docs/faqs.html` — ✅ brought to v3.4 2026-11-22 (Page 06, 28 questions; two photo pauses are placeholders)
 
 Page files: `css/faqs.css`, `js/faqs.js`. No pins, no dark band. Questions without an approved answer show "The final terms will be set out in the program agreements."
 
-1. Introduction (`#intro`) — type only
-2–6. Groups `#faq-01…05` (Living in a Glonari Home · Monthly payments · GPA and investment · Gia and Global Connections · Leaving or moving) — number + title left (sticky ≥1024px), `details` questions right, first open; photo pause after 02 and after 04
+1. Introduction (`#intro`) — type only + group index (five links to the groups)
+2–6. Groups `#faq-01…05` (Living in a Glonari Home · Monthly payments · GPA and investment · Gia & Everyday Living · Leaving or moving) — number + title left (sticky ≥1024px), `details` questions right, first open; photo pause after 02 and after 03
 7. Final (`#final`) — "Know the Terms. Make the Choice That Fits You.", buttons to Find Your Home and How It Works
 
 ### 7. Glonari Properties & GPA — `docs/glonari-properties.html` — ✅ brought to v3.4 2026-11-21 (Page 05, 8 screens; 02B photo is a placeholder)

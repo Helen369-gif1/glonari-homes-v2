@@ -2,6 +2,20 @@
 
 Last updated: 2026-11-21. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-22 (FAQs brought to v3.4) — not committed
+
+Copies before: `masters/retired/faqs-before-faqs-v34-2026-11-22.html|css` (+ OPEN-QUESTIONS, PROJECT-STATUS). Files: `docs/faqs.html`, `css/faqs.css` (index block appended), `tools/faq-check.mjs`. `js/faqs.js`, header, footer, hero, final: untouched.
+- 28 questions in five groups (6 / 5 / 10 / 3 / 4), text verbatim from v3.4 Page 06. Group 04 is "Gia & Everyday Living". New: "What does NAV+ mean?", "Are GPA shares backed…", transfer vs selling, "What if the value of GPA drops?" (new title). Gone: $8,333 / $5,833 / $2,500 / Global Connections / "Does Gia help me earn?" / Case-Shiller / accredited / "anyone can hold it" / "ordinary families cannot join" (grep clean). Four italic-only questions show "The final terms will be set out in the program agreements."
+- Intro: group index (01 Living in a Glonari Home … 05 Leaving or moving), five columns >=1024px, list on phones; anchors `#faq-01…05`.
+- Pauses: A after 02 (unchanged placeholder), B moved after 03 (unchanged placeholder); both gaps = one --section-y (158/113/96/96). Real photos wanted: OPEN-QUESTIONS.md "FAQs built to v3.4".
+- Answers stay ink-2 on cream, 6.64:1, 18px (>=6:1, not changed). Long answers on 375: NAV+ and credit-line answers 10 lines, 297px, no inner scroll.
+
+## 2026-11-22 (Properties 05 fit, How It Works 02B photo) — not committed
+
+Copies before: `masters/retired/properties-before-polish-2026-11-22.css|js`, `how-it-works-before-02b-photo-2026-11-22.html`. 
+- Properties 05: figure `min(13vw, 24svh)` (172px at 1440x720), count runs while the figure top goes from 30% to 12% of the viewport; at the count start the figure and both 27px caveats are in the frame at 1440x900 (caveats end 720 of 900) and 1440x720 (653 of 720). Contrast of the small texts (02B lead, 03 note, 06 note) already 14.85:1 (ink on cream), nothing changed.
+- How It Works 02B: real photo `how-02b-service-scene-1200/800.webp` (from `masters/how-02b-service-scene-4x5-master.png`), placeholders moved to `masters/retired/`. Awaiting owner's confirmation.
+
 ## 2026-11-21 (Properties shortened to v3.4: screens 03, 05, 06 recomposed) — not committed
 
 Copies before: `masters/retired/glonari-properties|properties-before-properties-v34-2026-11-21.html|css|js` (+ OPEN-QUESTIONS, PROJECT-STATUS, SITE-STRUCTURE). Files: `docs/glonari-properties.html`, `css/properties.css`, `js/properties.js`, `tools/prop-check.mjs`. Hero, 01, 02, 02B, 04, 07, photos, pins (two): untouched.

@@ -1,6 +1,6 @@
 /* ==========================================================
    Glonari Homes — FAQs
-   Printed question-and-answer layout on paper: no pins, no dark band.
+   Printed question-and-answer layout on paper: no pins, no dark band. 28 questions in five groups (v3.4); group index in the introduction.
    Spacing: every block has only padding-top: --section-y (hero adds the header height;
    the last screen also gets a bottom --section-y before the dark footer).
    One soft effect per screen: hero lines rise, question rows and the two pauses fade up (data-reveal).
@@ -136,3 +136,18 @@
   .js .faq-hero__title span { animation: none; }
   .faq-q__mark::before, .faq-q__mark::after { transition: none; }
 }
+
+/* ---------- group index in the introduction: number + group name, anchors #faq-01…05 ---------- */
+.faq-index { margin-top: clamp(64px, 7vw, 112px); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); }
+.faq-index a { display: block; padding-top: 20px; border-top: 1px solid var(--gp-gold-mid); color: var(--gh-ink); text-decoration: none; }
+.faq-index__no { display: block; margin-bottom: 12px; font-family: var(--font-mono); font-weight: 500; font-size: 14px; letter-spacing: .14em; color: var(--gh-gold-ink); }
+.faq-index__t { display: block; font-family: var(--font-display); font-weight: 500; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.25; transition: color .25s var(--ease); }
+.faq-index a:hover .faq-index__t, .faq-index a:focus-visible .faq-index__t { color: var(--gh-gold-ink); }
+.faq-index a:focus-visible { outline: 2px solid var(--gp-gold-mid); outline-offset: 4px; }
+@media (max-width: 1023px) {
+  .faq-index { grid-template-columns: minmax(0, 1fr); margin-top: 56px; }
+  .faq-index a { display: flex; align-items: baseline; gap: 20px; padding: 18px 0; border-top: 0; border-bottom: 1px solid var(--faq-line); }
+  .faq-index a:first-child { border-top: 1px solid var(--faq-line); }
+  .faq-index__no { margin: 0; flex: none; width: 2ch; }
+}
+@media (prefers-reduced-motion: reduce) { .faq-index__t { transition: none; } }
