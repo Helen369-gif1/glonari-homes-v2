@@ -2,7 +2,7 @@
    Glonari Homes — Glonari Properties & GPA
    Pinned scenes (>=769px, motion allowed): 01 hero, 04 value. Two pins.
    One effect per screen: 01 the Already-Own-a-Home hero timeline; 04 the gold line and the three
-   figures are drawn; 03 the gold line is drawn; 05 the modeled figure counts up (no pin).
+   figures are drawn; 03 the gold line is drawn (across); 05 the modeled figure counts up (no pin).
    Scrubbed timelines use fromTo only (from breaks on refresh).
    ========================================================== */
 (() => {
@@ -68,25 +68,20 @@
   /* ---------- light accents (no pin, any width, motion allowed) ---------- */
   const mmLight = gsap.matchMedia();
   mmLight.add("(prefers-reduced-motion: no-preference)", () => {
-    // 05: the modeled figure counts from $100 to $437.83 and the gold rule between them is drawn
+    // 05: the modeled figure counts from $100 to $402.32 and the gold rule between them is drawn
     const fig = $("[data-fig]");
     if (fig) {
       const live = $("[data-count]", fig);
       const to = parseFloat(live.dataset.count), from = parseFloat(live.dataset.from);
       const o = { v: 0 };
       const fmt = (v) => "$" + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      const tl = gsap.timeline({ scrollTrigger: st(fig, "top 85%", "bottom 55%"), defaults: { ease: "none" } });
+      const tl = gsap.timeline({ scrollTrigger: st(fig, "top 42%", "top 14%"), defaults: { ease: "none" } });
       tl.fromTo($(".np-nav__rule", fig), { scaleX: 0 }, { scaleX: 1, duration: .5 }, 0)
         .fromTo(o, { v: from }, { v: to, duration: 1, onUpdate: () => { live.textContent = fmt(o.v); } }, 0);
     }
-    // 03: the gold line down the left edge of the three paragraphs is drawn, the ring comes last
-    const rail = $(".np-shares__rail");
-    if (rail) {
-      const box = $(".np-shares__grid");
-      gsap.timeline({ scrollTrigger: st(box, "top 85%", "bottom 62%"), defaults: { ease: "none" } })
-        .fromTo($("i", rail), { scaleY: 0 }, { scaleY: 1, duration: 1 }, 0)
-        .fromTo($("b", rail), { opacity: 0 }, { opacity: 1, duration: .1 }, .9);
-    }
+    // 03: the gold line across the container is drawn
+    const r3 = $(".np-shares__rule");
+    if (r3) gsap.fromTo(r3, { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: st(r3, "top 90%", "top 55%") });
     // 07: the gold rule is drawn
     const rule = $(".np-adv__rule");
     if (rule) gsap.fromTo(rule, { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: st(rule, "top 90%", "top 55%") });

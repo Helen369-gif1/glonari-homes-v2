@@ -2,6 +2,49 @@
 
 Last updated: 2026-11-21. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-21 (Properties shortened to v3.4: screens 03, 05, 06 recomposed) — not committed
+
+Copies before: `masters/retired/glonari-properties|properties-before-properties-v34-2026-11-21.html|css|js` (+ OPEN-QUESTIONS, PROJECT-STATUS, SITE-STRUCTURE). Files: `docs/glonari-properties.html`, `css/properties.css`, `js/properties.js`, `tools/prop-check.mjs`. Hero, 01, 02, 02B, 04, 07, photos, pins (two): untouched.
+- 03: heading, air, one gold line across (drawn by scroll, the only effect), row of two columns on one top (A lead cols 1-5, B 18px cols 7-12), the last two sentences as a 17px note. No stairs, no vertical line.
+- 05 (dark): heading + the two small lines on one bottom line, figure across the full width (Cormorant up to 190px, counts $100 -> $402.32 while its top travels from 42% to 14% of the viewport), both caveats at 27px right under it, static (never revealed). At 1440x900, count start: figure 441-610, caveats 666-828, in the frame (900); at the end $402.32.
+- 06: heading + opening paragraph, panorama (untouched), one large line (Playfair 48px at 1440, 40px below ~1176px; two lines at 1440, six at 375), small note on a hairline on the right. Gap panorama -> large line = one --section-y.
+- NAV+ is not explained on the page (explanation will be in the FAQs). Open: OPEN-QUESTIONS.md "built to v3.4" (also placeholder options for both 02B screens, nothing replaced).
+
+## 2026-11-21 (text source changed to v3.4; documents only) — not committed
+
+Main source is now `Glonari_Homes_All_Pages_v3.4.md` (companion `V3.4-CHANGES-AND-OPEN-QUESTIONS.md`). `Glonari_Homes_All_Pages_v3.3.md` and `V3.3-CHANGES-AND-OPEN-QUESTIONS.md` moved to `masters/retired/`. File names updated in CLAUDE.md, DESIGN-SYSTEM-HOMES.md, SITE-STRUCTURE.md, OPEN-QUESTIONS.md, PROMPTS-FOR-STUDIO-v3.2.txt.
+- **Properties shortened** (screens 03, 05, 06): the removed sentences are in `DEFERRED-part2-properties-text.md` and partly in FAQs. The Properties section of PROMPTS-FOR-STUDIO-v3.2.txt is outdated for these three screens; v3.4 text applies. The built page still has the v3.3 text until the next pass.
+- **FAQs** is not built yet; it will take the new answers when it is built.
+
+## 2026-11-21 (Glonari Properties & GPA brought to v3.3) — not committed
+
+Copies before: `masters/retired/glonari-properties|properties-before-properties-v3-2026-11-21.html|css|js` (+ OPEN-QUESTIONS, PROJECT-STATUS, SITE-STRUCTURE). Files: `docs/glonari-properties.html`, `css/properties.css`, `js/properties.js` (comment only), `tools/prop-check.mjs` (measuring). Hero, 02 and its photo, 06 panorama, pins (two: hero, 04): untouched.
+- NEW 02B `#better` (03 / 08, paper, no pin): heading + lead on one bottom line, full-width 21:9 band, three statements on hairlines rising 48px to the right, 18px operating-objectives note under a hairline. Placeholder `placeholder-properties-02b-glo-hall-2560/1600.webp` (hall interior, crop of unused `masters/how-00-glo-hall.png`; replace).
+- 03: added "GPA is an alternative…", "More capital is not itself a gain…", new "Participation in GPA…" line; accredited/SEC sentence out. 04: $1,000,000 + $579,071 = $1,579,071, labels "$1 million home / modeled operating increment / integrated value" (18px), the document sentence whole; the 3-sentence estimate disclaimer is a paper strip under the scene (text 52px under the scene bottom). 05: $100 -> $402.32; caveat and "Can values fall? Yes." beside the figure (27px + 19px); "Three different measures:" + three columns (middle with the NAV+ bracket whole) + "The three can differ.". 06: two paragraphs added, staircase of three pairs; "Home Fee". 07: pledge/credit-line explanation + leverage sentence + one button "Review the Investment Materials" (`href="#"`).
+- Eyebrows 02 / 08 … 08 / 08. No links to a GPA / credit-line page anywhere. Open: OPEN-QUESTIONS.md "Glonari Properties & GPA, plan for v3.3". Not built: 04B, Class A/B.
+
+## 2026-11-21 (Find Your Home brought to v3.3) — not committed
+
+Copies before: `masters/retired/find-your-home|find-before-find-v3-2026-11-21.html|css`, plus OPEN-QUESTIONS / PROJECT-STATUS / SITE-STRUCTURE. Files: `docs/find-your-home.html`, `css/find.css` (`js/find.js` untouched). Hero, 02 and its map, 03 questions, photos, pins (three): untouched.
+- 04: the accredited / SEC sentence is out; b = the two document sentences (participation in GPA; approvals) as two 22px cream paragraphs on brown. Step kept: a cols 1-7, b cols 8-12 bottom-aligned, hanging 104px below a (void under a = 104px at 1440 and 1024). Band edges and 158px top/bottom padding unchanged.
+- 05: Global Connections clause out, new sentence from the document; the two paragraphs are bottom-aligned (the 86px offset removed). Neighbour gaps unchanged (text block -> next photo 158 = `--section-y`; ground line -> texts 72). Anchor `#cost-illustration` stays; only How It Works links to it (Home needs none, owner's decision).
+- 06: button "Request a Consultation" (`href="#"`) + 16px line under it (ink-2 on paper, 7.2:1); grid 1.2fr / 1fr, title now two lines at 1440, top-aligned with the paragraph; void under the title 49px. At 1440x900 title, paragraph, button and line are all in view together over a 620px scroll range.
+- Open: repeat of the 05 and 06 lines (OPEN-QUESTIONS.md, Page 04).
+
+## 2026-11-21 (text source changed to v3.3; documents only) — not committed
+
+Main source is now `Glonari_Homes_All_Pages_v3.3.md` (companion `V3.3-CHANGES-AND-OPEN-QUESTIONS.md`, cumulative). `Glonari_Homes_All_Pages_v3.2.md` and `V3.2-CHANGES-AND-OPEN-QUESTIONS.md` moved to `masters/retired/`. File names updated in CLAUDE.md, DESIGN-SYSTEM-HOMES.md, SITE-STRUCTURE.md, OPEN-QUESTIONS.md, PROMPTS-FOR-STUDIO-v3.2.txt. Text of all screens unchanged from v3.2.
+- **Living:** the next-move screen is now numbered 06B in the document (after "What stays with you?", before the final invitation); the site is already built in that order (`#next-move`), so no code change.
+- Design notes for the Living design pass (4 items) are in OPEN-QUESTIONS.md, section "Дизайн на проход 2".
+
+## 2026-11-21 (Living With Glonari brought to v3.2) — not committed
+
+Copies before: `masters/retired/living-with-glonari|living|OPEN-QUESTIONS|PROJECT-STATUS-before-living-v3-2026-11-21.*`; `#three-years` markup and styles kept as `masters/retired/three-years-markup|styles-before-living-v3-2026-11-21.*`. Files: `docs/living-with-glonari.html`, `css/living.css`, `js/living.js` (new `nextTracks()`), `tools/living-check.mjs` (measuring). Hero, Gia scene, "When life changes" stage, final scene, pins (three): untouched.
+- New order (owner): `#when-life-changes` → `#ownership` (dark) → `#next-move` (paper) → `#final-invitation` (dark). `#three-years` removed from the live page; nothing links to it.
+- NEW `#next-move` (04B): headline (Cormorant) + sentence on paper, `living-next-move-2560/1600.webp` full width (from `masters/living-next-move-door-luggage-boxes-3832.png`; the leather-bags variant is not used), two tracks on one 4-column grid: Traditional Home grey 4 steps, Glonari Home gold 3 steps (shorter), gold line drawn by scroll (the only effect), 16px note. Static on phones (vertical lines) and under reduced motion.
+- Text: 02 "Start with a question…" + Gia disclaimer 16px on paper under the scene; 03 three paragraphs as a staircase; 04 "90 DAYS' NOTICE." line + 16px transfer note; #ownership purchase terms + "GPA does not automatically convert…" (centre column between the gold lines); #what-stays-with-you new sentences + two paragraphs; chat "By the sea" = "Let's see what your home plan could look like."
+- Open: OPEN-QUESTIONS.md "Living With Glonari, built to v3.2".
+
 ## 2026-11-21 (How It Works brought to v3.2) — not committed
 
 Copies before: `masters/retired/how-it-works|OPEN-QUESTIONS|PROJECT-STATUS-before-how-it-works-v3-2026-11-21.*`. Files: `docs/how-it-works.html`, `css/how-it-works.css` (js untouched). Hero, pins (01, 05, 07), card deal, ch-03, ch-07, rail (9): untouched. Pins still three.

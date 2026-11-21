@@ -316,6 +316,20 @@
       .fromTo($$(".liv-chap__rail b", duo), { opacity: 0 }, { opacity: 1, duration: .1 }, .9);
   }
 
+  /* 04B: the gold track is drawn with the scroll (the screen's only effect): the line from the left, the
+     three nodes light up as it reaches them. Static layout = complete. Vertical on phones is static anyway. */
+  function nextTracks() {
+    const box = $("[data-next]");
+    if (!box) return;
+    const dots = $$(".liv-track--new .liv-track__dot", box);
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: box, start: "top 80%", end: "bottom 75%", scrub: .6, invalidateOnRefresh: true },
+      defaults: { ease: "none" },
+    });
+    tl.fromTo($(".liv-track--new .liv-track__line i", box), { scaleX: 0 }, { scaleX: 1, duration: 1 }, 0);
+    dots.forEach((d, i) => tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: .08 }, i === 0 ? 0 : (i / (dots.length - 1)) * .86));
+  }
+
   const mm = gsap.matchMedia();
   mm.add("(min-width: 769px) and (prefers-reduced-motion: no-preference)", () => {
     doc.classList.add("has-scenes");
@@ -326,6 +340,7 @@
     pauseRail();
     settleRail();
     chapRails();
+    nextTracks();
     doc.classList.remove("scenes-pending");
     ScrollTrigger.refresh();
     return () => { giaOff(); finalOff(); doc.classList.remove("has-scenes"); };

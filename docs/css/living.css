@@ -208,13 +208,18 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   text-wrap: balance;
   color: var(--gh-ink);
 }
-.liv-settle__c {
+.liv-settle__o {
   grid-column: 3 / 9; margin: clamp(56px, 7vw, 112px) 0 0;
   font-size: clamp(20px, 1.9vw, 27px); line-height: 1.5;
   color: var(--gh-ink);
 }
+.liv-settle__c {
+  grid-column: 7 / 12; margin: clamp(40px, 4vw, 64px) 0 0;
+  font-size: clamp(20px, 1.9vw, 27px); line-height: 1.5;
+  color: var(--gh-ink);
+}
 .liv-settle__b {
-  grid-column: 7 / 12; margin: clamp(56px, 7vw, 112px) 0 0;
+  grid-column: 3 / 8; margin: clamp(40px, 4vw, 64px) 0 0;
   font-size: clamp(17px, 1.4vw, 20px); line-height: 1.6;
   color: var(--gh-ink-2);
 }
@@ -238,8 +243,9 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 
 @media (max-width: 1023px) {
   .liv-settle__a { grid-column: 2 / 13; }
-  .liv-settle__c { grid-column: 2 / 12; }
-  .liv-settle__b { grid-column: 4 / 13; }
+  .liv-settle__o { grid-column: 2 / 12; }
+  .liv-settle__c { grid-column: 4 / 13; }
+  .liv-settle__b { grid-column: 2 / 12; }
 }
 @media (max-width: 768px) {
   .liv-settle__stage { display: flex; flex-direction: column; }
@@ -248,8 +254,9 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   .liv-settle__pic { aspect-ratio: 4 / 3; }
   .liv-settle__pic img { object-position: 62% 50%; }
   .liv-settle__dusk, .liv-settle__scrim { display: none; }
-  .liv-settle__text .eyebrow, .liv-settle__a, .liv-settle__c, .liv-settle__b { grid-column: 1 / -1; }
-  .liv-settle__c { margin-top: 32px; }
+  .liv-settle__text .eyebrow, .liv-settle__a, .liv-settle__o, .liv-settle__c, .liv-settle__b { grid-column: 1 / -1; }
+  .liv-settle__o { margin-top: 32px; }
+  .liv-settle__c { margin-top: 24px; }
   .liv-settle__b { margin-top: 24px; }
   .liv-settle__rail { left: var(--page-pad); }
 }
@@ -286,6 +293,16 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   font-family: var(--font-display); font-weight: 500;
   font-size: clamp(26px, 2.6vw, 38px); line-height: 1.2;
   color: var(--gh-cream);
+}
+.liv-chap__terms {
+  max-width: 640px; margin: 16px 0 0;
+  font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6;
+  color: rgba(244, 237, 226, .88);
+}
+.liv-chap__conv {
+  grid-area: 3 / 2; margin: clamp(40px, 4vw, 56px) 0 0; text-align: center;
+  font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6;
+  color: rgba(244, 237, 226, .88);
 }
 .liv-chap__lead {
   max-width: 560px;
@@ -339,15 +356,15 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 .liv-sep--1 .liv-sep__and { grid-area: 1 / 2; }
 .liv-sep--1 .liv-sep__b { grid-area: 1 / 3; }
 .liv-sep--1 .liv-sep__end { grid-area: 2 / 2; }
-.liv-chap__s6 { grid-area: 3 / 2; margin-top: clamp(72px, 8vw, 120px); text-align: center; }
+.liv-chap__s6 { grid-area: 4 / 2; margin-top: clamp(72px, 8vw, 120px); text-align: center; }
 .liv-chap__s6 .eyebrow { justify-content: center; }
 .liv-chap__h--6 { font-size: clamp(34px, 4.2vw, 64px); line-height: 1.04; }
 .liv-sep--2 .liv-sep__a, .liv-sep--2 .liv-sep__b {
   margin-top: clamp(56px, 6vw, 96px);
   font-size: clamp(21px, 2vw, 30px); line-height: 1.2;
 }
-.liv-sep--2 .liv-sep__a { grid-area: 4 / 1; }
-.liv-sep--2 .liv-sep__b { grid-area: 4 / 3; }
+.liv-sep--2 .liv-sep__a { grid-area: 5 / 1; }
+.liv-sep--2 .liv-sep__b { grid-area: 5 / 3; }
 
 .liv-chap__risk {
   max-width: 540px;
@@ -357,6 +374,8 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6;
   color: var(--gh-cream);
 }
+.liv-chap__risk p { margin: 0; }
+.liv-chap__risk p + p { margin-top: 16px; }
 
 @media (max-width: 1023px) {
   .liv-chap { --c2: 1.7; }
@@ -364,6 +383,7 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 }
 @media (max-width: 768px) {
   .liv-chap__lead { margin-left: 0; }
+  .liv-chap__conv { margin: 40px 0 0 21px; text-align: left; }
   .liv-chap__duo { display: block; margin-top: 56px; padding-bottom: 0; }
   .liv-chap__rail { display: none; }
   .liv-sep { display: block; margin: 0; }
@@ -378,54 +398,78 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 }
 
 /* ==========================================================
-   Three Years, Side by Side — paper pause between two dark blocks (hard edges).
-   A real table drawn as editorial rows: labels | Traditional | 1px gold line | Glonari Home.
-   Only effect: rows come in one by one (data-reveal). Nothing pinned.
+   04B · Your next move — a paper pause between two dark blocks
+   (hard edges both sides: dark chapter above, the dark final below).
+   Headline and one sentence on paper, the door at dusk full width,
+   then two tracks on one 4-column grid: "Traditional Home" in grey
+   (4 steps) and "Glonari Home" on a gold line (3 steps, shorter).
+   The gold line is drawn by the scroll: the screen's only effect
+   (nextTracks() in living.js). Static (phones, reduced motion, no JS):
+   everything complete; <=768px the tracks run down a vertical line.
+   Padding: top --section-y; bottom --section-y too (the section sits
+   between two dark bands, so its own bottom is the gap to the final).
    ========================================================== */
-.liv-three { background: var(--gh-paper); padding-block: var(--section-y); }
-.liv-tbl { display: block; width: 100%; margin: 0; border-collapse: collapse; }
-.liv-tbl caption { display: block; text-align: left; }
-.liv-tbl caption .h2 { margin-bottom: clamp(48px, 5vw, 80px); }
-.liv-tbl thead, .liv-tbl tbody { display: block; }
-.liv-tbl tr {
-  position: relative; display: grid;
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1.15fr) minmax(0, 1.45fr);
-  border-top: 1px solid rgba(31, 26, 20, .16);
+.liv-next { background: var(--gh-paper); padding-block: var(--section-y); }
+.liv-next__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
+.liv-next__h {
+  grid-column: 1 / 11; margin: 0;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(42px, 6vw, 96px); line-height: .98; letter-spacing: -.01em;
+  text-wrap: balance; color: var(--gh-ink);
 }
+.liv-next__lead {
+  grid-column: 4 / 11; margin: clamp(28px, 3vw, 44px) 0 0;
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(22px, 2.1vw, 30px); line-height: 1.3; color: var(--gh-ink);
+}
+.liv-next__pic { display: block; margin-top: clamp(56px, 6vw, 96px); }
+.liv-next__pic img { display: block; width: 100%; height: auto; aspect-ratio: 2560 / 1097; object-fit: cover; }
 
-.liv-tbl th, .liv-tbl td { text-align: left; font-weight: 400; padding: clamp(24px, 2.6vw, 40px) clamp(20px, 3vw, 48px); min-width: 0; }
-.liv-tbl th:first-child { padding-left: 0; }
-.liv-tbl thead tr { border-top: 0; }
-.liv-tbl thead th {
-  padding-block: 0 20px;
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(18px, 1.6vw, 22px); color: var(--gh-ink);
+.liv-next__tracks { margin-top: clamp(56px, 6vw, 96px); display: grid; row-gap: clamp(48px, 5vw, 80px); }
+.liv-track { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: start; }
+.liv-track__name {
+  grid-column: 1 / 4; margin: 0; padding-top: 4px;
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(22px, 2.1vw, 30px); line-height: 1.2; color: var(--gh-ink);
 }
-.liv-tbl thead th:first-child { font-family: var(--font-mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; align-self: end; color: var(--gh-ink-2); }
-.liv-tbl tbody th {
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.35; color: var(--gh-ink);
+.liv-track--new .liv-track__name { color: var(--gh-gold-ink); }
+.liv-track__way { grid-column: 4 / -1; position: relative; display: grid; }
+.liv-track__line { position: absolute; top: 6px; left: 0; right: 0; height: 1px; pointer-events: none; }
+.liv-track__line i { position: absolute; inset: 0; background: rgba(31, 26, 20, .28); transform-origin: left; }
+.liv-track--new .liv-track__line { right: calc(100% / 4 + 6px); }   /* three of the four columns: shorter, same grid */
+.liv-track--new .liv-track__line i { background: var(--tl-gold); }
+.liv-track__steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; }
+.liv-track__steps li { position: relative; padding-top: 32px; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.5; color: var(--gh-ink-2); }
+.liv-track--new .liv-track__steps li { color: var(--gh-ink); }
+.liv-track__steps strong { font-weight: 500; font-family: var(--font-display); font-size: 1.12em; display: block; margin-bottom: 4px; }
+.liv-track__dot {
+  position: absolute; top: 0; left: 0; width: 13px; height: 13px; border-radius: 50%;
+  border: 1px solid rgba(31, 26, 20, .4); background: var(--gh-paper);
 }
-.liv-tbl td { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: var(--gh-ink-2); }
-.liv-tbl tbody td:last-child { color: var(--gh-ink); border-left: 1px solid var(--gp-gold-mid); }   /* the 1px gold divider: a cell border, so it sits on a whole pixel and runs through every row */
-.liv-rest { display: block; margin-top: 12px; }
-.liv-num {
-  font-family: var(--font-word); font-weight: 500; font-size: clamp(44px, 5.2vw, 78px); line-height: 1; letter-spacing: -.01em; color: var(--gh-ink);
-}
-.liv-three__note {
-  max-width: 760px; margin: clamp(40px, 4vw, 64px) 0 0 auto;
+.liv-track--new .liv-track__dot { border-color: var(--tl-gold); }
+.liv-track--old .liv-track__steps li { font-family: var(--font-display); font-size: clamp(19px, 1.7vw, 24px); }
+.liv-next__note {
+  max-width: 760px; margin: clamp(48px, 5vw, 72px) 0 0 calc((100% + 24px) / 12 * 3);
   font-size: 16px; line-height: 1.6; color: var(--gh-ink-2);
 }
+.scenes-pending .liv-track--new .liv-track__line i { transform: scaleX(0); }
+.scenes-pending .liv-track--new .liv-track__dot { opacity: 0; }
+@media (max-width: 1023px) {
+  .liv-next__h { grid-column: 1 / -1; }
+  .liv-next__lead { grid-column: 3 / -1; }
+  .liv-track__name { grid-column: 1 / -1; padding-bottom: 28px; }
+  .liv-track__way { grid-column: 1 / -1; }
+  .liv-next__note { margin-left: 0; }
+}
 @media (max-width: 768px) {
-  .liv-tbl tr { grid-template-columns: minmax(0, 1fr); padding-block: 8px 20px; }
-  .liv-tbl thead { display: none; }
-  .liv-tbl th, .liv-tbl td { padding: 12px 0; }
-  .liv-tbl th:first-child { padding-left: 0; }
-  .liv-tbl tbody th { padding-bottom: 4px; }
-  .liv-tbl td:last-child { padding-left: 20px; border-left: 1px solid var(--gp-gold-mid); }
-  .liv-tbl td:nth-of-type(1)::before { content: "Traditional ownership"; }
-  .liv-tbl td:nth-of-type(2)::before { content: "Glonari Home"; }
-  .liv-tbl td::before { display: block; font-family: var(--font-mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--gh-ink-2); margin-bottom: 6px; }
-  .liv-num { font-size: 48px; }
-  .liv-three__note { margin-left: 0; }
+  .liv-next__lead { grid-column: 1 / -1; }
+  .liv-next__pic img { aspect-ratio: 4 / 3; object-position: 76% 50%; }
+  .liv-track__name { padding-bottom: 20px; }
+  .liv-track__line { top: 6px; bottom: 6px; left: 6px; right: auto; width: 1px; height: auto; }
+  .liv-track--new .liv-track__line { right: auto; bottom: 6px; }
+  .liv-track__line i { transform-origin: top; }
+  .liv-track__steps { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
+  .liv-track__steps li { padding: 0 0 0 36px; }
 }
 
 /* ==========================================================
@@ -511,6 +555,9 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
    ========================================================== */
 .liv-life { position: relative; padding-block: var(--section-y); background: var(--gh-paper); overflow-x: clip; }  /* bottom too: hard paper to brown edge into the dark chapter */
 .liv-life__copy { max-width: 640px; color: var(--gh-ink-2); }
+.liv-life__notice { max-width: 640px; margin: 16px 0 0; color: var(--gh-ink); }
+.liv-life__notice strong { font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gh-gold-ink); margin-right: 6px; }
+.liv-life__note { max-width: 640px; margin: clamp(40px, 4vw, 64px) 0 0; font-size: 16px; line-height: 1.6; color: var(--gh-ink-2); }
 
 .liv-stage {
   --life-ms: 5000ms;
@@ -704,6 +751,9 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
    ========================================================== */
 .liv-gia { position: relative; padding-top: var(--section-y); background: var(--gh-paper); }
 .liv-gia__copy { max-width: 640px; color: var(--gh-ink-2); }
+/* disclaimer on plain paper under the pinned scene (never over the photo) */
+.liv-gia__note { max-width: 640px; margin: clamp(48px, 5vw, 72px) 0 0 calc((100% / 12) * 2); font-size: 16px; line-height: 1.6; color: var(--gh-ink-2); }
+@media (max-width: 768px) { .liv-gia__note { margin-left: 0; } }
 /* pause after the Gia screen: one line, offset right of the gold line that runs through it into the strip */
 .liv-pause {
   position: relative; background: var(--gh-paper);

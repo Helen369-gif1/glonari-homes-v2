@@ -4,7 +4,7 @@
 
    01 hero (scene)  · 02 where (pause) · 03 the first questions
    (scene >=1024px, read-only) · 04 options (the only dark band)
-   · 05 cost illustration (pause, #cost-illustration) · 06 next (scene)
+   · 05 cost estimate (pause, #cost-illustration) · 06 next (scene)
 
    Default CSS = the static final layout (phones, reduced motion,
    no JS). .has-scenes (find.js, >=769px) pins the hero and the last
@@ -272,10 +272,17 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
   font-size: clamp(26px, 3.3vw, 50px); line-height: 1.16;
   text-wrap: pretty;
 }
-.find-opt__s--a { max-width: 22em; color: #FBF4E8; }
-.find-opt__s--b { max-width: 15em; margin: clamp(40px, 6vw, 88px) 0 0 auto; color: var(--gp-champagne); }
-.find-opt__q { display: block; font-weight: 400; margin-top: clamp(20px, 2.4vw, 32px); font-family: var(--font-ui); font-size: clamp(19px, 1.6vw, 22px); line-height: 1.55; color: #FBF4E8; max-width: 30em; }
-@media (max-width: 768px) { .find-opt__s--b { margin-left: 0; } }
+.find-opt__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 104px; column-gap: clamp(16px, 2vw, 32px); align-items: start; }
+.find-opt__s--a { grid-column: 1 / 8; grid-row: 1; color: #FBF4E8; }
+/* the step: b sits right of a, bottom-aligned, and hangs 104px below a's last line (the void under a); the grid's second row is that 104px */
+.find-opt__b { grid-column: 8 / 13; grid-row: 1 / 3; align-self: end; font-size: clamp(19px, 1.6vw, 22px); line-height: 1.55; color: #FBF4E8; }
+.find-opt__b p { margin: 0; text-wrap: pretty; }
+.find-opt__b p + p { margin-top: 16px; }
+@media (max-width: 900px) {
+  .find-opt__grid { grid-template-rows: none; }
+  .find-opt__s--a, .find-opt__b { grid-column: 1 / -1; grid-row: auto; }
+  .find-opt__b { margin-top: clamp(32px, 6vw, 48px); max-width: 30em; }
+}
 
 /* ---------- 05 cost estimate (#cost-illustration anchor) ---------- */
 .find-cost { padding-top: var(--section-y); position: relative; }
@@ -286,10 +293,10 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
 .find-cost__texts {
   margin-top: clamp(40px, 5vw, 72px);
   display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px clamp(16px, 2vw, 32px);
-  align-items: start;
+  align-items: end;
 }
 .find-cost__a { grid-column: 1 / 7; margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.1vw, 30px); line-height: 1.3; }
-.find-cost__b { grid-column: 8 / 13; margin: clamp(0px, 6vw, 96px) 0 0; font-size: 18px; line-height: 1.6; color: var(--gh-ink); }
+.find-cost__b { grid-column: 8 / 13; margin: 0; font-size: 18px; line-height: 1.6; color: var(--gh-ink); }
 .find-cost__u {
   background: linear-gradient(var(--gp-gold-mid), var(--gp-gold-mid)) 0 100% / calc(var(--u, 1) * 100%) 2px no-repeat;
   padding-bottom: 3px;
@@ -315,7 +322,7 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
   width: min(100%, calc(var(--container) + 2 * var(--page-pad)));
   margin-inline: auto;
   padding: var(--panel-y) var(--page-pad) 0;   /* below: the section's own --section-y (the last screen before the footer) */
-  display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, .85fr);
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   grid-template-areas: "eyebrow eyebrow" "title side";
   gap: 14px clamp(32px, 5vw, 96px); align-items: start;   /* the paragraph starts on the title's top line */
 }
@@ -327,7 +334,8 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
   font-size: clamp(34px, min(4vw, 6.4svh), 64px); line-height: .98; letter-spacing: -.01em; text-wrap: pretty;
 }
 .find-next__side { grid-area: side; }
-.find-next__side p { margin: 4px 0 16px; font-size: 18px; line-height: 1.55; color: var(--gh-ink); }
+.find-next__side p:first-child { margin: 4px 0 16px; font-size: 18px; line-height: 1.55; color: var(--gh-ink); }
+.find-next__line { margin: 14px 0 0; font-size: 16px; line-height: 1.5; color: var(--gh-ink-2); max-width: 26em; }
 @media (max-width: 900px) {
   .find-next { --panel-est: 340px; }
   .find-next__panel-in { grid-template-columns: 1fr; grid-template-areas: "eyebrow" "title" "side"; gap: 14px; }

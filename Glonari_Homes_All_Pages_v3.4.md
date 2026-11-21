@@ -2,7 +2,7 @@
 
 ## Website Copy — All Pages
 
-Version 3.2, 2026-11-21 (v3.1 plus the owner’s decision to keep the site light: no GPA and credit line page, no comparison table on Living; v3 and v3.1 are kept unchanged). Built from the newest *Glonari Homes brochure v2* and *Glonari Properties presentation v2* (both 15 November 2026), which **replace the old model**. Structure, page list and screen numbering follow v2; new screens are marked **NEW**. The untouched v2 is kept as `Glonari_Homes_All_Pages_v2_ARCHIVE_2026-11-21.md`; every line taken out of v2 is listed with its place in `V3-CHANGES-AND-OPEN-QUESTIONS.md`. Nothing is deleted for good: the two lines below are only paused until the terms are confirmed with Kert.
+Version 3.4, 2026-11-21 (v3.3 plus shorter Glonari Properties screens 03, 05 and 06: the removed sentences moved to the FAQs or to `DEFERRED-part2-properties-text.md`; v3, v3.1, v3.2 and v3.3 are kept unchanged). Built from the newest *Glonari Homes brochure v2* and *Glonari Properties presentation v2* (both 15 November 2026), which **replace the old model**. Structure, page list and screen numbering follow v2; new screens are marked **NEW**. The untouched v2 is kept as `Glonari_Homes_All_Pages_v2_ARCHIVE_2026-11-21.md`; every line taken out of v2 is listed with its place in `V3-CHANGES-AND-OPEN-QUESTIONS.md`. Nothing is deleted for good: the two lines below are only paused until the terms are confirmed with Kert.
 
 **Working decisions of 2026-11-21 (owner, after the answers on the open questions):**
 1. The new brochure and presentation are the main version. Old conditions stay where the new documents give no direct answer. They are working conditions, not confirmed facts; where the documents differ, it is confirmed with Kert.
@@ -346,20 +346,6 @@ Transfer is available after 12 months, with 90 days’ notice, subject to availa
 
 *The built stage (scenario tabs, Gia steps, pills) keeps its approved texts. Only the two lines above are added.*
 
-## SCREEN 04B — MAKE ROOM FOR YOUR NEXT CHAPTER (NEW)
-
-*New full screen, its own composition, no pin.*
-
-# Your Next Move Need Not Start With a House Sale.
-
-A Glonari transfer separates your move from selling the residence yourself.
-
-**Traditional Home.** 1. Prepare. 2. Find a buyer. 3. Negotiate. 4. Close sale.
-
-**Glonari Home.** Plan with Gia: explore another qualifying Home. Give notice: 90 days’ notice, after the initial 12 months. Transfer: move under the applicable agreement and availability.
-
-Sale and transition costs vary. A 6-10% planning allowance on a $1 million sale is $60,000-$100,000, not a standard commission or promised saving. Glonari transfer fees may apply. Transfer flexibility does not guarantee GPA resale liquidity.
-
 ## SCREEN 05 — THE POSSIBILITY OF OWNERSHIP
 
 # Could This Home One Day Be Yours?
@@ -383,6 +369,20 @@ Your monthly fee covers the cost of living in your home and its services; none o
 As GPA appreciates, the minimum number of shares you must hold goes down each month. After you move in, you are never required to buy more.
 
 GPA shares have the potential for long-term value growth. Growth depends on property and business performance. Total assets can grow while shares increase; per-share growth matters.
+
+## SCREEN 06B — MAKE ROOM FOR YOUR NEXT CHAPTER (NEW)
+
+*New full screen, its own composition, no pin. Order (owner): it follows Screen 06 and sits between the dark chapter and the dark final screen. The photo of a door with luggage and boxes opens the screen; the heading stands on paper above it.*
+
+# Your Next Move Need Not Start With a House Sale.
+
+A Glonari transfer separates your move from selling the residence yourself.
+
+**Traditional Home.** 1. Prepare. 2. Find a buyer. 3. Negotiate. 4. Close sale.
+
+**Glonari Home.** Plan with Gia: explore another qualifying Home. Give notice: 90 days’ notice, after the initial 12 months. Transfer: move under the applicable agreement and availability.
+
+Sale and transition costs vary. A 6-10% planning allowance on a $1 million sale is $60,000-$100,000, not a standard commission or promised saving. Glonari transfer fees may apply. Transfer flexibility does not guarantee GPA resale liquidity.
 
 ## SCREEN 07 — FINAL INVITATION
 
@@ -514,11 +514,11 @@ Higher collections and lower costs are operating objectives, not independently d
 
 GPA Class A represents equity in Glonari Properties.
 
-Instead of investing only in one property, eligible investors may participate in a business associated with a wider portfolio of real estate and related operations. GPA is an alternative to holding equity in one Home. You hold company shares alongside your Home agreement, with growth potential from properties and the operating business. Glonari Members hold GPA equal to at least 20% of the value of their home. GPA shares do not give an investor ownership of the home in which they live.
+GPA is an alternative to holding equity in one Home. You hold company shares alongside your Home agreement, with growth potential from properties and the operating business. Glonari Members hold GPA equal to at least 20% of the value of their home. GPA shares do not give an investor ownership of the home in which they live.
 
-More capital is not itself a gain. Percentage ownership can fall; later value per share depends on the property and operating economics achieved after new capital is deployed.
+More capital is not itself a gain. Percentage ownership can fall; later value per share depends on the property and operating economics achieved after new capital is deployed. Participation in GPA and the acquisition of GPA shares depend on applicable requirements and on the investor meeting the established conditions.
 
-Participation in GPA and the acquisition of GPA shares depend on applicable requirements and on the investor meeting the established conditions.
+*Shortened (owner, v3.4): the sentence “Instead of investing only in one property, eligible investors may participate in a business associated with a wider portfolio of real estate and related operations.” moved to `DEFERRED-part2-properties-text.md`. The last two sentences stand together as one small note.*
 
 *The 20% sentence is restored as a working condition. The accredited / SEC sentence is replaced by the neutral line.*
 
@@ -566,7 +566,7 @@ These figures are modeled scenarios, not available cash or guaranteed sale price
 
 **Can values fall?** Yes. The company model assumes 5% annual property appreciation, monthly acquisitions and immediate operating value for fully active Homes. Business value depends on executed operations and contracts. Properties and business performance can weaken.
 
-Three different measures: what has been recognized in financial reporting; how much the economics could be worth (NAV+, management’s supplemental estimate, not a GAAP standard or an audit opinion); and what an eligible buyer will actually pay. The three can differ.
+*Shortened (owner, v3.4): the paragraph “Three different measures…” moved to the FAQs as the question “What does NAV+ mean?”. The phrase “not a GAAP standard or an audit opinion” now stands only there.*
 
 *Paused: “GPA is designed to appreciate at least in line with the 10-Year Case-Shiller housing index… reaches a modeled $437.83.” Year-end modeled values in the new documents: $252.22, $325.41, $402.32.*
 
@@ -578,17 +578,11 @@ Three different measures: what has been recognized in financial reporting; how m
 
 You can seek to sell part of your holding instead of an entire property. Smaller purchase sizes can open participation to more eligible buyers than a whole-home sale. That can support liquidity when demand exists; actual sales still depend on transfer rules, buyers and price.
 
-As GPA appreciates, a member’s required minimum goes down each month. Shares beyond the minimum can be sold or applied to another property.
-
-When shares are sold to an eligible buyer, that buyer pays the selling holder. The company does not automatically receive that cash.
-
 GPA has no promised trading market, listing, redemption, share repurchase, or minimum price.
-
-A sale of eligible shares or a lender-approved loan secured by shares may provide funds under certain conditions. Neither changes the contractual Home Fee.
 
 Borrowing creates repayment obligations and interest. Selling shares reduces the investor’s position and may have tax consequences.
 
-*The minimum sentences are restored as a prior concept awaiting confirmation from Kert.*
+*Shortened (owner, v3.4): three paragraphs moved: “As GPA appreciates, a member’s required minimum goes down each month…” (stays in the FAQ “Do I have to keep a certain number of shares the whole time?”), “When shares are sold to an eligible buyer, that buyer pays the selling holder…” (now in the FAQ “Can I sell my GPA shares?”) and “A sale of eligible shares or a lender-approved loan secured by shares may provide funds…” (now in the FAQ “Can I borrow against GPA shares?”).*
 
 *Here we need to explain whether actual buyers or lenders exist, whether Glonari can repurchase shares, and what restrictions apply.*
 
@@ -700,6 +694,10 @@ Participation in GPA and the acquisition of GPA shares depend on applicable requ
 
 *Neutral wording (owner, 2026-11-21): no promise of future SEC approval or dates. Exact wording to confirm with Kert.*
 
+### What does NAV+ mean?
+
+Our model uses NAV+ to estimate economic value under different scenarios. Three different measures: what has been recognized in financial reporting; how much the economics could be worth (NAV+, management’s supplemental estimate, not a GAAP standard or an audit opinion); and what an eligible buyer will actually pay. The three can differ.
+
 ### Are GPA shares backed by an individual house?
 
 GPA shares are equity in Glonari Properties. They are not title to a particular residence or a stated lien on an individual house.
@@ -712,11 +710,11 @@ A rising valuation does not create cash. Distributions depend on cash available,
 
 ### Can I sell my GPA shares?
 
-You can seek to sell part of your holding. Actual sales depend on transfer rules, buyers and price. GPA has no promised trading market, repurchase program, redemption mechanism, or minimum share price.
+You can seek to sell part of your holding. Actual sales depend on transfer rules, buyers and price. GPA has no promised trading market, repurchase program, redemption mechanism, or minimum share price. When shares are sold to an eligible buyer, that buyer pays the selling holder. The company does not automatically receive that cash.
 
 ### Can I borrow against GPA shares?
 
-An approved credit line (LOC) is a separate loan and pledge, subject to approval and permitted uses. Credit requires a simultaneous share pledge and is not available to everyone. Credit is not assured.
+An approved credit line (LOC) is a separate loan and pledge, subject to approval and permitted uses. Credit requires a simultaneous share pledge and is not available to everyone. Credit is not assured. A sale of eligible shares or a lender-approved loan secured by shares may provide funds under certain conditions. Neither changes the contractual Home Fee.
 
 *Owner (2026-11-21): this is the only credit-line question in the FAQs. The group “Your credit line” is deferred.*
 

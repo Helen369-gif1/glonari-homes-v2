@@ -1,6 +1,6 @@
 # Glonari Homes — Site Structure
 
-Page list, navigation, and per-page sections. Approved English copy for each section lives in `Glonari_Homes_All_Pages_v3.2.md` (main source since 2026-11-21; it replaces the older `.docx`) — this file does not duplicate it, only the structure. Visual rules live in `DESIGN-SYSTEM-HOMES.md`. Build status lives in `PROJECT-STATUS.md`.
+Page list, navigation, and per-page sections. Approved English copy for each section lives in `Glonari_Homes_All_Pages_v3.4.md` (main source since 2026-11-21; it replaces the older `.docx`) — this file does not duplicate it, only the structure. Visual rules live in `DESIGN-SYSTEM-HOMES.md`. Build status lives in `PROJECT-STATUS.md`.
 
 ## Navigation (as built, every page)
 
@@ -52,14 +52,14 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 
 ### 3. Living With Glonari — `docs/living-with-glonari.html` — ✅ rebuilt 2026-11-12 to Page 03 of the v2 document (awaiting owner review)
 
-8 blocks (7 screens + `#three-years`). Page files: `css/living.css`, `js/living.js`. Pinned scenes: exactly three (01, 02, 07). Anchors kept for the home page: `#gia-goes-with-you`, `#when-life-changes`.
+8 blocks (7 screens + `#next-move`; `#three-years` removed 2026-11-21). Page files: `css/living.css`, `js/living.js`. Pinned scenes: exactly three (01, 02, 07). Anchors kept for the home page: `#gia-goes-with-you`, `#when-life-changes`.
 
 1. Hero (scene) — garden, kitchen, "LIVING", family; "The Life You Make at Home."; button → `#gia-goes-with-you`
 2. Everyday life with Gia (`#gia-goes-with-you`, scene, paper) — one room, four views behind the glass, Gia's chat keeps its history
 3. Feeling at home (`#feeling-at-home`, pause, paper) — wide strip, the light comes on with the scroll
 4. When life changes (`#when-life-changes`, pause, paper) — self-playing stage: tabs | photo stack + Gia pill | Gia steps
 5+6. The possibility of ownership / What stays with you? (`#ownership`, `#what-stays-with-you`, one dark chapter, no pin) — two gold lines that never touch, sentences laid out along them
-5b. Three Years, Side by Side (`#three-years`, paper pause, no pin) — table: Traditional ownership vs Glonari Home, gold line, Cormorant figures; hard edges between the dark chapter and the final
+5b. Your next move (`#next-move`, paper pause, no pin, order set by the owner: after the dark chapter, before the final) — headline + sentence on paper, the door at dusk full width, two tracks on one grid (Traditional Home grey, 4 steps / Glonari Home on a gold line drawn by the scroll, 3 steps), 16px note; hard edges brown→paper→brown
 7. Final invitation (`#final-invitation`, scene, dark) — night villa, headline, line, "Explore Your Home" → Find Your Home
 
 ### 4. Find Your Home — `docs/find-your-home.html` — ✅ built (Page 04 of the document, 6 screens)
@@ -69,9 +69,9 @@ Page files: `css/find.css`, `js/find.js`. Media are `placeholder-find-…` until
 1. Hero (scene, pin) — street, title between street and home, home; "The Home You Have in Mind."; a quiet paper bar under the photo holds the paragraph, the "Glonari Properties may evaluate…" disclaimer and "Start Exploring" → `#where`
 2. Where would you like to live? (`#where`, pause, paper) — huge headline, lead, abstract map with a gold route and unnamed rings
 3. The first questions (`#priorities`, scene ≥1024px, paper) — five read-only questions replace each other, a square arch with a gold outline opens upward; list with small arches below 1024px / reduced motion
-4. Do I qualify? (`#options`, **the page's only dark band**, hard edges, no pin) — two statements, gold rule between them
-5. Your home cost estimate (pause, paper) — invisible anchor `#cost-illustration`; house cut-out from the home page, ground line, "estimated" underlined on scroll
-6. What happens next? (`#next`, scene, pin) — family parallax, paper panel with the closing lines and the button "Request a Personal Cost Overview" (placeholder `href="#"`)
+4. Do I qualify? (`#options`, **the page's only dark band**, hard edges, no pin) — gold rule, then a step: statement a (cols 1-7, large) and the two condition paragraphs b (cols 8-12, 22px, bottom-aligned, hanging 104px below a)
+5. Your home cost estimate (pause, paper) — invisible anchor `#cost-illustration` (linked from How It Works only); house cut-out from the home page, ground line, "estimated" underlined on scroll; two paragraphs bottom-aligned
+6. What happens next? (`#next`, scene, pin) — family parallax, paper panel with the closing lines and the button "Request a Consultation" with the line "Request a personal consultation through your Glonari representative." under it (placeholder `href="#"`)
 
 Pinned scenes: 01, 03, 06 (03 can lose its pin if three feel heavy: the questions then change with normal scroll).
 
@@ -83,17 +83,18 @@ Page files: `css/faqs.css`, `js/faqs.js`. No pins, no dark band. Questions witho
 2–6. Groups `#faq-01…05` (Living in a Glonari Home · Monthly payments · GPA and investment · Gia and Global Connections · Leaving or moving) — number + title left (sticky ≥1024px), `details` questions right, first open; photo pause after 02 and after 04
 7. Final (`#final`) — "Know the Terms. Make the Choice That Fits You.", buttons to Find Your Home and How It Works
 
-### 7. Glonari Properties & GPA — `docs/glonari-properties.html` — ✅ built 2026-11-14 (Page 05, 7 screens; media still placeholders)
+### 7. Glonari Properties & GPA — `docs/glonari-properties.html` — ✅ brought to v3.4 2026-11-21 (Page 05, 8 screens; 02B photo is a placeholder)
 
-Page files: `css/properties.css`, `js/properties.js`. Calmer and stricter than Home. Pinned scenes: exactly two (01, 04). One dark band: 05. Eyebrows are numbers only.
+Page files: `css/properties.css`, `js/properties.js`. Calmer and stricter than Home. Pinned scenes: exactly two (01, 04). One dark band: 05. Eyebrows are numbers only (02 / 08 … 08 / 08). Properties 04B and Class A/B are not built; there is no GPA-and-credit-line page.
 
-1. Hero (scene) — the Already-Own-a-Home hero whole (sunset · porch home · word "PROPERTIES" (temporary) · woman), h1, two paragraphs, "Explore Glonari Properties" → `#company`
+1. Hero (scene) — the Already-Own-a-Home hero whole (word "PROPERTIES" temporary), h1, two paragraphs, "Explore Glonari Properties" → `#company`
 2. The company (`#company`, pause) — street photo bleeding left, text lower right
-3. What are GPA shares? (type only)
-4. Where value may come from (scene) — $1,000,000 + $400,000 = $1,400,000 on a gold line
-5. Understanding NAV+ (dark band, no pin) — $100 → $437.83 with the caveat beside it
-6. Can shares be sold? (pause) — panorama + text staircase
-7. Advanced investment strategies — closing screen, button "Review the Investment Materials" (`href="#"`)
+2B. A better home, a more productive asset (`#better`, pause, new) — heading + lead, full-width band, three rising statements, note
+3. What are GPA shares? (type only: gold line across, row of two columns, small note)
+4. Where value may come from (scene) — $1,000,000 + $579,071 = $1,579,071 with labels; disclaimer strip under the scene
+5. Understanding NAV+ (dark band, no pin) — $100 → $402.32 across the full width, both caveats under it (v3.4: no measures block)
+6. Can shares be sold? (pause) — opening paragraph, panorama, one large line, small note
+7. Advanced investment strategies — type only, one button "Review the Investment Materials" (`href="#"`)
 
 ## Cross-page links already referenced from the home page
 

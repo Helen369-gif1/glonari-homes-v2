@@ -1,4 +1,4 @@
-# Open questions from `Glonari_Homes_All_Pages_v3.2.md`
+# Open questions from `Glonari_Homes_All_Pages_v3.4.md`
 
 The italic notes in the document are questions for the owner, not site copy: they are never published. They are collected here, page by page and screen by screen, as each page is rebuilt. Home (Page 01) and the pages after How It Works will be added when they are processed.
 
@@ -34,7 +34,7 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 **Screen 02 — Everyday life with Gia**
 - Here we need real examples of Gia's currently available services, what she can do automatically, what needs the resident's approval, and which features are still planned.
-- Gia chat (Living With Glonari): the "By the sea" message now reads "Your Global Connections earnings moved with you. Nothing starts from zero." (2026-11-14; "Home Business" replaced, owner's decision). The chat messages are still not in the document.
+- Gia chat (Living With Glonari): the "By the sea" message now reads "Let's see what your home plan could look like." (2026-11-21, owner's working set; assignment to this place awaiting the owner's final confirmation). The chat messages are still not in the document.
 
 **Screen 03 — Feeling at home**
 - Here we need to explain the actual duration of the housing agreement, renewal rights, possible increases in monthly fees, grounds for termination, and what protects the resident if Glonari Properties sells the home.
@@ -66,12 +66,14 @@ The italic notes in the document are questions for the owner, not site copy: the
 **Screen 04 — Do I qualify?**
 - Here we need an explicit answer to whether a Glonari Home is available to a family that does not invest in GPA. We also need the actual eligibility rules, required documents, and any upfront financial commitment.
 
-**Screen 05 — Your home cost illustration**
+**Screen 05 — Your home cost estimate**
 - Here we need an approved estimate for the selected home: full fee, planned benefit and qualifying conditions, expenses paid separately, required investment if applicable, and a scenario in which the benefit is not received.
 
 **Screen 06 — What happens next?**
 - Here we need to explain who handles the request, when the family receives an answer, the approval stages, and whether the property is actually available. The present draft does not establish a live application service.
-- Screen 06 on the site (Helen's decision, 2026-11-13; not from the document): the line reads "Request your personalized cost overview and payment schedule." and the button reads "Request". The button is a placeholder (`href="#"`, no mailto): where it leads is Helen's decision.
+- Screen 06 on the site (v3.3 text, 2026-11-21): "Request your personalized cost overview and payment schedule." + button "Request a Consultation" + the line "Request a personal consultation through your Glonari representative." The button is a placeholder (`href="#"`, no mailto): where it leads is Helen's decision.
+- **Repeated thought, 05 and 06 (to the owner):** 05 says "Your personal estimate shows your monthly Home Fee, the expenses paid separately, and the GPA position required for your home." and 06 says "Request your personalized cost overview and payment schedule." Both are document text and both stay; consider cutting or merging one in the document. On the site 05 is quiet (18px, bottom-aligned with the lead) and 06 is the action.
+- **Screen 04 / 05 (done 2026-11-21):** the accredited / SEC sentence and the Global Connections clause are removed from the site (not in v3.3).
 - Removed from the site, kept as a note: the document's line "The brochure invites prospective participants to request a personalized home-and-cost illustration and review the relevant terms." and its button "Request a Personal Illustration".
 
 (Screen 01 has no note.)
@@ -178,7 +180,7 @@ Source: `V3.1-CHANGES-AND-OPEN-QUESTIONS.md` (section 6 of the v3 part and secti
 ### v3.2 (2026-11-21)
 v3.2: страница 05B и группа FAQ про кредитную линию, таблица Three Years на Living отложены, см. DEFERRED-2026-11-21.md
 
-Still open (V3.2-CHANGES-AND-OPEN-QUESTIONS.md, section D):
+Still open (V3.4-CHANGES-AND-OPEN-QUESTIONS.md, section D):
 - **To Kert:** (1) agreement term, renewal, termination; what happens if Glonari sells the home; Home Fee increases. (2) How the then-current purchase value is set; transfer charges; separate deposits. (3) What the working conditions really are (20% or sponsor, minimum shares, no refund, own-home path); whether the Global Connections earning programme survives; exact wording of the participation line. (4) If the credit line returns later: lender terms, limit, rates and permitted uses.
 - **To the owner:** (1) The user's side of the Gia chat (Home and Living); which of the four chat lines goes where. (2) Whether a big figure stays on How It Works 02B (the budget pieces add up to $2,833.33, but the agreement decides what is covered). (3) Whether the placeholder "Buy" photo on Home is wanted. (4) Five- and ten-year examples: deferred together with the table; return them on Properties only if confirmed calculations appear.
 
@@ -198,3 +200,33 @@ Still open (V3.2-CHANGES-AND-OPEN-QUESTIONS.md, section D):
 4. **05 and 06 repeat** the 20% / sponsor sentence (05 lead, 06 step 02). Kept as in the document.
 5. **Broken markup, not fixed:** in `#ch-05` the `div.hiw-after.hiw-join` has no closing `</div>` (the browser closes it at `</section>`). Screenshots with and without the fix at 1440 and 375 did not match exactly (animation frames differ by 1px rows and reveal states), so by the owner's rule the markup was left as is. Fix when a pixel-identical comparison is possible.
 6. **04 figure:** "$7,500" with the caption "per month" (words from the document sentence); the document has no caption for it.
+
+### Living With Glonari, built to v3.2 (2026-11-21)
+1. **Order of screens.** On the site 04B (`#next-move`) stands AFTER the dark chapter `#ownership` and before `#final-invitation` (owner's decision: brown, paper, brown). v3.2 has 04B before 05; the document is not changed here, the owner will correct it.
+2. **Gia chat "By the sea":** "Let's see what your home plan could look like." (working set); the assignment is proposed, owner to confirm. Other lines of that chat (City / Suburb / Garden home) are still not from the document.
+3. **04B headline on paper, not on the photo.** The photo's calm sky is only the top-left corner (about 22% of the width), too small and too busy with olive branches for a 4.5:1 headline; the headline sits above the photo. No eyebrow (the document has none).
+4. **Glonari track steps are not numbered** (the document numbers only Traditional Home); bold labels "Plan with Gia:", "Give notice:", "Transfer:" follow the document's bold-less sentence split. Confirm wording of the labels as headings.
+5. **Gia disclaimer** sits on paper under the pinned scene (not in the pin, not on the photo).
+6. **"90 DAYS' NOTICE."** is set as a small mono label in the sentence; the transfer terms repeat on 04B by the document's own text.
+
+## Дизайн на проход 2
+
+### Living With Glonari (из V3.3-CHANGES, 2026-11-21; сейчас не менять)
+1. «What stays with you?»: пустая зона слева под левой фразой.
+2. 06B (`#next-move`): подписи «Traditional Home.» и «Glonari Home.» стоят чуть ниже линии с узлами.
+3. 06B: пустая четвёртая колонка золотой дорожки может читаться как разрыв.
+4. Экран 02 (Gia): дисклеймер ближе к фото сцены, чем к заголовку «Your Home. Your Life. Your Gia.».
+
+
+### Glonari Properties & GPA, plan for v3.3 (2026-11-21; built, stage 2)
+1. **02B photo.** The document has no image for "A Better Home. A More Productive Asset." A placeholder (`placeholder-properties-02b-…`, 21:9, 2560x1100 / 1600x688) is needed so that 02B does not make a second text-only screen in a row with 03. Built with `placeholder-properties-02b-glo-hall-2560/1600.webp` (21:9, 2560x1097 / 1600x686), a crop of the unused master `how-00-glo-hall.png`. Real photo wanted: homes of the portfolio at dusk, warm lit windows, no faces.
+2. **Eyebrow numbers (confirmed by the owner).** With 02B the page has 8 screens: numbers become 02 / 08 … 08 / 08 (02B = 03 / 08). Numbers only, no words (owner's rule 2026-11-14). Confirm.
+3. **Screen 04, small labels under the three figures (optional).** Words taken from the document sentence itself: "$1 million home" / "modeled operating increment" / "integrated value". They keep the modeled figures from reading as facts. Built (owner said yes).
+4. **Repeats on neighbouring screens (document text, all kept):** 02 "create economic value beyond the property alone" and 02B "greater economic value than the physical property alone"; hero "not direct ownership of a particular home", 03 headline "Not a Particular House" and 03 "GPA shares do not give an investor ownership of the home"; 05 paragraph "a GPA share starts at $100 and reaches a modeled $402.32" repeats the big figure beside it. Consider cutting in the document.
+5. **Screen 06:** v3.3 says "contractual Home Fee"; the built page says "Glonari Home fee" (old). Will follow the document.
+6. **Other pages still carry removed lines (not in this task):** `faqs.html` lines 153 and 173 still have "accredited investors … After that, anyone can hold it" and "Case-Shiller". They go with the FAQs page.
+
+### Glonari Properties & GPA, built to v3.4 (2026-11-21)
+1. **NAV+ without an explanation on screen 05 (owner's decision).** v3.4 moved "Three different measures…" to the FAQs ("What does NAV+ mean?"); the phrase "not a GAAP standard or an audit opinion" now stands only there. Until the FAQs page is built, "NAV+" on Properties 05 is not explained anywhere on the site. If this becomes a problem, bring the block back from `DEFERRED-part2-properties-text.md` (word for word).
+2. **Screen 06:** the three removed paragraphs live in the FAQs (when built) and in `DEFERRED-part2-properties-text.md`; "Neither changes the contractual Home Fee." is now only there too.
+3. **02B photo, options (not applied):** Properties 02B now uses `placeholder-properties-02b-glo-hall-*` (an interior). Proposed replacement: `masters/properties-hero-bg.png` (dusk district, winding road, no people; same subject family as the 06 panorama, so check the repeat). How It Works 02B: `masters/how-02-savings-1500.png` (4:5, table, notebook, wooden house, cup, window, no people).
