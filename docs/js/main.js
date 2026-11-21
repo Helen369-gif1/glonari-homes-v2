@@ -47,15 +47,30 @@
   const burger = document.querySelector("[data-burger]");
   const nav = document.getElementById("site-nav");
   function setMenu(open) {
+    const was = doc.classList.contains("nav-open");
     doc.classList.toggle("nav-open", open);
     if (burger) burger.setAttribute("aria-expanded", String(open));
     if (lenis) open ? lenis.stop() : lenis.start();
+    if (open && !was) {
+      const first = nav && nav.querySelector("a[href]");
+      if (first) requestAnimationFrame(() => requestAnimationFrame(() => first.focus()));
+    } else if (!open && was && burger) burger.focus();
+  }
+  function menuFocusables() {
+    return [...nav.querySelectorAll("a[href]"), burger].filter((el) => el.offsetParent !== null || el === burger);
   }
   if (burger && nav) {
     burger.addEventListener("click", () => setMenu(!doc.classList.contains("nav-open")));
     nav.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && doc.classList.contains("nav-open")) { setMenu(false); burger.focus(); }
+      if (!doc.classList.contains("nav-open")) return;
+      if (e.key === "Escape") { setMenu(false); return; }
+      if (e.key === "Tab") {
+        const f = menuFocusables(), a = document.activeElement;
+        if (!f.includes(a)) { e.preventDefault(); f[0].focus(); }
+        else if (e.shiftKey && a === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && a === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+      }
     });
     window.matchMedia("(min-width: 1101px)").addEventListener("change", (e) => { if (e.matches) setMenu(false); });
   }

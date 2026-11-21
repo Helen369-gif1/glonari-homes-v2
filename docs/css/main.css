@@ -302,7 +302,7 @@ html.lenis, html.lenis body { height: auto; }
   color: var(--gp-champagne);
 }
 .site-footer ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.site-footer__disclosure { max-width: 980px; margin: 32px 0 16px; font-size: 13px; line-height: 1.6; color: rgba(199, 192, 182, .8); }
+.site-footer__disclosure { max-width: 980px; margin: 32px 0 16px; font-size: 16px; line-height: 1.65; color: rgba(199, 192, 182, .8); }
 .site-footer__legal { font-size: 13px; color: rgba(199, 192, 182, .6); }
 @media (max-width: 860px) {
   .site-footer__top { grid-template-columns: 1fr; }

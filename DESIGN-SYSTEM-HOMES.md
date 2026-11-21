@@ -157,6 +157,8 @@ Norms:
 - Nothing touches the edge of the neighbouring screen (scene stage, next section, viewport edge).
 - Nothing overlaps the eyebrow of the next section (the eyebrow's top must be below the previous block's bottom).
 
+**Exception (owner's decision, 2026-11-22):** the gap from a pinned first screen (hero) to the next section is one `--section-y` (158 / 113 / 96 / 96), not the `clamp(120px, 16vw, 240px)` above. It applies to the hero → next section gaps on Home, How It Works, Living and Find; these are not violations. Also accepted as they are: the "Important" block on Home and the Find "priorities → options" gap.
+
 If any number is below the norm, fix it before reporting. Do not report with a known violation; if a value is intentionally lower, state why in the report.
 
 ## 6. Responsive bands (as built)

@@ -777,7 +777,7 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 .liv-pause__rail i { position: absolute; top: 0; bottom: 0; left: -.5px; width: 1px; background: var(--gp-gold-mid); transform-origin: top; }
 .scenes-pending .liv-pause__rail i { transform: scaleY(0); }
 @media (max-width: 768px) {
-  .liv-pause { min-height: 0; padding-block: clamp(56px, 16vw, 88px) clamp(64px, 18vw, 96px); }
+  .liv-pause { min-height: 0; padding-block: 96px; }
   .liv-pause__line { margin-left: 0; padding-left: 24px; }
   .liv-pause__rail { left: var(--page-pad); }
 }

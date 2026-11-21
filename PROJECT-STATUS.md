@@ -1,6 +1,19 @@
 ﻿# Glonari Homes — Project Status
 
-Last updated: 2026-11-21. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
+Last updated: 2026-11-22. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
+
+## 2026-11-22 (audit fixes) — not committed
+
+Copies before: `masters/retired/*-before-audit-fixes-2026-11-22.*`. Done: footer disclosure 13 → 16px (line-height 1.65); mobile menu focus (first link on open, Tab trapped in links + burger, Esc / burger close return focus to burger; `main.js`); Living phone gaps Gia → pause and pause → photo = 96px (≤768, `.liv-pause` padding 96/96); Home hero text on ≤768 15 → 16px; alt "brochures" → "leaflets"; SITE-STRUCTURE.md footer disclosure = v3.4; `placeholder-future-3-job-*` moved to `masters/retired/`; DESIGN-SYSTEM-HOMES.md §5.2 exception: hero → next section = one `--section-y` (owner, 2026-11-22), Home "Important" and Find "priorities → options" accepted. Not touched: menu 15px, pills 14px, Gia chat, step numbers, 12px labels, © line 13px.
+
+## 2026-11-22 (full technical audit, six pages) — nothing changed in code, not committed
+
+Method: Playwright (Chromium) at 1440/1024/768/375 on all six pages + reduced motion at 1440/375; static scans of docs/ (html, css, js, partials); text compared with v3.4 by headings and numbers. Scripts were temporary (not in the project).
+- **Clean:** console 0 errors / 0 warnings (36 runs); no horizontal scroll; 0 broken links or anchors; 0 images without alt or failing to load; header, footer and menu identical to the partials on all pages; `aria-current` works; reduced motion is fully static everywhere (no scenes, nothing hidden); headings and numbers match v3.4 (04B Properties is on hold, correctly absent).
+- **Pins (CSS sticky stages ≥769px):** Home 4 (hero, problem, econ, cta — as before), How It Works 3, Living 3, Find 3, Properties 2, FAQs 0 (the five sticky group heads are not scenes).
+- **To fix, by importance:** (1) text under 16px that is not an eyebrow: footer disclosure 13px (disclaimer rule), footer legal 13, nav links 15, buttons 14, Gia chat 15, Home wipe caption 15 on ≤768, "90 days' notice." 13, Living captions 12–13.5, HIW step numbers 13; (2) pinned hero → next screen gap = one `--section-y` (158 / 113) instead of `clamp(120px,16vw,240px)` (230 / 164) on Home, How It Works, Living, Find (+ Find priorities → options 207 / 97); (3) Living `liv-pause`: 60px (375) / 83px (768) from the Gia scene, 68px to the next photo at 375; (4) mobile menu: no focus trap, page behind it still tabbable, focus stays on the burger; (5) forbidden word "brochures" in the alt text, `index.html:117`; (6) placeholder links: footer Privacy / Legal & Disclosures / Contact (every page), Find "Request a Consultation", Properties "Review the Investment Materials"; (7) `aria-current` also set on the mobile CTA on Find (two items) and compares file names only (check on clean URLs); (8) unused `placeholder-future-3-job-1200/800.webp`; `find-final-bg-2560.webp` 503 KB; (9) SITE-STRUCTURE.md footer disclosure text is the old one (site has the v3.4 text).
+- **Placeholder media on the site:** faq evening-table / open-door, find map (svg) and find-q1…q5, future 1-baby / 2-leaving / 3-buy, properties 02B glo-hall.
+- Test note: the Home hero MP4 (8.8 MB, H.264) does not play in Playwright's Chromium (no H.264); not a site bug, seen as ERR_ABORTED. Real-browser check of the pinned feel stays with the owner.
 
 ## 2026-11-22 (FAQs brought to v3.4) — not committed
 

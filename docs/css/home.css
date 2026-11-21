@@ -162,7 +162,7 @@
 }
 @media (max-width: 768px) {
   .hero__copy { bottom: 28px; }
-  .hero__text { font-size: 15px; line-height: 1.5; }
+  .hero__text { font-size: 16px; line-height: 1.5; }
   .hero__text p { margin-bottom: 8px; }
   .hero__actions .btn { min-height: 42px; padding: 0 20px; font-size: 14px; }
   .hero__shade {
