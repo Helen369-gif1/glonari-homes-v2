@@ -373,6 +373,45 @@ html.lenis, html.lenis body { height: auto; }
 .has-scenes .scene { height: calc(100svh + var(--travel, 150svh)); }
 .has-scenes .scene__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
 
+/* ==========================================================
+   Arch with a video (shared: Home "Find your home", How It Works 02B).
+   2:3 arch, thin gold outline, one video that plays once (main.js).
+   Classes keep their Home names. A page sets only the column width / placement.
+   ========================================================== */
+/* Arch: 2:3, height min(78svh, 820px); the column width follows from the ratio (and never exceeds the column) */
+.find__arch {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+}
+.find__arch::before { /* thin gold outline, 1px */
+  content: "";
+  position: absolute;
+  inset: -12px -12px 0;
+  border: 1px solid var(--gh-gold-ink);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  pointer-events: none;
+}
+.find__video {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 999px 999px 0 0;
+  background: var(--gh-ink);
+}
+@media (max-width: 768px) {
+  .find__arch { width: min(100%, calc(min(78svh, 820px) * 2 / 3)); }
+}
+@media (max-width: 480px) {
+  /* page pad is 20px: outline 8px off the frame keeps it 12px from the screen edge, the video is not narrowed */
+  .find__arch::before { inset: -8px -8px 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .js [data-reveal] { opacity: 1; transform: none; transition: none; }
 }

@@ -85,6 +85,30 @@
     });
   }
 
+  /* ---------- Arch video (shared: Home "Find your home", How It Works 02B): plays from the first frame every time the arch comes into view ----------
+     No loop. At 40% visible: rewind and play once to the end (it rests on the last frame while the arch stays
+     in view; it is not restarted). When the arch leaves the viewport completely: pause and rewind, so the next
+     visit starts again. Reduced motion, or a play() the browser refuses: the poster stays, silently. */
+  const archVideo = document.querySelector("[data-find-video]");
+  const archBox = document.querySelector("[data-find-arch]");
+  if (archVideo && archBox && "IntersectionObserver" in window) {
+    let playing = false;                       // true from the moment we start until the arch leaves the view
+    const rewind = () => { try { archVideo.currentTime = 0; } catch (e) {} };
+    const io = new IntersectionObserver((en) => {
+      const e = en[en.length - 1];
+      if (!e.isIntersecting) {
+        if (playing) { playing = false; archVideo.pause(); rewind(); }
+        return;
+      }
+      if (playing || e.intersectionRatio < .4 || reduce.matches) return;
+      playing = true;
+      rewind();
+      const p = archVideo.play();
+      if (p && p.catch) p.catch(() => {});
+    }, { threshold: [0, .4] });
+    io.observe(archBox);
+  }
+
   /* ---------- Reveal ---------- */
   const items = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window && !reduce.matches) {

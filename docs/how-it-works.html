@@ -141,23 +141,31 @@
     </div>
   </section>
 
-  <!-- ============ 02B · One Home. A Whole Network Behind It. (calm, no pin; photo set low and off the statements' line, three statements offset the other way) ============ -->
+  <!-- ============ 02B · One Home. A Whole Network Behind It. (calm, no pin; arch with one video on the left, one text column on the right) ============ -->
   <section class="hiw-ch hiw-save" id="ch-02b" aria-labelledby="ch-02b-title">
     <div class="container hiw-save__grid">
-      <header class="hiw-head hiw-save__head" data-reveal>
-        <p class="eyebrow">03 &middot; Gia in everyday life</p>
-        <h2 class="h2" id="ch-02b-title">One Home. A Whole Network Behind It.</h2>
-      </header>
+      <!-- the shared arch component (main.css / main.js, same as Home "Find your home"): one video, plays once when 40% of the arch is in view.
+           Poster = the kitchen photo cropped 2:3. Video: assets/images/placeholder-hiw02b-arch.webm|mp4 (960x1440, 2:3, no sound). -->
       <figure class="hiw-save__fig" data-reveal>
-        <img src="assets/images/how-02b-service-scene-800.webp" srcset="assets/images/how-02b-service-scene-800.webp 800w, assets/images/how-02b-service-scene-1200.webp 1200w"
-             sizes="(max-width: 1023px) 80vw, 40vw" width="1200" height="1500" loading="lazy"
-             alt="A sunlit kitchen with an arched garden window, open shelves with plants, and a marble island with a bowl of pears and a linen towel">
+        <div class="find__arch" data-find-arch>
+          <video class="find__video" data-find-video muted playsinline preload="metadata" width="960" height="1440"
+                 poster="assets/images/how-02b-arch-poster-960.webp" aria-label="A sunlit kitchen with an arched garden window, open shelves with plants, and a marble island with a bowl of pears and a linen towel">
+            <source src="assets/images/placeholder-hiw02b-arch.webm" type="video/webm">
+            <source src="assets/images/placeholder-hiw02b-arch.mp4" type="video/mp4">
+          </video>
+        </div>
         <figcaption class="hiw-save__cap">Conceptual service scene.</figcaption>
       </figure>
-      <div class="hiw-save__list">
-        <p class="hiw-save__p" data-reveal><strong>Many Homes.</strong> Repeat purchasing and planned care create opportunities for efficiency.</p>
-        <p class="hiw-save__p" data-reveal style="--d:1"><strong>One coordinator.</strong> Gia and the network help bring requests and next steps together.</p>
-        <p class="hiw-save__p" data-reveal style="--d:2"><strong>Your benefit.</strong> Less effort and a clearer view of what your agreement covers.</p>
+      <div class="hiw-save__text">
+        <header class="hiw-head hiw-save__head" data-reveal>
+          <p class="eyebrow">03 &middot; Gia in everyday life</p>
+          <h2 class="h2" id="ch-02b-title">One Home. A&nbsp;Whole Network Behind It.</h2>
+        </header>
+        <div class="hiw-save__list">
+          <p class="hiw-save__p" data-reveal><strong>Many Homes.</strong> Repeat purchasing and planned care create opportunities for efficiency.</p>
+          <p class="hiw-save__p" data-reveal style="--d:1"><strong>One coordinator.</strong> Gia and the network help bring requests and next steps together.</p>
+          <p class="hiw-save__p" data-reveal style="--d:2"><strong>Your benefit.</strong> Less effort and a clearer view of what your agreement covers.</p>
+        </div>
         <p class="hiw-save__note" data-reveal style="--d:3">The selected Home agreement sets covered work, exclusions, separate charges and price changes. Do not assume every repair, utility, insurance policy or HOA charge is included.</p>
       </div>
     </div>
@@ -193,23 +201,28 @@
 
   <!-- ============ 04 · Understand the cost (the page's one dark band, hard edges) ============ -->
   <section class="hiw-ch hiw-ch--dark hiw-cost" id="ch-04" aria-labelledby="ch-04-title" data-dark>
-    <div class="container hiw-cost__grid">
-      <div class="hiw-cost__text">
-        <header class="hiw-head" data-reveal>
-          <p class="eyebrow eyebrow--light">05 &middot; Understand the cost</p>
-          <h2 class="h2" id="ch-04-title">Know What You Pay.</h2>
-        </header>
-        <p class="hiw-cost__p" data-reveal>For an example <strong>$1 million Home</strong>, the Home Fee is <strong>$7,500 per month</strong>.</p>
-        <p class="hiw-cost__p" data-reveal style="--d:1">The same Home on a traditional mortgage: a <strong>$8,155.75</strong> monthly budget. That is mortgage principal and interest of $5,322.42, plus assumed property tax of $1,250, insurance of $500, an upkeep reserve of $833.33 and HOA of $250.</p>
-        <p class="hiw-cost__p" data-reveal style="--d:2">About <strong>$656 less per month</strong> when the Home Fee covers the same costs, with Gia and coordinated support alongside it.</p>
-        <p class="hiw-cost__p hiw-cost__p--note" data-reveal style="--d:3">The selected Home agreement sets covered work, exclusions, separate charges and price changes. Utilities, optional services and transaction costs are excluded.</p>
-        <a class="btn btn--light hiw-cost__btn" href="find-your-home.html#cost-illustration" data-reveal style="--d:4">See the Monthly Cost Example</a>
+    <div class="container hiw-cost__wrap">
+      <header class="hiw-head" data-reveal>
+        <p class="eyebrow eyebrow--light">05 &middot; Understand the cost</p>
+        <h2 class="h2" id="ch-04-title">Know What You Pay.</h2>
+      </header>
+      <!-- one baseline: the first sentence and the figure stand on one champagne line; the rest hangs below it in two columns -->
+      <div class="hiw-cost__row">
+        <p class="hiw-cost__p hiw-cost__p--lead" data-reveal>For an example <strong>$1 million Home</strong>, the Home Fee is <strong>$7,500 per month</strong>.</p>
+        <figure class="hiw-cost__fig" data-reveal style="--d:1">
+          <p class="hiw-cost__big">$7,500</p>
+          <figcaption class="hiw-cost__cap">per month</figcaption>
+        </figure>
       </div>
-      <!-- the fee, one figure; the three-step comparison is on the next screen (04B) -->
-      <figure class="hiw-cost__fig" data-reveal style="--d:1">
-        <p class="hiw-cost__big">$7,500</p>
-        <figcaption class="hiw-cost__cap">per month</figcaption>
-      </figure>
+      <hr class="hiw-cost__rule" aria-hidden="true">
+      <div class="hiw-cost__cols">
+        <p class="hiw-cost__p" data-reveal>The same Home on a traditional mortgage: a <strong>$8,155.75</strong> monthly budget. That is mortgage principal and interest of $5,322.42, plus assumed property tax of $1,250, insurance of $500, an upkeep reserve of $833.33 and HOA of $250.</p>
+        <div class="hiw-cost__side">
+          <p class="hiw-cost__p" data-reveal style="--d:1">About <strong>$656 less per month</strong> when the Home Fee covers the same costs, with Gia and coordinated support alongside it.</p>
+          <p class="hiw-cost__p hiw-cost__p--note" data-reveal style="--d:2">The selected Home agreement sets covered work, exclusions, separate charges and price changes. Utilities, optional services and transaction costs are excluded.</p>
+          <a class="btn btn--light hiw-cost__btn" href="find-your-home.html#cost-illustration" data-reveal style="--d:3">See the Monthly Cost Example</a>
+        </div>
+      </div>
     </div>
   </section>
 
