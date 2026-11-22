@@ -81,7 +81,7 @@
       .to({}, { duration: .2 });
   }
 
-  /* ---------- 3. The cost: big numbers rise from behind the house ---------- */
+  /* ---------- 3. The cost: the house rises, then one figure at a time rises from behind its roof, is read and sinks back ---------- */
   function econScene() {
     const scene = $('[data-scene="econ"]');
     if (!scene) return;
@@ -95,18 +95,18 @@
 
     const enter = (step, at) => {
       tl.fromTo(step, { autoAlpha: 0 }, { autoAlpha: 1, duration: .05 }, at)
-        .fromTo($$(".econ__num", step), { yPercent: 55, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: .7, ease: "power2.out", stagger: .2 }, at)
-        .fromTo($$(".econ__label", step), { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .5, ease: "power2.out", stagger: .2 }, at + .15);
+        .fromTo($(".econ__num", step), { yPercent: 70, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: .8, ease: "power2.out" }, at)
+        .fromTo($(".econ__label", step), { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .5, ease: "power2.out" }, at + .3);
     };
-    const leave = (step, at) => {
-      tl.fromTo($$(".econ__num", step), { yPercent: 0, autoAlpha: 1 }, { yPercent: -25, autoAlpha: 0, duration: .55, ease: "power2.in", immediateRender: false }, at)
-        .fromTo($$(".econ__label", step), { autoAlpha: 1 }, { autoAlpha: 0, duration: .4, immediateRender: false }, at);
+    const leave = (step, at) => {   // sinks back behind the roof and fades, as the next one is about to rise
+      tl.fromTo($(".econ__num", step), { yPercent: 0, autoAlpha: 1 }, { yPercent: 70, autoAlpha: 0, duration: .6, ease: "power2.in", immediateRender: false }, at)
+        .fromTo($(".econ__label", step), { autoAlpha: 1 }, { autoAlpha: 0, duration: .35, immediateRender: false }, at);
     };
 
     let t = 1.6;
     steps.forEach((step, i) => {
       enter(step, t);
-      if (i < steps.length - 1) { leave(step, t + 1.5); t += 1.9; }
+      if (i < steps.length - 1) { leave(step, t + 1.5); t += 2.0; }
     });
     tl.to({}, { duration: 1 });
   }
@@ -153,31 +153,7 @@
       gsap.fromTo($$(".w", sentence), { opacity: .16 }, { opacity: 1, ease: "none", stagger: .12, scrollTrigger: st(sentence, "top 88%", "top 38%") });
     }
 
-    // Your future: the two headline lines drift apart, panels slide at different speeds, the gold line draws
-    const fut = $(".future");
-    if (fut) {
-      const whole = st(fut, "top bottom", "bottom top");
-      gsap.fromTo($(".future__today", fut), { x: "5vw" }, { x: "-3vw", ease: "none", scrollTrigger: whole });
-      gsap.fromTo($(".future__tomorrow", fut), { x: "-5vw" }, { x: "3vw", ease: "none", scrollTrigger: whole });
-      $$(".future__panel img", fut).forEach((im, k) => {
-        gsap.fromTo(im, { yPercent: k === 1 ? 6 : -6 }, { yPercent: k === 1 ? -6 : 6, ease: "none", scrollTrigger: whole });
-      });
-      const strip = $(".future__strip", fut);
-      gsap.fromTo($(".future__line", fut), { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: st(strip, "top 85%", "top 30%") });
-    }
-
     return () => { if (sentence && original !== null) sentence.innerHTML = original; };
-  });
-
-  /* ---------- 3a. Cost compared: the gold line between the two totals is drawn by the scroll (the screen's only motion).
-     Side-by-side layout only; stacked (≤860px) and reduced motion show it complete. ---------- */
-  const mmLedger = gsap.matchMedia();
-  mmLedger.add("(min-width: 861px) and (prefers-reduced-motion: no-preference)", () => {
-    const rule = $("[data-ledger-rule]");
-    const cols = $(".ledger__cols");
-    if (!rule || !cols) return;
-    gsap.fromTo(rule, { scaleX: 0 }, { scaleX: 1, ease: "none",
-      scrollTrigger: { trigger: cols, start: "top 70%", end: "bottom 45%", scrub: .6, invalidateOnRefresh: true } });
   });
 
   // Images load lazily; re-measure once everything has its size.

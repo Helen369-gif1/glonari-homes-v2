@@ -340,7 +340,10 @@
 }
 
 /* ==========================================================
-   3. The cost
+   3. The cost — one big house in the centre; on wide screens the three figures
+   rise from behind its roof one at a time (pinned scene, home.js).
+   Static layout (phones, reduced motion, no JS): all three figures at once,
+   "About $656" the largest, the two budgets clearly smaller, the house under them.
    ========================================================== */
 .econ { padding-top: var(--section-y); }
 .econ__stage {
@@ -351,14 +354,14 @@
   color: #fff;
   text-align: center;
 }
-.econ__sky { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; }
+.econ__sky { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
 .econ__stage::after {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 26%;
-  z-index: 1;
-  background: linear-gradient(0deg, rgba(20, 14, 8, .62), rgba(20, 14, 8, 0));
+  height: 12%;
+  z-index: 3;
+  background: linear-gradient(0deg, rgba(20, 14, 8, .5), rgba(20, 14, 8, 0));
   pointer-events: none;
 }
 
@@ -374,16 +377,18 @@
 }
 .econ__intro .eyebrow { color: #fff; opacity: .9; }
 
+/* static: two small budgets side by side, the difference big under them */
 .econ__steps {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px 32px;
-  max-width: 980px;
-  margin: 56px auto 32px;
+  grid-template-columns: repeat(2, minmax(0, auto));
+  justify-content: center;
+  gap: 40px clamp(32px, 7vw, 112px);
+  margin: clamp(40px, 5vw, 64px) auto 0;
   padding: 0;
   list-style: none;
 }
-.econ__step { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.econ__step { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.econ__step:nth-child(3) { grid-column: 1 / -1; }
 .econ__label {
   max-width: 340px;
   font-family: var(--font-mono);
@@ -392,28 +397,29 @@
   line-height: 1.5;
   letter-spacing: .12em;
   text-transform: uppercase;
-  text-shadow: 0 1px 12px rgba(120, 60, 40, .3);
+  text-shadow: 0 1px 12px rgba(120, 60, 40, .35);
 }
 .econ__num {
   font-family: var(--font-word);
   font-weight: 600;
-  font-size: clamp(56px, 8vw, 104px);
+  font-size: clamp(36px, 7vw, 76px);
   line-height: .85;
   letter-spacing: -.01em;
   font-variant-numeric: lining-nums;
-  text-shadow: 0 4px 40px rgba(140, 70, 40, .22);
+  text-shadow: 0 4px 40px rgba(140, 70, 40, .25);
 }
-.econ__num small {   /* the word "About" in front of $656: one small line above the figure */
+.econ__step:nth-child(3) .econ__num { font-size: clamp(120px, 24vw, 300px); line-height: .8; }
+.econ__num small {   /* the word "About" in front of $656 */
   display: block;
-  margin-bottom: .14em;
+  margin-bottom: 14px;
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: clamp(14px, 1.3vw, 18px);
+  font-size: 16px;
   letter-spacing: .14em;
   text-transform: uppercase;
   line-height: 1;
 }
-.econ__house { position: relative; z-index: 0; width: min(100%, 1100px); margin: 0 auto; }
+.econ__house { position: relative; z-index: 2; display: block; width: min(100%, 1100px); height: auto; margin: 24px auto -2.2%; }
 /* "Savings require equivalent coverage." — a calm paper strip under the scene, not on the photo (16px, ink-2 on paper ≈ 7:1) */
 .econ__note {
   margin: 0;
@@ -425,164 +431,123 @@
   line-height: 1.5;
   color: var(--gh-ink-2);
 }
-
-/* Pinned version */
-.has-scenes .econ__stage { padding: 0; }
-.has-scenes .econ__intro,
-.has-scenes .econ__step {
-  position: absolute;
-  inset: 0;
-  padding-top: calc(var(--header-h) + 6svh);
+@media (max-width: 560px) {
+  .econ__steps { gap: 32px 24px; }
+  .econ__num { font-size: clamp(30px, 9.4vw, 40px); }
+  .econ__step:nth-child(3) .econ__num { font-size: clamp(110px, 36vw, 150px); }
+  .econ__label { font-size: 12px; letter-spacing: .08em; }
 }
-.has-scenes .econ__intro { padding-inline: var(--page-pad); }
-.has-scenes .econ__steps { position: absolute; inset: 0; margin: 0; max-width: none; display: block; }
-.has-scenes .econ__step { gap: 1.6svh; }
-.has-scenes .econ__step .econ__label { font-size: 13px; max-width: 520px; }
-.has-scenes .econ__num { font-size: min(21vw, 44svh); line-height: .8; }   /* $8,155.75 is 9 characters wide */
-.has-scenes .econ__num small { font-size: clamp(14px, 2.2svh, 20px); }
-.has-scenes .econ__step--split { flex-direction: row; justify-content: center; align-items: flex-start; gap: 4vw; }
-.has-scenes .econ__step--split .econ__num { font-size: min(17vw, 34svh); }
-.has-scenes .econ__step--split .econ__label { max-width: 280px; margin-top: 4.5svh; text-align: left; }
+
+/* Pinned version: house 76vw wide in the centre; every figure rests just above the ridge (its lower part may stay behind the roof) */
+.has-scenes .econ__stage {
+  --hw: min(76.4vw, 122svh);
+  --hh: calc(var(--hw) * .563);
+  --ridge: calc(var(--hh) * .924 - 2.4svh);   /* height of the roof ridge above the bottom of the stage */
+  --f3: min(23.6vw, 37.8svh);
+  padding: 0;
+}
+.has-scenes .econ__intro { position: absolute; inset: 0; padding: calc(var(--header-h) + 6svh) var(--page-pad) 0; }
+.has-scenes .econ__steps { position: absolute; inset: 0; display: block; margin: 0; z-index: 1; }
+.has-scenes .econ__step { position: absolute; inset: auto 0 calc(var(--ridge) - .306em) 0; gap: 0; }
+.has-scenes .econ__step:nth-child(1) { font-size: min(17.4vw, 27.8svh); }
+.has-scenes .econ__step:nth-child(2) { font-size: min(19.4vw, 31svh); }
+.has-scenes .econ__step:nth-child(3) { font-size: var(--f3); }
+.has-scenes .econ__step .econ__num,
+.has-scenes .econ__step:nth-child(3) .econ__num { font-size: 1em; line-height: .8; }
+.has-scenes .econ__step .econ__label { margin-bottom: 14px; font-size: 13px; max-width: 520px; }
+.has-scenes .econ__num small { font-size: 18px; }
+.has-scenes .econ__step:nth-child(3) .econ__label {   /* to the right of the giant figure, clear of the roof */
+  position: absolute;
+  left: calc(50% + var(--f3) * .98);
+  top: calc(var(--f3) * .32);
+  width: min(250px, calc(50vw - var(--f3) - 24px));
+  margin: 0;
+  text-align: left;
+}
 .has-scenes .econ__house {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  width: min(96vw, 116svh);
+  left: 0; right: 0; bottom: -2.4svh;
+  width: var(--hw);
   max-width: none;
-  margin-inline: auto;
-}
-
-@media (max-width: 768px) {
-  .econ__steps { grid-template-columns: 1fr; }
+  margin: 0 auto;
 }
 
 /* ==========================================================
    3a. Cost compared — a new full screen on paper, no pin.
-   Two ledger columns (real tables), totals on one baseline,
-   a 1px gold line between the totals that is drawn by scroll
-   (home.js, the screen's only motion). Static on phones and
-   under reduced motion.
+   One real table in the document's three columns (Monthly cost / Without / With);
+   the "With Glonari" column is a paper panel that also carries the difference.
+   Left: the sentence and a photo. No motion (reveal only).
    ========================================================== */
-.ledger {
-  --tot: clamp(44px, 4.6vw, 68px);   /* size of the two totals */
-  padding-top: var(--section-y);   /* same background as the page: only padding-top (DS §5) */
-}
+.ledger { padding-top: var(--section-y); }
 .ledger__grid {
   display: grid;
-  grid-template-columns: minmax(0, 3.2fr) minmax(0, 8.8fr);
-  gap: 56px clamp(40px, 5vw, 80px);
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 56px clamp(40px, 5vw, 72px);
   align-items: start;
   width: min(100%, 1400px);
   margin-inline: auto;
   padding-inline: var(--page-pad);
 }
-.ledger__title { margin: 0; max-width: 15em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.ledger__title { margin: 0; font-size: clamp(26px, 2.1vw, 30px); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
 .ledger__title strong { font-weight: 500; color: var(--gh-gold-ink); }
-.ledger__eyebrow { margin: 0 0 24px; }   /* Playfair defaults to old-style figures: "1" reads as "I" */
+.ledger__portrait { display: block; width: 100%; max-width: 330px; aspect-ratio: 4 / 5; margin-top: 48px; object-fit: cover; border-radius: var(--radius); }
 
-.ledger__portrait {   /* tall 4:5 photo under the title, in the otherwise empty left column */
-  display: block;
-  width: 100%;
-  max-width: 340px;
-  aspect-ratio: 4 / 5;
-  margin-top: clamp(40px, 4vw, 64px);
-  object-fit: cover;
-  border-radius: var(--radius);
-}
-
-.ledger__cols {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(168px, 13vw, 208px) minmax(0, 1fr);   /* the label needs ≥32px of air on both sides */
-  align-items: stretch;   /* both tables end on one line: the totals */
-}
-.ledger__col--glonari { align-self: stretch; }   /* the Home Fee row stands at the top, the total at the bottom: one line against five */
-.ledger__col--glonari tbody th, .ledger__col--glonari tbody td { vertical-align: top; }
-.ledger__col { width: 100%; border-collapse: collapse; }
-.ledger__col caption {
-  padding-bottom: 16px;
-  text-align: left;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gh-gold-ink);
-}
-.ledger__col th, .ledger__col td {
-  padding: 18px 0;
-  border-top: 1px solid rgba(31, 26, 20, .28);
-  vertical-align: baseline;
-}
-.ledger__col th {
-  padding-right: 20px;
-  text-align: left;
-  font-family: var(--font-ui);
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 1.4;
-  color: var(--gh-ink-2);
-}
-.ledger__col td {
+.ledger__tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.ledger__tbl col.c1 { width: 38%; } .ledger__tbl col.c2 { width: 28%; } .ledger__tbl col.c3 { width: 34%; }
+.ledger__tbl th, .ledger__tbl td { height: 64px; padding: 0; border-top: 1px solid rgba(31, 26, 20, .28); vertical-align: middle; }
+.ledger__tbl thead th {
+  height: 52px; border-top: 0; border-bottom: 1px solid var(--gh-ink);
   text-align: right;
-  white-space: nowrap;
-  font-family: var(--font-word);
-  font-weight: 600;
-  font-size: clamp(32px, 3vw, 44px);
-  line-height: 1;
-  letter-spacing: -.01em;
-  font-variant-numeric: lining-nums;
-  color: var(--gh-ink);
+  font-family: var(--font-mono); font-weight: 600; font-size: 16px; letter-spacing: .1em; text-transform: uppercase; color: var(--gh-gold-ink);
 }
-.ledger__col td.is-included { color: var(--gh-gold-ink); }
-.ledger__col tfoot th, .ledger__col tfoot td {
-  padding: 20px 0 12px;
-  border-top: 1px solid var(--gh-ink);
-  border-bottom: 1px solid var(--gh-ink);
+.ledger__tbl thead th:first-child { text-align: left; }
+.ledger__tbl tbody th { text-align: left; font-family: var(--font-ui); font-weight: 400; font-size: 17px; line-height: 1.35; color: var(--gh-ink-2); }
+.ledger__tbl td {
+  text-align: right; white-space: nowrap;
+  font-family: var(--font-word); font-weight: 600; font-size: clamp(30px, 2.6vw, 38px); line-height: 1; letter-spacing: -.01em;
+  font-variant-numeric: lining-nums; color: var(--gh-ink);
 }
-.ledger__col tfoot th { padding-bottom: calc(6.5px + var(--tot) * .18); font-weight: 600; color: var(--gh-ink); }
-/* totals sit on the bottom of the row: the label's last line and the figure share one baseline, however many lines the label takes */
-.ledger__col tfoot th, .ledger__col tfoot td { vertical-align: bottom; }
-.ledger__col tfoot td { font-size: var(--tot); }
+.ledger__tbl td.is-none { font-family: var(--font-ui); font-weight: 400; font-size: 22px; color: var(--gh-ink-2); }
+.ledger__tbl td.is-fee { color: var(--gh-gold-ink); }
+.ledger__tbl tfoot th, .ledger__tbl tfoot td { height: 96px; border-top: 1px solid var(--gh-ink); border-bottom: 1px solid var(--gh-ink); }
+.ledger__tbl tfoot th { text-align: left; font-family: var(--font-ui); font-weight: 600; font-size: 17px; color: var(--gh-ink); }
+.ledger__tbl tfoot td { font-size: clamp(40px, 4.2vw, 60px); }
+/* the Glonari column: a paper panel, from the header to the end of the difference below */
+.ledger__tbl th:nth-child(3), .ledger__tbl td:nth-child(3) { background: var(--gh-paper); padding-right: 28px; }
+.ledger__tbl th:nth-child(2), .ledger__tbl td:nth-child(2) { padding-right: 28px; }
 
-/* the line between the totals: its height above the table bottom = baseline of the totals */
-.ledger__between { align-self: end; padding: 0 0 calc(13px + var(--tot) * .18); }   /* the line runs table edge to table edge */
-.ledger__delta {
-  margin: 0 0 12px;
-  padding-inline: 32px;   /* gap to both totals ≥ 32px: the text box is the column minus 2 × 32 */
-  text-align: center;
-  text-wrap: balance;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.35;
-  color: var(--gh-gold-ink);
+.ledger__after { display: grid; grid-template-columns: 38% 28% 34%; }
+.ledger__delta { grid-column: 3; margin: 0; padding: 22px 28px 30px; background: var(--gh-paper); font-size: 17px; line-height: 1.5; color: var(--gh-ink-2); }
+.ledger__delta strong {
+  display: block; margin-bottom: 12px; text-wrap: balance;
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 1.8vw, 25px); line-height: 1.2; color: var(--gh-gold-ink);
+  font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1;
 }
-.ledger__rule { display: block; height: 1px; background: var(--gp-gold-mid); transform-origin: 0 50%; }
-
-.ledger__result {
-  max-width: 760px;
-  margin: clamp(48px, 5vw, 72px) 0 0;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(21px, 1.9vw, 28px);
-  line-height: 1.35;
-  font-variant-numeric: lining-nums;
-  font-feature-settings: "lnum" 1;
-}
-.ledger__result strong { font-weight: 500; color: var(--gh-gold-ink); }
 
 @media (max-width: 1199px) {
   .ledger__grid { grid-template-columns: minmax(0, 1fr); }
-  .ledger__portrait { display: none; }   /* single column: the photo would push the tables a screen away */
+  .ledger__portrait { display: none; }   /* single column: the photo would push the table a screen away */
 }
-@media (max-width: 860px) {
-  .ledger__cols { grid-template-columns: minmax(0, 1fr); align-items: start; }
-  .ledger__col caption { padding-top: 0; }
-  .ledger__between { padding: 40px 0 36px; }
-  .ledger__delta { margin-bottom: 14px; }
-  .ledger__col--glonari { height: auto; }
+/* phones: each line becomes a small card: the label, then the two columns side by side with their names */
+@media (max-width: 700px) {
+  .ledger__tbl, .ledger__tbl tbody, .ledger__tbl tfoot, .ledger__tbl tr { display: block; }
+  .ledger__tbl thead { display: none; }
+  .ledger__tbl col { display: none; }
+  .ledger__tbl tr { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid rgba(31, 26, 20, .28); padding-top: 14px; }
+  .ledger__tbl tfoot tr { border-top: 1px solid var(--gh-ink); border-bottom: 1px solid var(--gh-ink); }
+  .ledger__tbl th, .ledger__tbl td { display: block; height: auto; border: 0 !important; }
+  .ledger__tbl th { grid-column: 1 / -1; padding: 0 0 10px; }
+  .ledger__tbl td { padding: 10px 14px 14px; text-align: left; font-size: 30px; }
+  .ledger__tbl tfoot td { font-size: 36px; }
+  .ledger__tbl td::before {
+    content: attr(data-label); display: block; margin-bottom: 8px;
+    font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gh-gold-ink);
+  }
+  .ledger__tbl td:nth-child(2) { padding-left: 0; }
+  .ledger__tbl th:nth-child(3), .ledger__tbl td:nth-child(3) { padding-right: 14px; }
+  .ledger__tbl td.is-none { font-size: 22px; }
+  .ledger__after { display: block; }
+  .ledger__delta { padding: 22px 20px 26px; }
 }
 
 /* ==========================================================
@@ -706,101 +671,56 @@
   .find__arch::before { inset: -8px -8px 0; }
 }
 /* ==========================================================
-   5. Meet Gia
+   5. Meet Gia — the photo first (chat across its lower left corner),
+   the text narrow beside it, then the big headline with the three points beside it,
+   then the closing line and the note. Paper only.
    ========================================================== */
 .gia { padding-top: var(--section-y); }
-/* The room bleeds off the right edge of the screen; the headline is a staircase of three short lines;
-   the closing line is set big under the photo. */
-.gia__grid.container {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 0 clamp(24px, 3vw, 48px);
-  align-items: start;
-}
-/* the headline runs the full width in three steps; the narrow text column sits top right beside the first two steps */
-.gia__head { grid-column: 1 / -1; grid-row: 1 / span 2; min-width: 0; }
-.gia__head .eyebrow { margin: 0 0 20px; }
-.gia__title {
-  margin: 0;
-  font-family: var(--font-word);
-  font-weight: 500;
-  font-size: clamp(52px, 10.4vw, 148px);
-  line-height: .95;
-  letter-spacing: -.015em;
-}
-.gia__title span { display: block; white-space: nowrap; }
-.gia__title span:nth-child(2) { padding-left: .9em; }
-.gia__title span:nth-child(3) { padding-left: 1.8em; color: var(--gh-gold-ink); }
-.gia__text { grid-column: 9 / -1; grid-row: 1; position: relative; z-index: 1; padding-top: 36px; }
-.gia__text > p { margin: 0 0 16px; color: var(--gh-ink-2); }
+.gia__wrap { width: min(100%, 1400px); margin-inline: auto; padding-inline: var(--page-pad); }
+.gia__top { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(20px, 2.2vw, 32px); align-items: start; }
+.gia__text { grid-column: 1 / 5; grid-row: 1; min-width: 0; padding-top: 28px; }
+.gia__text .eyebrow { margin: 0 0 24px; }
+.gia__lead { margin: 0 0 18px; font-family: var(--font-display); font-weight: 500; font-size: 24px; line-height: 1.3; color: var(--gh-ink); }
+.gia__text > p:not(.eyebrow) { margin: 0 0 16px; color: var(--gh-ink-2); }
+.gia__text > p.gia__lead { color: var(--gh-ink); }
 .gia__text .link-arrow { margin-top: 12px; color: var(--gh-ink); }
 
-.gia__visual { position: relative; margin-top: clamp(48px, 5vw, 72px); }   /* the room runs edge to edge */
-.gia__room {
-  display: block;
-  width: 100%;
-  aspect-ratio: 21 / 9;
-  object-fit: cover;
-  object-position: 50% 60%;
-}
-.gia__foot { padding-top: calc(56px + clamp(40px, 5vw, 72px)); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px clamp(40px, 6vw, 96px); align-items: end; }
-.gia__points {   /* three lines, a staircase echoing the headline's three steps; lower right, clear of the chat */
-  grid-column: 1 / -1;
-  width: min(100%, 680px);
-  margin: 0 0 clamp(56px, 6vw, 96px) auto;
-  padding: 0;
-  list-style: none;
-}
-.gia__points li {
-  padding: 18px 0 20px;
-  border-top: 1px solid var(--gh-line);
-  font-size: 17px;
-  line-height: 1.5;
-  color: var(--gh-ink-2);
-}
-.gia__points li:nth-child(2) { margin-left: clamp(0px, 4vw, 56px); }
-.gia__points li:nth-child(3) { margin-left: clamp(0px, 8vw, 112px); }
-.gia__points strong {
-  display: block;
-  margin-bottom: 4px;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(21px, 1.8vw, 26px);
-  line-height: 1.25;
-  color: var(--gh-ink);
-}
-.gia__closing { margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(34px, 4.4vw, 64px); line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
-.gia__note { margin: 0; font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); max-width: 460px; padding-top: 16px; border-top: 1px solid var(--gh-line); }
-@media (max-width: 1023px) {
-  .gia__foot { grid-template-columns: minmax(0, 1fr); }
-}
-/* the chat's look (.chat, .msg, the typing dots) is shared in main.css; here only its place */
-.gia .chat {   /* over the lower left corner of the room, hanging 56px below it */
-  position: absolute;
-  left: max(var(--page-pad), calc((100% - var(--container)) / 2));   /* on the page grid's left edge */
-  bottom: -56px;
-  width: min(370px, 46%);
-}
+.gia__photo { grid-column: 5 / 13; grid-row: 1; position: relative; min-width: 0; }
+.gia__room { display: block; width: 100%; aspect-ratio: 859 / 520; object-fit: cover; object-position: 50% 58%; border-radius: var(--radius); }
+.gia .chat { position: absolute; left: -96px; bottom: -40px; width: 360px; }
+
+.gia__mid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(20px, 2.2vw, 32px); align-items: end; margin-top: clamp(80px, 7.8vw, 112px); }
+.gia__title { grid-column: 1 / 8; margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(56px, 8.6vw, 124px); line-height: .95; letter-spacing: -.015em; }
+.gia__title span { display: block; white-space: nowrap; }
+.gia__title span:nth-child(3) { color: var(--gh-gold-ink); }
+.gia__points { grid-column: 9 / 13; margin: 0; padding: 0; list-style: none; }
+.gia__points li { padding: 16px 0 18px; border-top: 1px solid var(--gh-line); font-size: 17px; line-height: 1.5; color: var(--gh-ink-2); }
+.gia__points strong { display: block; margin-bottom: 4px; font-family: var(--font-display); font-weight: 500; font-size: 24px; line-height: 1.25; color: var(--gh-ink); }
+
+.gia__end { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px clamp(40px, 6.7vw, 96px); align-items: end; margin-top: clamp(64px, 6.7vw, 96px); }
+.gia__closing { margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(34px, 4vw, 58px); line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
+.gia__note { margin: 0; font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); padding-top: 16px; border-top: 1px solid var(--gh-line); }
 
 /* the typing dots share the cell of Gia's (still invisible) answer, so the card never changes height while it types */
 .gia .chat__body > .msg--gia.msg--first { grid-row: 1; grid-column: 1; }
 .gia .chat__body > .msg--typing, .gia .chat__body > .msg--gia { grid-row: 2; grid-column: 1; align-self: start; }
-
 .js .gia .chat [data-msg] { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
 .js .gia .chat [data-msg].is-shown { opacity: 1; transform: none; }
 
-@media (max-width: 1279px) {
-  .gia__grid.container { grid-template-columns: minmax(0, 1fr); }
-  .gia__head { grid-row: auto; }
-  .gia__text { grid-column: 1; grid-row: auto; width: min(100%, 420px); margin-left: auto; padding-top: 40px; }  .gia__room { aspect-ratio: 16 / 9; }
+@media (max-width: 1100px) {
+  .gia__top { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .gia__text, .gia__photo { grid-column: 1; grid-row: auto; }
+  .gia__text { padding-top: 0; max-width: 560px; }
+  .gia .chat { left: 24px; bottom: -40px; }
+  .gia__mid { grid-template-columns: minmax(0, 1fr); row-gap: 48px; margin-top: 96px; }
+  .gia__title, .gia__points { grid-column: 1; }
+  .gia__points { max-width: 560px; }
+  .gia__end { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
-  .gia .chat { position: relative; left: auto; bottom: auto; width: 92%; margin: -72px auto 0; }
-  .gia__foot { padding-top: clamp(40px, 5vw, 72px); }
-  .gia__text { margin-left: 0; }
   .gia__room { aspect-ratio: 4 / 3; }
-  .gia__title span:nth-child(2) { padding-left: .4em; }
-  .gia__title span:nth-child(3) { padding-left: .8em; }
+  .gia .chat { position: relative; left: auto; bottom: auto; width: 92%; margin: -72px auto 0; }
+  .gia__top { row-gap: 32px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .js .gia .chat [data-msg] { opacity: 1; transform: none; transition: none; }
@@ -808,101 +728,62 @@
 
 /* ==========================================================
    6. Your future — dark band (hard edges, DS 4.1)
+   Heading across the full width, three large staggered photos, each with its word
+   and a short gold dash, then one strip with the paragraph and the button.
+   Placeholder photos (placeholder-future-…). No scroll motion: panels only reveal.
    ========================================================== */
 .future {
   margin-top: var(--section-y);
   padding: var(--section-y) 0;
   background: var(--gh-brown);
   color: var(--gp-text);
+  overflow: hidden;
 }
-/* Composition: a giant two-line headline whose lines drift apart, three "moments of change"
-   panels at different heights on one gold line (today → tomorrow), the copy low on the left.
-   Placeholder photos (placeholder-future-…); motion is a light scrubbed parallax, no pin. */
-.future { overflow: hidden; }
-.future__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  grid-template-areas:
-    "head  head"
-    "body  strip";
-  gap: clamp(40px, 5vw, 72px) clamp(40px, 6vw, 96px);
-  align-items: end;
-}
-.future__head { grid-area: head; }
+.future__eyebrow { margin: 0 0 28px; }
 .future__title {
   margin: 0;
   font-family: var(--font-word);
   font-weight: 500;
-  font-size: clamp(44px, 7.4vw, 116px);
-  line-height: .95;
+  font-size: clamp(44px, 7.2vw, 104px);
+  line-height: .96;
   letter-spacing: -.015em;
 }
 .future__title span { display: block; }
 .future__today { color: var(--gp-text); }
-.future__tomorrow { color: var(--gp-champagne); padding-left: clamp(0px, 5vw, 80px); font-style: italic; }
+.future__tomorrow { color: var(--gp-champagne); font-style: italic; }
+@media (min-width: 901px) { .future__title span { white-space: nowrap; } }
 
 .future__strip {
-  grid-area: strip;
-  position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: auto auto;
-  column-gap: clamp(14px, 1.8vw, 28px);
-  align-items: end;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+  margin-top: clamp(40px, 5vw, 72px);
 }
-/* the three panels stand on the gold line (different heights, one base) and carry the three statements below it */
-.future__line {
-  grid-row: 1;
-  grid-column: 1 / -1;
-  align-self: end;
-  position: relative;
-  height: 1px;
-  background: var(--gp-gold-mid);
-  transform-origin: 0 50%;
-  z-index: 2;
-}
-.future__line::before, .future__line::after {
-  content: "";
-  position: absolute;
-  top: -6px;
-  width: 13px; height: 13px;
-  box-sizing: border-box;
-  border: 1px solid var(--gp-gold-mid);
-  border-radius: 50%;
-  background: var(--gh-brown);
-}
-.future__line::before { left: 0; }
-.future__line::after { right: 0; background: var(--gp-gold-mid); }
-.future__panel { grid-row: 1 / span 2; display: grid; grid-template-rows: subgrid; margin: 0; }
-.future__panel--1 { grid-column: 1; }
-.future__panel--2 { grid-column: 2; }
-.future__panel--3 { grid-column: 3; }
-.future__ph { align-self: end; overflow: hidden; background: #1a1008; }
-.future__panel--1 .future__ph { aspect-ratio: 3 / 4.2; }
-.future__panel--2 .future__ph { aspect-ratio: 3 / 3.1; }
-.future__panel--3 .future__ph { aspect-ratio: 3 / 3.7; }
-.future__panel img { display: block; width: 100%; height: 118%; object-fit: cover; filter: saturate(.85) brightness(.92); }
+.future__panel { margin: 0; }
+.future__panel--2 { margin-top: clamp(32px, 5vw, 72px); }
+.future__panel--3 { margin-top: clamp(12px, 1.7vw, 24px); }
+.future__ph { aspect-ratio: 3 / 4; overflow: hidden; background: #1a1008; }
+.future__panel img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.88) brightness(.94); }
 .future__panel--1 img { object-position: 50% 30%; }
 .future__panel--2 img { object-position: 50% 40%; }
 .future__panel--3 img { object-position: 45% 35%; }
-.future__panel figcaption {
-  padding-top: 28px;
-  font-size: 17px;
-  line-height: 1.5;
-  color: var(--gp-text-2);
-}
+.future__panel figcaption { padding-top: 22px; font-size: 18px; line-height: 1.5; color: var(--gp-text-2); }
+.future__panel figcaption::after { content: ""; display: block; width: 64px; height: 2px; margin-top: 20px; background: var(--gp-gold-mid); }
 .future__panel figcaption strong {
-  display: block;
-  margin-bottom: 8px;
-  font-family: var(--font-word);
-  font-weight: 600;
-  font-size: clamp(26px, 2.2vw, 34px);
-  line-height: 1.05;
-  color: var(--gp-champagne);
+  display: block; margin-bottom: 6px;
+  font-family: var(--font-word); font-style: italic; font-weight: 600;
+  font-size: clamp(30px, 2.8vw, 40px); line-height: 1.05; color: var(--gp-champagne);
 }
-.future__body { grid-area: body; padding-top: 24px; border-top: 1px solid rgba(197, 142, 66, .6); }
-.future__body p { color: var(--gp-text-2); max-width: 460px; }
-.future__body .btn { margin-top: 20px; }
+
+.future__foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 64px;
+  margin-top: clamp(56px, 6vw, 88px); padding-top: 36px;
+  border-top: 1px solid rgba(197, 142, 66, .6);
+}
+.future__foot p { margin: 0; max-width: 760px; font-size: 18px; line-height: 1.6; color: var(--gp-text-2); }
+.future__foot .btn { flex: none; }
+
 /* the fee note: a narrow light strip right under the dark band, plain text, no picture */
 .future__note {
   padding-block: clamp(40px, 5vw, 72px);
@@ -910,18 +791,14 @@
   border-bottom: 1px solid var(--gh-line);
 }
 .future__note p { margin: 0; max-width: 760px; font-size: 18px; line-height: 1.6; color: var(--gh-ink-2); }
-@media (max-width: 1100px) {
-  .future__grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "strip" "body"; }
-}
+
 @media (max-width: 900px) {
-  .future__tomorrow { padding-left: 0; }
+  .future__foot { flex-direction: column; align-items: flex-start; gap: 28px; }
 }
 @media (max-width: 640px) {
-  .future__strip { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: 40px; }
-  .future__line { display: none; }
-  .future__panel { grid-row: auto; grid-column: 1; grid-template-rows: auto auto; }
-  .future__panel .future__ph { aspect-ratio: 4 / 3; }
-  .future__panel figcaption { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--gp-gold-mid); }
+  .future__strip { grid-template-columns: minmax(0, 1fr); row-gap: 44px; }
+  .future__panel--2, .future__panel--3 { margin-top: 0; }
+  .future__ph { aspect-ratio: 4 / 3; }
 }
 
 /* ==========================================================

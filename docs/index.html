@@ -8,7 +8,7 @@
 <link rel="preload" as="image" href="assets/images/home-hero-descent-poster.jpg" fetchpriority="high" media="(min-width:769px) and (min-aspect-ratio:1/1) and (prefers-reduced-motion:no-preference)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/home.css">
 <script>/* hero mode before first paint: hero-video (desktop) or hero-layers (phones, portrait); neither with reduced motion or no JS = static final layout */(function(d,m){if(m("(prefers-reduced-motion:no-preference)").matches)d.classList.add(m("(min-width:769px) and (min-aspect-ratio:1/1)").matches?"hero-video":"hero-layers")})(document.documentElement,matchMedia)</script>
@@ -155,8 +155,8 @@
             <span class="econ__label">With Glonari &middot; Home Fee</span>
             <span class="econ__num">$7,500</span>
           </li>
-          <li class="econ__step econ__step--split">
-            <span class="econ__num"><small>About</small> $656</span>
+          <li class="econ__step">
+            <span class="econ__num"><small>About</small>$656</span>
             <span class="econ__label">less per month in this example</span>
           </li>
         </ol>
@@ -179,43 +179,28 @@
         <h2 class="lead ledger__title" id="ledger-title">Same <strong>$1&nbsp;million</strong> reference Home. Same <strong>$200,000</strong> starting cash. Traditional mortgage: 7% fixed for 30&nbsp;years.</h2>
         <img class="ledger__portrait" src="assets/images/home-ledger-portrait-1122.webp"
              srcset="assets/images/home-ledger-portrait-800.webp 800w, assets/images/home-ledger-portrait-1122.webp 1122w"
-             sizes="(min-width: 1200px) 24vw, 0px" width="1122" height="1402" loading="lazy" alt="">
+             sizes="(min-width: 1200px) 330px, 0px" width="1122" height="1402" loading="lazy" alt="">
       </div>
 
-      <div class="ledger__main">
-        <p class="eyebrow ledger__eyebrow">Monthly cost</p>
-        <div class="ledger__cols">
-          <table class="ledger__col">
-            <caption>Without Glonari</caption>
-            <tbody>
-              <tr><th scope="row">Mortgage principal &amp; interest</th><td>$5,322.42</td></tr>
-              <tr><th scope="row">Property tax assumption</th><td>$1,250.00</td></tr>
-              <tr><th scope="row">Insurance assumption</th><td>$500.00</td></tr>
-              <tr><th scope="row">Upkeep reserve</th><td>$833.33</td></tr>
-              <tr><th scope="row">HOA assumption</th><td>$250.00</td></tr>
-            </tbody>
-            <tfoot>
-              <tr><th scope="row">Total monthly budget</th><td>$8,155.75</td></tr>
-            </tfoot>
-          </table>
-
-          <div class="ledger__between" aria-hidden="true">
-            <p class="ledger__delta">about $656 less per month</p>
-            <span class="ledger__rule" data-ledger-rule></span>
-          </div>
-
-          <table class="ledger__col ledger__col--glonari">
-            <caption>With Glonari</caption>
-            <tbody>
-              <tr><th scope="row">Home Fee</th><td>$7,500</td></tr>
-            </tbody>
-            <tfoot>
-              <tr><th scope="row">Total monthly budget</th><td>$7,500</td></tr>
-            </tfoot>
-          </table>
+      <div class="ledger__main" data-reveal>
+        <table class="ledger__tbl">
+          <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+          <thead><tr><th scope="col">Monthly cost</th><th scope="col">Without Glonari</th><th scope="col">With Glonari</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Mortgage principal &amp; interest</th><td data-label="Without Glonari">$5,322.42</td><td class="is-none" data-label="With Glonari">&mdash;</td></tr>
+            <tr><th scope="row">Property tax assumption</th><td data-label="Without Glonari">$1,250.00</td><td class="is-none" data-label="With Glonari">&mdash;</td></tr>
+            <tr><th scope="row">Insurance assumption</th><td data-label="Without Glonari">$500.00</td><td class="is-none" data-label="With Glonari">&mdash;</td></tr>
+            <tr><th scope="row">Upkeep reserve</th><td data-label="Without Glonari">$833.33</td><td class="is-none" data-label="With Glonari">&mdash;</td></tr>
+            <tr><th scope="row">HOA assumption</th><td data-label="Without Glonari">$250.00</td><td class="is-none" data-label="With Glonari">&mdash;</td></tr>
+            <tr><th scope="row">Home Fee</th><td class="is-none" data-label="Without Glonari">&mdash;</td><td class="is-fee" data-label="With Glonari">$7,500</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><th scope="row">Total monthly budget</th><td data-label="Without Glonari">$8,155.75</td><td data-label="With Glonari">$7,500</td></tr>
+          </tfoot>
+        </table>
+        <div class="ledger__after">
+          <p class="ledger__delta"><strong>About $656 less per month</strong> in this example when the Home Fee covers the same costs, with Gia and coordinated support alongside it.</p>
         </div>
-
-        <p class="ledger__result">About <strong>$656 less per month</strong> in this example when the Home Fee covers the same costs, with Gia and coordinated support alongside it.</p>
       </div>
     </div>
   </section>
@@ -272,77 +257,76 @@
   </section>
   <!-- ============ 5. Meet Gia ============ -->
   <section class="gia" aria-labelledby="gia-title">
-    <div class="container gia__grid">
-      <div class="gia__head">
-        <p class="eyebrow">Meet Gia</p>
-        <h2 class="gia__title" id="gia-title"><span>Your Home.</span> <span>Your Life.</span> <span>Your&nbsp;Gia.</span></h2>
-      </div>
+    <div class="gia__wrap">
+      <div class="gia__top">
+        <div class="gia__text" data-reveal>
+          <p class="eyebrow">Meet Gia</p>
+          <p class="gia__lead">Meet Gia™, short for Glonari Intelligent Agent.</p>
+          <p>Start with a question. Gia helps you understand your Home services, bring next steps together and explore the choices ahead.</p>
+          <p>Gia learns your preferences, helps coordinate maintenance, organizes services and schedules, and looks for ways to make daily life simpler and more economical.</p>
+          <a class="link-arrow" href="living-with-glonari.html#gia-goes-with-you">Meet Gia <span aria-hidden="true">→</span></a>
+        </div>
 
-      <div class="gia__text" data-reveal>
-        <p>Meet Gia™, short for Glonari Intelligent Agent.</p>
-        <p>Start with a question. Gia helps you understand your Home services, bring next steps together and explore the choices ahead.</p>
-        <p>Gia learns your preferences, helps coordinate maintenance, organizes services and schedules, and looks for ways to make daily life simpler and more economical.</p>
-        <a class="link-arrow" href="living-with-glonari.html#gia-goes-with-you">Meet Gia <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
+        <div class="gia__photo">
+          <img class="gia__room"
+               src="assets/images/home-gia-room-flipped-1376.webp"
+               srcset="assets/images/home-gia-room-flipped-800.webp 800w, assets/images/home-gia-room-flipped-1376.webp 1376w"
+               sizes="(min-width: 1101px) 60vw, 100vw" width="1376" height="768" loading="lazy"
+               alt="A warm living room in the evening with a sofa, a reading lamp and books">
 
-    <div class="gia__visual">
-        <img class="gia__room"
-             src="assets/images/home-05-interior-1376.webp"
-             srcset="assets/images/home-05-interior-800.webp 800w, assets/images/home-05-interior-1376.webp 1376w"
-             sizes="(min-width: 1024px) 58vw, 100vw" width="1376" height="768" loading="lazy"
-             alt="A warm living room in the evening with a sofa, a reading lamp and books">
-
-        <div class="chat" data-chat role="group" aria-label="Example conversation with Gia">
-          <div class="chat__head">
-            <img src="assets/images/gia-avatar-256.webp" width="40" height="40" alt="">
-            <div><strong>Gia</strong><span>Your Glonari AI</span></div>
-          </div>
-          <div class="chat__body">
-            <p class="msg msg--gia msg--first" data-msg>Let’s explore what Glonari offers.</p>
-            <p class="msg msg--typing" data-typing aria-hidden="true"><span></span><span></span><span></span></p>
-            <p class="msg msg--gia" data-msg>I can help you understand your Home Fee.</p>
+          <div class="chat" data-chat role="group" aria-label="Example conversation with Gia">
+            <div class="chat__head">
+              <img src="assets/images/gia-avatar-256.webp" width="40" height="40" alt="">
+              <div><strong>Gia</strong><span>Your Glonari AI</span></div>
+            </div>
+            <div class="chat__body">
+              <p class="msg msg--gia msg--first" data-msg>Let’s explore what Glonari offers.</p>
+              <p class="msg msg--typing" data-typing aria-hidden="true"><span></span><span></span><span></span></p>
+              <p class="msg msg--gia" data-msg>I can help you understand your Home Fee.</p>
+            </div>
           </div>
         </div>
-    </div>
-    <div class="container gia__foot">
-      <ol class="gia__points" data-reveal>
-        <li><strong>Help around Home.</strong> A repair question. A service request. A clearer next step.</li>
-        <li><strong>Clarity about cost.</strong> Understand your Home Fee and what it covers.</li>
-        <li><strong>Confidence in your choices.</strong> Explore a move or GPA shares.</li>
-      </ol>
-      <p class="gia__closing" data-reveal>Less time managing your home. More time enjoying it.</p>
-      <p class="gia__note" data-reveal>Gia is an AI agent within Glonari technologies and services. Confirm live features. You approve commitments. Gia does not replace qualified legal, tax or financial advice.</p>
+      </div>
+
+      <div class="gia__mid">
+        <h2 class="gia__title" id="gia-title"><span>Your Home.</span> <span>Your Life.</span> <span>Your&nbsp;Gia.</span></h2>
+        <ol class="gia__points" data-reveal>
+          <li><strong>Help around Home.</strong> A repair question. A service request. A clearer next step.</li>
+          <li><strong>Clarity about cost.</strong> Understand your Home Fee and what it covers.</li>
+          <li><strong>Confidence in your choices.</strong> Explore a move or GPA shares.</li>
+        </ol>
+      </div>
+
+      <div class="gia__end">
+        <p class="gia__closing" data-reveal>Less time managing your home. More time enjoying it.</p>
+        <p class="gia__note" data-reveal>Gia is an AI agent within Glonari technologies and services. Confirm live features. You approve commitments. Gia does not replace qualified legal, tax or financial advice.</p>
+      </div>
     </div>
   </section>
 
   <!-- ============ 6. Your future (dark band) ============ -->
   <section class="future" aria-labelledby="future-title">
-    <div class="container future__grid">
-      <div class="future__head">
-        <p class="eyebrow eyebrow--light" data-reveal>Your future</p>
-        <h2 class="future__title" id="future-title"><span class="future__today">A Home for Today.</span> <span class="future__tomorrow">Possibilities for Tomorrow.</span></h2>
-      </div>
+    <div class="container">
+      <p class="eyebrow eyebrow--light future__eyebrow" data-reveal>Your future</p>
+      <h2 class="future__title" id="future-title"><span class="future__today">A Home for Today.</span> <span class="future__tomorrow">Possibilities for Tomorrow.</span></h2>
 
-      <!-- Placeholder media (placeholder-future-…): three moments of change, replace with the owner's photos or video.
-           The three panels stand on the gold line and carry the three statements of the document. -->
-      <div class="future__strip" data-future-strip>
-        <span class="future__line" aria-hidden="true"></span>
-        <figure class="future__panel future__panel--1">
-          <div class="future__ph"><img src="assets/images/placeholder-future-1-baby-800.webp" srcset="assets/images/placeholder-future-1-baby-800.webp 800w, assets/images/placeholder-future-1-baby-1200.webp 1200w" sizes="(min-width: 1024px) 22vw, 30vw" width="1254" height="1254" loading="lazy" alt=""></div>
+      <!-- Placeholder media (placeholder-future-…): replace with the owner's photos or video. -->
+      <div class="future__strip">
+        <figure class="future__panel future__panel--1" data-reveal>
+          <div class="future__ph"><img src="assets/images/placeholder-future-1-baby-800.webp" srcset="assets/images/placeholder-future-1-baby-800.webp 800w, assets/images/placeholder-future-1-baby-1200.webp 1200w" sizes="(min-width: 641px) 32vw, 100vw" width="1254" height="1254" loading="lazy" alt=""></div>
           <figcaption><strong>Stay.</strong> Keep enjoying the Home experience and its covered support.</figcaption>
         </figure>
-        <figure class="future__panel future__panel--2">
-          <div class="future__ph"><img src="assets/images/placeholder-future-2-leaving-800.webp" srcset="assets/images/placeholder-future-2-leaving-800.webp 800w, assets/images/placeholder-future-2-leaving-1200.webp 1200w" sizes="(min-width: 1024px) 22vw, 30vw" width="1254" height="1254" loading="lazy" alt=""></div>
+        <figure class="future__panel future__panel--2" data-reveal>
+          <div class="future__ph"><img src="assets/images/placeholder-future-2-leaving-800.webp" srcset="assets/images/placeholder-future-2-leaving-800.webp 800w, assets/images/placeholder-future-2-leaving-1200.webp 1200w" sizes="(min-width: 641px) 32vw, 100vw" width="1254" height="1254" loading="lazy" alt=""></div>
           <figcaption><strong>Transfer.</strong> Explore another qualifying Home after 12 months, with 90 days’ notice.</figcaption>
         </figure>
-        <figure class="future__panel future__panel--3">
-          <div class="future__ph"><img src="assets/images/placeholder-future-3-buy-800.webp" srcset="assets/images/placeholder-future-3-buy-800.webp 800w, assets/images/placeholder-future-3-buy-1200.webp 1200w" sizes="(min-width: 1024px) 22vw, 30vw" width="1200" height="1200" loading="lazy" alt=""></div>
+        <figure class="future__panel future__panel--3" data-reveal>
+          <div class="future__ph"><img src="assets/images/placeholder-future-3-buy-800.webp" srcset="assets/images/placeholder-future-3-buy-800.webp 800w, assets/images/placeholder-future-3-buy-1200.webp 1200w" sizes="(min-width: 641px) 32vw, 100vw" width="1200" height="1200" loading="lazy" alt=""></div>
           <figcaption><strong>Buy.</strong> Purchase at then-current value under the purchase terms. Seek a mortgage or pay cash.</figcaption>
         </figure>
       </div>
 
-      <div class="future__body" data-reveal>
+      <div class="future__foot" data-reveal>
         <p>Glonari Homes and Glonari Properties are connected experiences, while your Home agreement and your GPA remain separate. If occupancy ends, GPA remains separate: retain eligible shares or seek a permitted sale.</p>
         <a class="btn btn--light" href="living-with-glonari.html#when-life-changes">Plan Your Next Chapter</a>
       </div>

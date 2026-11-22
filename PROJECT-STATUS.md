@@ -1,6 +1,16 @@
 ﻿# Glonari Homes — Project Status
 
-Last updated: 2026-11-22. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
+Last updated: 2026-11-22 (Home design pass). Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
+
+## 2026-11-22 (Home design pass 2: econ scene + Meet Gia) — not committed
+
+Copies before: `masters/retired/{index,home,PROJECT-STATUS}-before-home-design-pass2-2026-11-22.*`. Done (owner chose 5c and 6c): **econ** = big house (76vw, centred), one figure at a time rises from behind the roof, is read and sinks back ($8,155.75 → $7,500 → About $656); captions only from the document; "Savings require equivalent coverage." stays as a strip under the scene. Static version (≤768px, reduced motion, no JS): no pin, two small budgets side by side, "About $656" the largest (up to 300px), house big under them, strip visible. **Meet Gia** = mock 6c: text narrow on the left, photo (859×520 at 1440) on the right with the chat across its lower-left corner, then the big headline with the three points beside it, then the closing line and the 16px note; the room photo is mirrored (new WebPs `home-gia-room-flipped-1376/800.webp`; the old `home-05-interior-*` files stay unused in `docs/assets/images/`). No master of the room photo exists in `masters/`, so the mirror was made from the published 1376 WebP (q90). Layout note: the owner's text said "photo left, text right", the mock 6c (built as agreed) has text left, photo right — built as the mock; to swap, mirror the grid columns in `.gia__top`.
+Checked at 1440/1024/768/375 (+ reduced motion 1440/375): no console errors, no horizontal scroll, paddings = --section-y, disclaimer 16px.
+
+## 2026-11-22 (Home design pass: ledger + Your future) — not committed
+
+Copies before: `masters/retired/{index,home,PROJECT-STATUS}-before-home-design-pass-2026-11-22.*`. Done (owner accepted mocks 2c and 4c): "Cost compared" = one 3-column table (Monthly cost / Without / With), "With Glonari" column as a paper panel, dashes in empty cells, totals large, "About $656 less per month" + explanation in the panel under the total, title + photo on the left; duplicate $7,500 (Home Fee row and total) kept by the owner's decision; phones (≤700px): each row is a small card. "Your future" = heading across the full width (up to 104px), three large staggered photos (387px at 1440) with Stay. / Transfer. / Buy. and a gold dash, paragraph + button in one strip at the bottom; phones: photos in a column. Scroll motion of both screens removed (ledger rule, future parallax) — reveal only. Cormorant italic added to the Google Fonts link in `index.html` (the italic was faked before). Measured 1440/1024/768/375: band padding = --section-y both sides, no horizontal scroll, no console errors, reduced motion = same static layout.
+Open (waiting for the owner's choice, nothing built): econ pinned scene (mocks `review/mocks/5a-econ-three-behind-roof`, `5b-econ-one-at-a-time`, `5c-econ-single-slot`, big house in the centre, figures rise from behind the roof) and Meet Gia (mocks `6a-gia-photo-centre`, `6b-gia-bleed-spread`, `6c-gia-photo-first`).
 
 ## 2026-11-22 (audit fixes) — not committed
 
