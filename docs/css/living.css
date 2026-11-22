@@ -401,8 +401,7 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
    04B · Your next move — a paper pause between two dark blocks
    (hard edges both sides: dark chapter above, the dark final below).
    Headline and one sentence on paper, the door at dusk full width,
-   then two tracks on one 4-column grid: "Traditional Home" in grey
-   (4 steps) and "Glonari Home" on a gold line (3 steps, shorter).
+   then two roads side by side (see Block 4 below).
    The gold line is drawn by the scroll: the screen's only effect
    (nextTracks() in living.js). Static (phones, reduced motion, no JS):
    everything complete; <=768px the tracks run down a vertical line.
@@ -425,52 +424,62 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 .liv-next__pic { display: block; margin-top: clamp(56px, 6vw, 96px); }
 .liv-next__pic img { display: block; width: 100%; height: auto; aspect-ratio: 2560 / 1097; object-fit: cover; }
 
-.liv-next__tracks { margin-top: clamp(56px, 6vw, 96px); display: grid; row-gap: clamp(48px, 5vw, 80px); }
-.liv-track { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: start; }
+/* Block 4 (tracks + note). Two roads side by side (>=1200px), same step pitch, so the gold road (3 steps) is
+   visibly shorter than the grey one (4). Each label stands on the baseline of its road's first step; the
+   line runs node to node and stops on the last node. The 6-10% note sits under both roads on the block's left edge. */
+.liv-next__body { padding-top: var(--section-y); }
+.liv-next__tracks {
+  --p: clamp(132px, 10.4vw, 150px); --fs: clamp(24px, 2.1vw, 30px); --labw: calc(var(--fs) * 9.9);
+  display: grid; row-gap: 72px;
+}
+.liv-track { display: grid; grid-template-columns: var(--labw) minmax(0, 1fr); align-items: baseline; }
 .liv-track__name {
-  grid-column: 1 / 4; margin: 0; padding-top: 4px;
-  font-family: var(--font-display); font-weight: 500;
-  font-size: clamp(22px, 2.1vw, 30px); line-height: 1.2; color: var(--gh-ink);
+  margin: 0; padding-right: 28px; text-align: right; font-family: var(--font-display); font-weight: 500; font-size: var(--fs); line-height: 1.2; color: var(--gh-ink-2);
 }
 .liv-track--new .liv-track__name { color: var(--gh-gold-ink); }
-.liv-track__way { grid-column: 4 / -1; position: relative; display: grid; }
-.liv-track__line { position: absolute; top: 6px; left: 0; right: 0; height: 1px; pointer-events: none; }
-.liv-track__line i { position: absolute; inset: 0; background: rgba(31, 26, 20, .28); transform-origin: left; }
-.liv-track--new .liv-track__line { right: calc(100% / 4 + 6px); }   /* three of the four columns: shorter, same grid */
-.liv-track--new .liv-track__line i { background: var(--tl-gold); }
-.liv-track__steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; }
-.liv-track__steps li { position: relative; padding-top: 32px; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.5; color: var(--gh-ink-2); }
-.liv-track--new .liv-track__steps li { color: var(--gh-ink); }
-.liv-track__steps strong { font-weight: 500; font-family: var(--font-display); font-size: 1.12em; display: block; margin-bottom: 4px; }
+.liv-track__steps { list-style: none; margin: 0; padding: 0; }
+.liv-track__steps li {
+  position: relative; min-height: var(--p); padding-left: 40px;
+  font-size: clamp(19px, 1.5vw, 21px); line-height: 1.5; color: var(--gh-ink); text-wrap: pretty;
+}
+.liv-track__steps li:last-child { min-height: 0; }
+.liv-track--old .liv-track__steps li { font-family: var(--font-display); font-weight: 500; font-size: var(--fs); line-height: 1.2; }
+.liv-track__steps strong { display: block; font-family: var(--font-display); font-weight: 500; font-size: var(--fs); line-height: 1.2; margin-bottom: 8px; }
 .liv-track__dot {
-  position: absolute; top: 0; left: 0; width: 13px; height: 13px; border-radius: 50%;
-  border: 1px solid rgba(31, 26, 20, .4); background: var(--gh-paper);
+  position: absolute; left: 0; top: calc(var(--fs) * .6 - 7.5px); width: 15px; height: 15px; border-radius: 50%; box-sizing: border-box;
+  border: 1px solid var(--gh-ink-2); background: var(--gh-paper);
 }
-.liv-track--new .liv-track__dot { border-color: var(--tl-gold); }
-.liv-track--old .liv-track__steps li { font-family: var(--font-display); font-size: clamp(19px, 1.7vw, 24px); }
+.liv-track--new .liv-track__dot { border-color: var(--tl-gold); background: var(--tl-gold); }
+.liv-track__seg {
+  position: absolute; left: 7px; top: calc(var(--fs) * .6); bottom: calc(var(--fs) * -.6); width: 1px;
+  background: rgba(31, 26, 20, .5); transform-origin: top;
+}
+.liv-track--new .liv-track__seg { left: 6.5px; width: 2px; background: var(--tl-gold); }
 .liv-next__note {
-  max-width: 760px; margin: clamp(48px, 5vw, 72px) 0 0 calc((100% + 24px) / 12 * 3);
-  font-size: 16px; line-height: 1.6; color: var(--gh-ink-2);
+  margin: 72px 0 0; padding: 28px max(0px, calc(100% - 780px)) 0 0; border-top: 1px solid var(--gh-line);
+  font-size: 17px; line-height: 1.6; color: var(--gh-ink-2); text-wrap: pretty;
 }
-.scenes-pending .liv-track--new .liv-track__line i { transform: scaleX(0); }
-.scenes-pending .liv-track--new .liv-track__dot { opacity: 0; }
+.scenes-pending .liv-track__seg { transform: scaleY(0); }
+.scenes-pending .liv-track__dot { opacity: 0; }
+@media (min-width: 1200px) {
+  .liv-next__tracks { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 0; }
+  .liv-track--old { grid-column: 1 / 7; } .liv-track--new { grid-column: 7 / 13; }
+}
 @media (max-width: 1023px) {
   .liv-next__h { grid-column: 1 / -1; }
   .liv-next__lead { grid-column: 3 / -1; }
-  .liv-track__name { grid-column: 1 / -1; padding-bottom: 28px; }
-  .liv-track__way { grid-column: 1 / -1; }
-  .liv-next__note { margin-left: 0; }
 }
 @media (max-width: 768px) {
   .liv-next__lead { grid-column: 1 / -1; }
   .liv-next__pic img { aspect-ratio: 4 / 3; object-position: 76% 50%; }
-  .liv-track__name { padding-bottom: 20px; }
-  .liv-track__line { top: 6px; bottom: 6px; left: 6px; right: auto; width: 1px; height: auto; }
-  .liv-track--new .liv-track__line { right: auto; bottom: 6px; }
-  .liv-track__line i { transform-origin: top; }
-  .liv-track__steps { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
-  .liv-track__steps li { padding: 0 0 0 36px; }
+  .liv-next__tracks { --fs: 26px; row-gap: 64px; }
+  .liv-track { display: block; }
+  .liv-track__name { padding: 0 0 28px; text-align: left; }
+  .liv-track__steps li { min-height: 0; padding-bottom: 36px; }
+  .liv-track__steps li:last-child { padding-bottom: 0; }
+  .liv-next__note { margin-top: 64px; padding-right: 0; }
 }
+
 
 /* ==========================================================
    07 · Final invitation — the page's third and last scene, dark

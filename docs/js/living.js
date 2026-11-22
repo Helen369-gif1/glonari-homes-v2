@@ -316,18 +316,21 @@
       .fromTo($$(".liv-chap__rail b", duo), { opacity: 0 }, { opacity: 1, duration: .1 }, .9);
   }
 
-  /* 04B: the gold track is drawn with the scroll (the screen's only effect): the line from the left, the
-     three nodes light up as it reaches them. Static layout = complete. Vertical on phones is static anyway. */
+  /* 04B: both roads are drawn with the scroll (the screen's only effect): segment by segment from the top, the nodes
+     light up as the line reaches them. Same pitch on both roads, so they advance together; the gold one stops a node earlier.
+     Static layout = complete. Phones: no scene, static. */
   function nextTracks() {
     const box = $("[data-next]");
     if (!box) return;
-    const dots = $$(".liv-track--new .liv-track__dot", box);
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: box, start: "top 80%", end: "bottom 75%", scrub: .6, invalidateOnRefresh: true },
+      scrollTrigger: { trigger: box, start: "top 80%", end: "bottom 70%", scrub: .6, invalidateOnRefresh: true },
       defaults: { ease: "none" },
     });
-    tl.fromTo($(".liv-track--new .liv-track__line i", box), { scaleX: 0 }, { scaleX: 1, duration: 1 }, 0);
-    dots.forEach((d, i) => tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: .08 }, i === 0 ? 0 : (i / (dots.length - 1)) * .86));
+    const n = 3; // gaps on the longer road
+    $$(".liv-track", box).forEach((tr) => {
+      $$(".liv-track__dot", tr).forEach((d, i) => tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: .05 }, i === 0 ? 0 : i / n - .02));
+      $$(".liv-track__seg", tr).forEach((s, i) => tl.fromTo(s, { scaleY: 0 }, { scaleY: 1, duration: 1 / n }, i / n));
+    });
   }
 
   const mm = gsap.matchMedia();
@@ -340,11 +343,12 @@
     pauseRail();
     settleRail();
     chapRails();
-    nextTracks();
     doc.classList.remove("scenes-pending");
     ScrollTrigger.refresh();
     return () => { giaOff(); finalOff(); doc.classList.remove("has-scenes"); };
   });
+  // the two roads are drawn only where they stand side by side (>=1200px); below that they stay complete
+  mm.add("(min-width: 1200px) and (prefers-reduced-motion: no-preference)", () => { nextTracks(); ScrollTrigger.refresh(); });
   doc.classList.remove("scenes-pending");
   window.addEventListener("load", () => ScrollTrigger.refresh());
 })();
