@@ -494,3 +494,11 @@ Finish the remaining pages (see Not started above; the Already Own a Home? page 
 
 
 
+
+## 2026-11-23 — Properties 02B and 03 reworked (owner chose mocks 15b and 16-1a)
+- 02B: three display statements (Earn more / Spend less / Create more value, third in gold) on hairline rows, each explained on its baseline at right; operating-objectives note as a closing row in the same right column. No staircase.
+- 03: one gold line under the two-column row, drawn by scroll left to right, small "20
+## 2026-11-23 — Properties 02B and 03 reworked (owner chose mocks 15b and 16-1a)
+- 02B: three display statements (Earn more / Spend less / Create more value, third in gold) on hairline rows, each explained on its baseline at right; the operating-objectives note is a closing row in the same right column. No staircase.
+- 03: one gold line under the two-column row, drawn by scroll left to right; a small "20%" mark (decorative, aria-hidden) appears at its end; the note hangs under the line. Old top rule removed. Lead enlarged to clamp(30px, 3vw, 42px).
+- Open: the 20% condition is unconfirmed (Kert), so it stays a small mark only. Mocks: review/mocks/15*-17*.

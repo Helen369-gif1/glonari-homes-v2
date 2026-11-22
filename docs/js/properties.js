@@ -82,9 +82,13 @@
         .fromTo(o, { v: from }, { v: to, duration: .9, onUpdate: () => { live.textContent = fmt(o.v); } }, 0)
         .to({}, { duration: .1 }, .9);
     }
-    // 03: the gold line across the container is drawn
-    const r3 = $(".np-shares__rule");
-    if (r3) gsap.fromTo(r3, { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: st(r3, "top 90%", "top 55%") });
+    // 03: the gold line is drawn left to right, the 20% mark appears at its end
+    const ln = $(".np-shares__line");
+    if (ln) {
+      gsap.timeline({ scrollTrigger: st(ln, "top 90%", "top 55%"), defaults: { ease: "none" } })
+        .fromTo($(".np-shares__rule", ln), { scaleX: 0 }, { scaleX: 1, duration: .85 }, 0)
+        .fromTo($(".np-shares__sign", ln), { opacity: 0 }, { opacity: 1, duration: .15 }, .85);
+    }
     // 07: the gold rule is drawn
     const rule = $(".np-adv__rule");
     if (rule) gsap.fromTo(rule, { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: st(rule, "top 90%", "top 55%") });
