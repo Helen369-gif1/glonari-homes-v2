@@ -246,3 +246,7 @@ Still open (V3.4-CHANGES-AND-OPEN-QUESTIONS.md, section D):
    - Pause A (after group 02, "Monthly payments"): `placeholder-faq-evening-table-*` stays (a crop of the Living kitchen table). `living-06-global-dream-pano.webp` was tried and rejected: it is an equirectangular 360° panorama, the arches bow, the floor curves, the sky is saturated blue (checked on two 21:9 crops). `how-05-glo-hall-night.png` is not used (the hall is already on Properties 02B). **Photo needed:** calm everyday home, 21:9 (2560x1100 and 1600x688), no faces.
    - Pause B (after group 03, "GPA and investment", moved there by the owner): `placeholder-faq-open-door-*` stays (a crop of the Find final photo). `properties-hero-bg.png` and the leather-bags door are not used. **Photo needed for the pause about moving:** an open door, evening light from the house, no people, 21:9 (2560x1100 and 1600x688).
 6. FAQs: the NAV+ question is now the only place where "not a GAAP standard or an audit opinion" stands (Properties 05 has no explanation of NAV+). Group index in the introduction uses only the group names and numbers.
+
+
+### Home "Your future" collage (2026-11-22)
+1. Nothing was shortened. Stay, Transfer and Buy captions are the full v3.4 sentences; they fit their narrow columns at 16px at 1440 and 1100 (Buy: "Purchase at then-current value under the purchase terms. Seek a mortgage or pay cash."). No v3.5 change needed from this screen. Below 1051px the page is one column, so nothing is cut there either.
