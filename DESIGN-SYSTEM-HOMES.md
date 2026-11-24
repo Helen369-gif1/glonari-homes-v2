@@ -13,7 +13,7 @@ Precedence when documents disagree:
 2. The home page as already shipped is the visual reference. Do not change it to match this document — this document was written to match it.
 3. This file controls typography, color, spacing, components, and motion for every other page.
 4. `SITE-STRUCTURE.md` controls page list, navigation, and section order.
-5. `Glonari_Homes_All_Pages_v3.4.md` (2026-11-21) controls the page list, section order and all English copy. It has priority over the older `.docx` and over earlier decisions about which sections exist.
+5. `Glonari_Homes_All_Pages_v3_5.md` (2026-11-24) controls the page list, section order and all English copy. It has priority over the older `.docx` and over earlier decisions about which sections exist.
 
 ### 1.1 Relationship to the other Glonari design systems
 
@@ -220,4 +220,4 @@ New pages should test at 1440×900, 1024px, 768px and 375px, matching how the ho
 
 ## 10. Before building a new page
 
-Read this file in full, plus `SITE-STRUCTURE.md` for that page's planned sections and `Glonari_Homes_All_Pages_v3.4.md` for its approved copy. Reuse the components in Section 7 before inventing new ones. New pages must visually match the home page — same header/footer, same type scale, same spacing tokens, same motion language.
+Read this file in full, plus `SITE-STRUCTURE.md` for that page's planned sections and `Glonari_Homes_All_Pages_v3_5.md` for its approved copy. Reuse the components in Section 7 before inventing new ones. New pages must visually match the home page — same header/footer, same type scale, same spacing tokens, same motion language.

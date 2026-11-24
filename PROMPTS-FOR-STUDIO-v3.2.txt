@@ -7,7 +7,7 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 5 (2026-11-21, �
 ЧАСТЬ 3 - разделы по страницам: файлы, что не менять, что учесть, список текстовых правок (Claude Code читает свой раздел сам).
 
 ПОРЯДОК: ЧАСТЬ 0 (переход на v3.2), затем страницы: HOME (если уже сделана по v3.1, только добавка), HOW IT WORKS, LIVING WITH GLONARI, FIND YOUR HOME, GLONARI PROPERTIES, FAQs. Страницы «GPA и кредитная линия» больше нет: она отложена. К следующей странице переходи после моей команды.
-Источник текста: Glonari_Homes_All_Pages_v3.4.md в корне проекта. Что убрано из v2 и где это лежит: V3.4-CHANGES-AND-OPEN-QUESTIONS.md (раздел 3 части v3, раздел A части v3.2 и раздел D). Что отложено на сайте: DEFERRED-2026-11-21.md.
+Источник текста: Glonari_Homes_All_Pages_v3_5.md в корне проекта. Что убрано из v2 и где это лежит: V3.4-CHANGES-AND-OPEN-QUESTIONS.md (раздел 3 части v3, раздел A части v3.2 и раздел D). Что отложено на сайте: DEFERRED-2026-11-21.md.
 
 ======================================================================
 ЧАСТЬ 0. РАЗОВЫЙ ПРОМПТ ПЕРЕХОДА НА v3.2 (отправить первым, это только документы, код сайта не трогать)
@@ -15,9 +15,9 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 5 (2026-11-21, �
 
 Работаем только с документами проекта. HTML, CSS, JS и картинки не менять. Commit и push не делать.
 
-Контекст: владелец утвердила Glonari_Homes_All_Pages_v3.4.md как главный источник текста вместо v3.1. Изменения: страница «GPA и кредитная линия» (05B), четыре финансовых сценария, ставки, LTV и таблицы, группа FAQ «Your credit line» и таблица «Three Years, Side by Side» на Living отложены и лежат в DEFERRED-2026-11-21.md. Кредитная линия остаётся только короткими предложениями на Glonari Properties (экран 07) и одним вопросом в FAQs.
+Контекст: владелец утвердила Glonari_Homes_All_Pages_v3_5.md как главный источник текста вместо v3.1. Изменения: страница «GPA и кредитная линия» (05B), четыре финансовых сценария, ставки, LTV и таблицы, группа FAQ «Your credit line» и таблица «Three Years, Side by Side» на Living отложены и лежат в DEFERRED-2026-11-21.md. Кредитная линия остаётся только короткими предложениями на Glonari Properties (экран 07) и одним вопросом в FAQs.
 
-1. Проверь, что в корне лежат: Glonari_Homes_All_Pages_v3.4.md, V3.4-CHANGES-AND-OPEN-QUESTIONS.md, DEFERRED-2026-11-21.md, PROMPTS-FOR-STUDIO-v3.2.txt. Скажи, чего не хватает. Проверь, что они не попали в docs/.
+1. Проверь, что в корне лежат: Glonari_Homes_All_Pages_v3_5.md, V3.4-CHANGES-AND-OPEN-QUESTIONS.md, DEFERRED-2026-11-21.md, PROMPTS-FOR-STUDIO-v3.2.txt. Скажи, чего не хватает. Проверь, что они не попали в docs/.
 2. Перенеси в masters/retired/: Glonari_Homes_All_Pages_v3.1.md, V3.1-CHANGES-AND-OPEN-QUESTIONS.md, PROMPTS-FOR-STUDIO-v3.txt (не удалять).
 3. Замени ссылки на v3.1 на v3.2 в CLAUDE.md, DESIGN-SYSTEM-HOMES.md, SITE-STRUCTURE.md, OPEN-QUESTIONS.md и PROMPTS-FOR-STUDIO-v3.2.txt, если там ещё осталось. Меняй только имя файла и дату. Остальной текст правил не переписывать.
 4. В OPEN-QUESTIONS.md в раздел «v3.1 (2026-11-21)» добавь строку: «v3.2: страница 05B и группа FAQ про кредитную линию, таблица Three Years на Living отложены, см. DEFERRED-2026-11-21.md». Вопросы из раздела D файла V3.4-CHANGES-AND-OPEN-QUESTIONS.md добавь в тот же раздел.
@@ -36,7 +36,7 @@ GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE, ВЕРСИЯ 5 (2026-11-21, �
 Прочитай CLAUDE.md, DESIGN-BRIEF.md, DESIGN-SYSTEM-HOMES.md, PROJECT-STATUS.md, SITE-STRUCTURE.md и OPEN-QUESTIONS.md.
 
 Используй:
-- Glonari_Homes_All_Pages_v3.4.md - основной источник текстов.
+- Glonari_Homes_All_Pages_v3_5.md - основной источник текстов.
 - V3.4-CHANGES-AND-OPEN-QUESTIONS.md - что изменилось по экранам и что убрано; DEFERRED-2026-11-21.md - что отложено (на сайт не идёт).
 - PROMPTS-FOR-STUDIO-v3.2.txt (этот же файл в корне проекта): ЧАСТЬ 2 (ПРАВИЛА) и раздел своей страницы в ЧАСТИ 3 (файлы, НЕ МЕНЯТЬ, что учесть, список текстовых правок). ЧАСТЬ 1 (этот рабочий промпт) повторно читать не нужно.
 

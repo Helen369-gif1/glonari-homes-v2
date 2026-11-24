@@ -2,6 +2,10 @@
 
 ## Website Copy — All Pages
 
+Version 3.5, 2026-11-24 (v3.4 plus the new page 03B “Gia”, from Kert’s note on Gia and from the updated companion guide *The Global Dream v2*. Added from the guide only what is about home life and Gia: the faucet scene, the repair-or-improve process, the emergency line and the chat pair. The financial material of the guide (family example, six options, line of credit, leverage, GPA pool, share divisibility, the 62% figure, five-year tables) is not on the site; it is listed in `DEFERRED-2026-11-24-global-dream.md`. v3.4 and earlier versions are kept unchanged).
+
+**Working decision of 2026-11-24 (owner):** 7. Gia gets her own page, “Gia”, between Living With Glonari and Find Your Home. The site stays focused on the home experience and how Gia makes it better. Gia helping to earn or save stays out of this site (Kert: it will be explained in another section later). Cost and time figures on the page are round estimated examples for a typical U.S. home, not quotes.
+
 Version 3.4, 2026-11-21 (v3.3 plus shorter Glonari Properties screens 03, 05 and 06: the removed sentences moved to the FAQs or to `DEFERRED-part2-properties-text.md`; v3, v3.1, v3.2 and v3.3 are kept unchanged). Built from the newest *Glonari Homes brochure v2* and *Glonari Properties presentation v2* (both 15 November 2026), which **replace the old model**. Structure, page list and screen numbering follow v2; new screens are marked **NEW**. The untouched v2 is kept as `Glonari_Homes_All_Pages_v2_ARCHIVE_2026-11-21.md`; every line taken out of v2 is listed with its place in `V3-CHANGES-AND-OPEN-QUESTIONS.md`. Nothing is deleted for good: the two lines below are only paused until the terms are confirmed with Kert.
 
 **Working decisions of 2026-11-21 (owner, after the answers on the open questions):**
@@ -16,7 +20,7 @@ Version 3.4, 2026-11-21 (v3.3 plus shorter Glonari Properties screens 03, 05 and
 
 ### Main Navigation
 
-Home | How It Works | Living With Glonari | Find Your Home | Glonari Properties | FAQs
+Home | How It Works | Living With Glonari | Gia | Find Your Home | Glonari Properties | FAQs
 
 **Main action:** Find My Glonari Home
 
@@ -121,6 +125,8 @@ Gia is an AI agent within Glonari technologies and services. Confirm live featur
 **Gia’s chat lines (owner’s working set, 2026-11-21):** “I can help you explore your options.” “Let’s see what your home plan could look like.” “I can help you understand your Home Fee.” “Let’s explore what Glonari offers.”
 
 *The user’s side of the chat is still open (the built question is about earnings and is paused). Paused: the paragraph “Gia also helps you earn. Through Global Connections, Gia helps generate the minimum monthly earnings…” and the home-page chat question/answer about Global Connections earnings. The chat on the site is not document text; a new question and answer need the owner’s words.*
+
+*v3.5: the user’s side of the Home chat is now filled from The Global Dream v2 (p. 5): user “The faucet is leaking. Is that covered?” and Gia “Let us check your Home coverage and the process for getting help. I can help you organize the request.” The button “Meet Gia” leads to page 03B.*
 
 *Here we would like to show what Gia can already do today and which features are planned.*
 
@@ -314,6 +320,10 @@ Start with a question. Gia helps you understand your Home services, bring next s
 
 Gia is an AI agent within Glonari technologies and services. Confirm live features. You approve commitments. Gia does not replace qualified legal, tax or financial advice.
 
+**See How Gia Helps**
+
+*v3.5: the button leads to page 03B. The built scene and chat on this page are not changed.*
+
 *The built Gia chat on this page: the “By the sea” message (“Your Global Connections earnings moved with you. Nothing starts from zero.”) stays out. Proposed replacement from the owner’s working set: “Let’s see what your home plan could look like.” (assignment to confirm).*
 
 *Here we need real examples of Gia’s currently available services and which features are still planned. “You approve commitments” answers part of the approval question.*
@@ -394,6 +404,107 @@ See how Glonari Homes could fit your life today—and understand the questions t
 
 ---
 
+# PAGE 03B — GIA
+
+*New page (Kert’s note, 2026-11-24). The plumbing scene, the repair / improvement process and the chat pair come from The Global Dream v2, pp. 5, 8, 9 and 39. Menu label: “Gia”. Italic text is a note and is never published. Headlines marked “proposed” are new wording for the owner to approve.*
+
+## SCREEN 01 — HERO
+
+**Meet Gia™**
+
+# Home Is Easier With Gia.
+
+*Headline proposed, from Kert’s “Gia makes it easier”.*
+
+Meet Gia™, short for Glonari Intelligent Agent. Gia is your personal AI Home assistant. Ask in your own words, explore the answer and understand what happens next.
+
+**See How Gia Helps**
+
+## SCREEN 02 — WHEN SOMETHING NEEDS FIXING
+
+# Something Needs Fixing? Tell Gia.
+
+*Headline proposed, from Kert’s plumbing example. Chat scene: use the built Gia chat component.*
+
+**You:** “The faucet is leaking. Is that covered?”
+
+**Gia:** “Let us check your Home coverage and the process for getting help. I can help you organize the request.”
+
+**01. Describe the issue.** You can choose to share a photo.
+
+**02. Confirm the next step.** The property team checks scope and coverage.
+
+**03. Get human help.** An approved professional performs the work.
+
+One place to ask for help.
+
+Estimated example: a basic repair such as a leaking faucet is about $350 and is usually scheduled within a few days. Coverage comes first; you pay only any agreed separate charge. Urgent water or safety issues use the direct emergency process. Coverage and service availability vary. No response-time guarantee.
+
+*Kert says “Gia contacts the plumber”. The guide describes the same flow in three steps (Gia starts the request, the property team confirms coverage, an approved professional does the work). The page uses the guide’s steps, which include Kert’s idea.*
+
+## SCREEN 03 — EVERYDAY HOME NEEDS
+
+# Everyday Home Needs, in One Place.
+
+*Headline proposed.*
+
+Gia remembers your preferences and helps coordinate services, maintenance, scheduling, shopping, and personal assistance.
+
+Gia manages what needs to be maintained and the everyday needs of your Home. Gia makes it easier.
+
+Gia is part of Glonari technologies and services; human providers do the physical work.
+
+*Kert writes “homeownership needs”. On this site Glonari owns the residence, so the page says “the everyday needs of your Home”.*
+
+## SCREEN 04 — REPAIR OR IMPROVE
+
+# Fix Something Broken. Or Plan Something Different.
+
+**Repair the faucet.** Restore something that is not working. Check coverage and the agreed repair process.
+
+**Update the kitchen.** Better storage. A different counter. Get scope, quotes, owner approval and an agreement about who pays.
+
+Gia helps organize the path. The member and property owner approve the commitments.
+
+Estimated example: a kitchen update is about $25,000 and takes about 10 weeks. Funding, permissions, fee effects and rights to improvements need written terms. A project does not automatically add equal property value.
+
+## SCREEN 05 — FINDING YOUR HOME
+
+# Your Personal Property Advisor.
+
+*Headline proposed, from Kert’s “personal property advisor”.*
+
+Gia looks through listings, finds homes and presents your options.
+
+Found a place you love? Gia can use the listing details and her tools to show what the home could become, with the cost and time.
+
+| Example project | Estimated cost | Estimated time |
+| --- | --- | --- |
+| Kitchen update | about $25,000 | about 10 weeks |
+| Primary bathroom refresh | about $12,000 | about 4 weeks |
+| Flooring and paint | about $18,000 | about 3 weeks |
+| The whole example | about $55,000 | about 12 weeks (some work overlaps) |
+
+Your search is not just listings. It is personal and continual.
+
+Estimated example for a typical U.S. home, not a quote. Actual costs and timing vary by location, scope and contractor quotes. Who approves and who pays is set in writing before any work starts. Every property is subject to eligibility, location, condition, title, valuation, and program approval.
+
+**Explore Your Home Options**
+
+*Visual: before / after of a listing photo and the same room remodeled (two temporary images until real ones exist). The $25,000 matches the optional kitchen allowance in the guide (p. 10).*
+
+## SCREEN 06 — FINAL
+
+# Start With a Question.
+
+Gia helps you understand your Home services, bring next steps together and explore the choices ahead.
+
+**Find My Glonari Home**
+
+Gia is an AI agent within Glonari technologies and services. Confirm live features. You approve commitments. Gia does not replace qualified legal, tax or financial advice.
+
+---
+
 # PAGE 04 — FIND YOUR HOME
 
 ## SCREEN 01 — HERO
@@ -413,6 +524,20 @@ Glonari Properties may evaluate qualifying properties for potential acquisition 
 Tell us about the kind of home you want, where you would like to live, and what matters most to your family.
 
 *Here we need to show the regions in which Glonari Homes is actually available, any verified property inventory, and the criteria a proposed home must meet.*
+
+## SCREEN 02B — YOUR PERSONAL PROPERTY ADVISOR (NEW)
+
+*Short screen; the full story is on page 03B. Headline proposed.*
+
+# Gia Searches With You.
+
+Gia is your personal property advisor. She looks through listings, finds homes and presents your options.
+
+Your search is not just listings. It is personal and continual.
+
+**Meet Gia**
+
+*The button leads to page 03B.*
 
 ## SCREEN 03 — THE FIRST QUESTIONS
 
@@ -734,6 +859,18 @@ Gia, short for Glonari Intelligent Agent, is your personal AI concierge. Gia hel
 
 You approve commitments. Gia is an AI agent within Glonari technologies and services. Gia does not replace qualified legal, tax or financial advice.
 
+### Can Gia arrange a repair?
+
+Gia helps you start the request. The property team checks scope and coverage, and an approved professional does the work. Coverage comes first; you pay only any agreed separate charge. Urgent water or safety issues use the direct emergency process. Coverage and service availability vary.
+
+### Can I update my kitchen or bathroom?
+
+Gia helps organize the request. An elective improvement needs an approved scope, quotes, owner approval and a written agreement about who pays. Elective improvements are not assumed to be included in the Home Fee.
+
+### Can Gia help me find a home?
+
+Yes. Gia is your personal property advisor. She looks through listings, presents your options and can show what a home could become, with an estimated cost and time. Every property is subject to eligibility, location, condition, title, valuation, and program approval.
+
 ### What can Gia do today?
 
 *Here we need a verified list of active features, planned features, available services and data permissions.*
@@ -770,7 +907,7 @@ Glonari Homes brings together housing, AI-powered services, and new financial po
 
 # SITE-WIDE FOOTER
 
-Home | How It Works | Living With Glonari | Find Your Home | Glonari Properties | FAQs
+Home | How It Works | Living With Glonari | Gia | Find Your Home | Glonari Properties | FAQs
 
 Privacy | Legal & Disclosures | Contact
 

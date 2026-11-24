@@ -1,4 +1,4 @@
-# Open questions from `Glonari_Homes_All_Pages_v3.4.md`
+# Open questions from `Glonari_Homes_All_Pages_v3_5.md`
 
 The italic notes in the document are questions for the owner, not site copy: they are never published. They are collected here, page by page and screen by screen, as each page is rebuilt. Home (Page 01) and the pages after How It Works will be added when they are processed.
 
