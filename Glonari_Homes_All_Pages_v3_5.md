@@ -2,6 +2,8 @@
 
 ## Website Copy — All Pages
 
+Version 3.5.2, 2026-11-25 (v3.5 plus the split of Gia and property search, owner’s decision: page 03B “Gia” is only about life in the home, five screens; the former Gia screen 05 “Your Personal Property Advisor.” moved word for word to Find Your Home as full screen 02B and replaced the short “Gia Searches With You.”. The button “Explore Your Home Options” is deferred, “Meet Gia” stays as a small link. The Gia final button “Find My Glonari Home” leads to find-your-home.html. The previous file is kept in `masters/retired/Glonari_Homes_All_Pages_v3_5-before-gia-split-2026-11-25.md`).
+
 Version 3.5, 2026-11-24 (v3.4 plus the new page 03B “Gia”, from Kert’s note on Gia and from the updated companion guide *The Global Dream v2*. Added from the guide only what is about home life and Gia: the faucet scene, the repair-or-improve process, the emergency line and the chat pair. The financial material of the guide (family example, six options, line of credit, leverage, GPA pool, share divisibility, the 62% figure, five-year tables) is not on the site; it is listed in `DEFERRED-2026-11-24-global-dream.md`. v3.4 and earlier versions are kept unchanged).
 
 **Working decision of 2026-11-24 (owner):** 7. Gia gets her own page, “Gia”, between Living With Glonari and Find Your Home. The site stays focused on the home experience and how Gia makes it better. Gia helping to earn or save stays out of this site (Kert: it will be explained in another section later). Cost and time figures on the page are round estimated examples for a typical U.S. home, not quotes.
@@ -406,7 +408,7 @@ See how Glonari Homes could fit your life today—and understand the questions t
 
 # PAGE 03B — GIA
 
-*New page (Kert’s note, 2026-11-24). The plumbing scene, the repair / improvement process and the chat pair come from The Global Dream v2, pp. 5, 8, 9 and 39. Menu label: “Gia”. Italic text is a note and is never published. Headlines marked “proposed” are new wording for the owner to approve.*
+*New page (Kert’s note, 2026-11-24). Five screens since v3.5.2: the property-search screen moved to Find Your Home 02B. The plumbing scene, the repair / improvement process and the chat pair come from The Global Dream v2, pp. 5, 8, 9 and 39. Menu label: “Gia”. Italic text is a note and is never published. Headlines marked “proposed” are new wording for the owner to approve.*
 
 ## SCREEN 01 — HERO
 
@@ -468,38 +470,15 @@ Gia helps organize the path. The member and property owner approve the commitmen
 
 Estimated example: a kitchen update is about $25,000 and takes about 10 weeks. Funding, permissions, fee effects and rights to improvements need written terms. A project does not automatically add equal property value.
 
-## SCREEN 05 — FINDING YOUR HOME
-
-# Your Personal Property Advisor.
-
-*Headline proposed, from Kert’s “personal property advisor”.*
-
-Gia looks through listings, finds homes and presents your options.
-
-Found a place you love? Gia can use the listing details and her tools to show what the home could become, with the cost and time.
-
-| Example project | Estimated cost | Estimated time |
-| --- | --- | --- |
-| Kitchen update | about $25,000 | about 10 weeks |
-| Primary bathroom refresh | about $12,000 | about 4 weeks |
-| Flooring and paint | about $18,000 | about 3 weeks |
-| The whole example | about $55,000 | about 12 weeks (some work overlaps) |
-
-Your search is not just listings. It is personal and continual.
-
-Estimated example for a typical U.S. home, not a quote. Actual costs and timing vary by location, scope and contractor quotes. Who approves and who pays is set in writing before any work starts. Every property is subject to eligibility, location, condition, title, valuation, and program approval.
-
-**Explore Your Home Options**
-
-*Visual: before / after of a listing photo and the same room remodeled (two temporary images until real ones exist). The $25,000 matches the optional kitchen allowance in the guide (p. 10).*
-
-## SCREEN 06 — FINAL
+## SCREEN 05 — FINAL
 
 # Start With a Question.
 
 Gia helps you understand your Home services, bring next steps together and explore the choices ahead.
 
 **Find My Glonari Home**
+
+*The button leads to find-your-home.html (v3.5.2).*
 
 Gia is an AI agent within Glonari technologies and services. Confirm live features. You approve commitments. Gia does not replace qualified legal, tax or financial advice.
 
@@ -527,17 +506,30 @@ Tell us about the kind of home you want, where you would like to live, and what 
 
 ## SCREEN 02B — YOUR PERSONAL PROPERTY ADVISOR (NEW)
 
-*Short screen; the full story is on page 03B. Headline proposed.*
+*Full screen since v3.5.2 (moved word for word from page 03B, former screen 05, and replaces the short “Gia Searches With You.”). Headline proposed, from Kert’s “personal property advisor”. The button “Explore Your Home Options” is not used on this page; it is kept in DEFERRED-2026-11-25-gia-split.md.*
 
-# Gia Searches With You.
+# Your Personal Property Advisor.
 
-Gia is your personal property advisor. She looks through listings, finds homes and presents your options.
+Gia looks through listings, finds homes and presents your options.
+
+Found a place you love? Gia can use the listing details and her tools to show what the home could become, with the cost and time.
+
+| Example project | Estimated cost | Estimated time |
+| --- | --- | --- |
+| Kitchen update | about $25,000 | about 10 weeks |
+| Primary bathroom refresh | about $12,000 | about 4 weeks |
+| Flooring and paint | about $18,000 | about 3 weeks |
+| The whole example | about $55,000 | about 12 weeks (some work overlaps) |
 
 Your search is not just listings. It is personal and continual.
 
+Estimated example for a typical U.S. home, not a quote. Actual costs and timing vary by location, scope and contractor quotes. Who approves and who pays is set in writing before any work starts. Every property is subject to eligibility, location, condition, title, valuation, and program approval.
+
+*Visual: before / after of a listing photo and the same room remodeled (two temporary images until real ones exist). The $25,000 matches the optional kitchen allowance in the guide (p. 10).*
+
 **Meet Gia**
 
-*The button leads to page 03B.*
+*Small link to gia.html (page 03B).*
 
 ## SCREEN 03 — THE FIRST QUESTIONS
 

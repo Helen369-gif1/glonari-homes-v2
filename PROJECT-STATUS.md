@@ -506,3 +506,8 @@ Finish the remaining pages (see Not started above; the Already Own a Home? page 
 - 02B: three display statements (Earn more / Spend less / Create more value, third in gold) on hairline rows, each explained on its baseline at right; the operating-objectives note is a closing row in the same right column. No staircase.
 - 03: one gold line under the two-column row, drawn by scroll left to right; a small "20%" mark (decorative, aria-hidden) appears at its end; the note hangs under the line. Old top rule removed. Lead enlarged to clamp(30px, 3vw, 42px).
 - Open: the 20% condition is unconfirmed (Kert), so it stays a small mark only. Mocks: review/mocks/15*-17*.
+
+## 2026-11-25 — Gia / Find split and three scroll prototypes (site code NOT changed)
+- Document is now v3.5.2: Gia (03B) has 5 screens (life in the home only); former Gia screen 05 is Find Your Home 02B (full screen, replaces "Gia Searches With You."). "Explore Your Home Options" is deferred (`DEFERRED-2026-11-25-gia-split.md`); "Meet Gia" stays as a small link. Gia final button -> find-your-home.html. Old file: `masters/retired/Glonari_Homes_All_Pages_v3_5-before-gia-split-2026-11-25.md`. SITE-STRUCTURE.md updated.
+- Prototypes (scroll in a browser, `python -m http.server 5180` from the project root): `review/mocks/18a-gia-hero-arch.html`, `18b-find-02b-scene.html`, `18c-gia-02-cards.html` (+ `18-proto.js`, `18-proto.css`).
+- Open: owner picks which effects to build; pin count on Find (see report); captions "The listing." / "What it could become." are not in v3.5.2.
