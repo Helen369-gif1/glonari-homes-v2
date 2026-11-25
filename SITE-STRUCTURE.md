@@ -4,7 +4,7 @@ Page list, navigation, and per-page sections. Approved English copy for each sec
 
 ## Navigation (as built, every page)
 
-- **Header nav:** Home · How It Works · Living With Glonari · **Gia** · Find Your Home · Glonari Properties · FAQs (seven items; v3.5, page 03B not built yet)
+- **Header nav:** Home · How It Works · Living With Glonari · **Gia** · Find Your Home · Glonari Properties · FAQs (seven items, built 2026-11-25; on screens shorter than the menu the open panel scrolls inside itself)
 - **Header CTA** (always visible, not in the nav list): Find My Glonari Home → `find-your-home.html`
 - **Footer columns:** *Explore* — the seven pages above (v3.5 adds "Gia" between Living With Glonari and Find Your Home); *Legal* — Privacy, Legal & Disclosures, Contact (the last three still `#`). Tagline: "AI for Human Prosperity™".
 - **Footer disclosure** (verbatim from the document, every page): "Glonari Homes is a proposed program. Figures on this site are estimated examples and modeled scenarios, subject to definitive agreements and approval. They are not guarantees or cash sale proceeds. Investment values can change. Credit is not assured. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities."
@@ -62,30 +62,30 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 5b. Your next move (`#next-move`, paper pause, no pin, order set by the owner: after the dark chapter, before the final) — headline + sentence on paper, the door at dusk full width, two tracks on one grid (Traditional Home grey, 4 steps / Glonari Home on a gold line drawn by the scroll, 3 steps), 16px note; hard edges brown→paper→brown
 7. Final invitation (`#final-invitation`, scene, dark) — night villa, headline, line, "Explore Your Home" → Find Your Home
 
-### 3B. Gia — `docs/gia.html` — NEW in v3.5 (Page 03B, 5 screens since v3.5.2; **not built**, mocks only)
+### 3B. Gia — `docs/gia.html` — ✅ built 2026-11-25 (Page 03B, 5 screens, v3.5.2)
 
-Between Living With Glonari and Find Your Home. Page files will be `css/gia.css`, `js/gia.js`. Copy: `Glonari_Homes_All_Pages_v3_5.md` (v3.5.2) Page 03B. Only life in the home: property search moved to Find Your Home 02B (owner, 2026-11-25). The site stays on the home experience; Gia helping to earn or save is not on this site. Cost/time figures are round estimated examples, not quotes. Pins: at most three.
+Between Living With Glonari and Find Your Home. Page files: `css/gia.css`, `js/gia.js`. Copy: `Glonari_Homes_All_Pages_v3_5.md` (v3.5.2) Page 03B. Only life in the home: property search moved to Find Your Home 02B (owner, 2026-11-25). The site stays on the home experience; Gia helping to earn or save is not on this site. Cost/time figures are round estimated examples, not quotes. One pin (01 hero). Images (real, 2026-11-25; originals in `masters/incoming/`): `gia-hero-a-{1600,2560}.webp` empty room 16:10, `gia-hero-a1-{1600,2560}.webp` Gia as a transparent cut-out on the SAME canvas as A, `gia-hero-b-{800,1200}.webp` portrait 2:3 (the arch). `a2` (the full assembly) is a reference only and is not on the site.
 
-1. Hero — "Meet Gia™" eyebrow, "Home Is Easier With Gia.", paragraph, button "See How Gia Helps" -> `#fixing` (prototype A: big photo settles into the right arch; pin)
+1. Hero — "Meet Gia™" eyebrow, "Home Is Easier With Gia.", paragraph, button "See How Gia Helps" -> `#fixing` (ONE pin ~240svh: the empty room alone with slow parallax -> Gia (cut-out layer) comes in with the line "Gia makes it easier." (owner's exception, desktop only) -> two-layer parallax -> pause -> photo B takes her place, flows down and right and turns from a rectangle into the arch (clip-path inset+round; fallback `?lite` without clip-path) -> text on the left; phones and reduced motion: no pin, final layout with the arch)
 2. When something needs fixing (`#fixing`) — "Something Needs Fixing? Tell Gia."; the built Gia chat component (`.chat`) with the faucet pair, three steps 01-03, "One place to ask for help.", estimated-example note (16px)
 3. Everyday home needs — "Everyday Home Needs, in One Place.", three short paragraphs
 4. Repair or improve — "Fix Something Broken. Or Plan Something Different."; Repair the faucet / Update the kitchen, "Gia helps organize the path…", note with ,000 / about 10 weeks
 5. Final — "Start With a Question.", paragraph, button "Find My Glonari Home" -> `find-your-home.html`, AI disclaimer
 
-Buttons elsewhere that lead here (v3.5): Home screen 05 "Meet Gia"; Living screen 02 "See How Gia Helps"; Find 02B "Meet Gia" (small link). Gia final "Find My Glonari Home" -> Find Your Home. FAQs group 05 "Gia & Everyday Living" is now 6 questions (adds repair, kitchen/bathroom, find a home).
+Buttons elsewhere that lead here (v3.5): Home screen 05 "Meet Gia"; Living screen 02 "See How Gia Helps" (under the AI note); Find 02B "Meet Gia" (small link). Gia final "Find My Glonari Home" -> Find Your Home. FAQs group 05 "Gia & Everyday Living" is now 6 questions (adds repair, kitchen/bathroom, find a home).
 ### 4. Find Your Home — `docs/find-your-home.html` — ✅ built (Page 04 of the document, 6 screens)
 
 Page files: `css/find.css`, `js/find.js`. Media are `placeholder-find-…` until the real ones arrive (see `PROJECT-STATUS.md`).
 
 1. Hero (scene, pin) — street, title between street and home, home; "The Home You Have in Mind."; a quiet paper bar under the photo holds the paragraph, the "Glonari Properties may evaluate…" disclaimer and "Start Exploring" → `#where`
 2. Where would you like to live? (`#where`, pause, paper) — huge headline, lead, abstract map with a gold route and unnamed rings
-2B. Your personal property advisor (v3.5.2, **new, not built**; full screens between 02 and 03, replaces the short "Gia Searches With You.") — "Your Personal Property Advisor.", two paragraphs, table of four example projects (cost / time), closing line, 16px estimate disclaimer, small link "Meet Gia" -> `gia.html`. Button "Explore Your Home Options" is not used (DEFERRED-2026-11-25-gia-split.md). Prototype B: dark pin scene of slides (kitchen / bathroom / floors and paint / whole example)
+2B. Your personal property advisor (`#advisor`, ✅ built 2026-11-25, one pin ~420svh; replaces the short "Gia Searches With You.") — big photo + headline + two paragraphs; dark strips rise over the photo, the text stays on the dark then leaves upwards; scene: light card (58.3-100% of the window: "Estimated cost", thin circle with "about" + number, project name, "1 | 4", two arrows), vertical photo card (33.4-58.3%, "The listing." -> "What it could become."), left "Estimated time" text and an outline circle "Meet Gia" -> `gia.html`, faint line plan with three points; four slides (kitchen, bathroom, flooring and paint, the whole example) by scroll or arrows; then a calm paper strip (closing line, 16px estimate note, small link "Meet Gia"). No table on the page (the slides carry its values); no "Explore Your Home Options" (DEFERRED-2026-11-25-gia-split.md). Files: `css/find.css` (`.find-adv*`), `js/find.js` (`advScene`). Images (real, 2026-11-25): `find-02b-bg-{1600,2560}` 16:9, `find-02b-after-{kitchen,bathroom,floors,whole}-{600,900}`, `find-02b-before-…` (portrait 3:4, colour files). "The listing." is turned black and white in CSS (`grayscale(1) contrast(.92) brightness(.95)`); the colour frame fades in over it in ~1.1s. No `find-02b-plan` file was delivered: the plan stays an SVG placeholder
 3. The first questions (`#priorities`, scene ≥1024px, paper) — five read-only questions replace each other, a square arch with a gold outline opens upward; list with small arches below 1024px / reduced motion
 4. Do I qualify? (`#options`, **the page's only dark band**, hard edges, no pin) — gold rule, then a step: statement a (cols 1-7, large) and the two condition paragraphs b (cols 8-12, 22px, bottom-aligned, hanging 104px below a)
 5. Your home cost estimate (pause, paper) — invisible anchor `#cost-illustration` (linked from How It Works only); house cut-out from the home page, ground line, "estimated" underlined on scroll; two paragraphs bottom-aligned
 6. What happens next? (`#next`, scene, pin) — family parallax, paper panel with the closing lines and the button "Request a Consultation" with the line "Request a personal consultation through your Glonari representative." under it (placeholder `href="#"`)
 
-Pinned scenes: 01, 03, 06 (03 can lose its pin if three feel heavy: the questions then change with normal scroll).
+Pinned scenes (owner, 2026-11-25): 01, 02B, 03, 06 (four). The arch of 03 stays pinned (>=1024px); a fourth pin on this page is allowed by the owner.
 
 ### 6. FAQs — `docs/faqs.html` — ✅ brought to v3.4 2026-11-22 (Page 06, 28 questions; two photo pauses are placeholders)
 

@@ -1,9 +1,9 @@
 ﻿/* ==========================================================
    Glonari Homes — Find Your Home
    Pinned scenes (motion allowed):
-     >=769px  .has-scenes : 01 hero, 06 "What happens next?"
-     >=1024px .is-pinned  : 03 the first questions (read-only);
-                            below 1024px the questions are a plain list.
+     >=769px  .has-scenes : 01 hero, 02B "Your personal property advisor", 06 "What happens next?"
+     >=1024px .is-pinned  : 03 the first questions (read-only); below 1024px the questions are a plain list.
+                            Four pins on the page (owner, 2026-11-25: the arch of 03 stays).
    Light scrubbed accents (no pin, any width, motion allowed): the map
    route, the dark band's rule, the cost screen's house/line/underline.
    Scrubbed timelines use fromTo only (from breaks on refresh).
@@ -40,6 +40,83 @@
       .fromTo($(".find-next__people", scene), { scale: 1 }, { scale: 1.05, duration: 1 }, 0)
       // the panel's lines come up into the paper panel (the panel itself stays: no empty strip under the photo)
       .fromTo($(".find-next__panel-in", scene), { opacity: 0, y: 48 }, { opacity: 1, y: 0, duration: .22, ease: "power2.out" }, .72);
+  }
+
+
+  /* ---------- 02B your personal property advisor ----------
+     One pin. 0-.19 dark strips rise over the photo (transform only); .21-.36 the headline and paragraphs leave upwards;
+     .22-.47 the scene arrives (card from below, photo card after it, left column and plan fade in); from .42 four slides,
+     chosen by scroll position or by the arrows. "The listing." turns into "What it could become." 1.1s after each slide opens. */
+  function advScene() {
+    const scene = $('[data-scene="find-adv"]');
+    if (!scene) return () => {};
+    const stage = $("[data-stage]", scene);
+    const strips = $$("[data-strip]", scene);
+    const order = [7, 2, 10, 4, 0, 9, 5, 11, 1, 8, 3, 6];
+    const slides = $$("[data-slide]", scene);
+    const rings = $$("[data-ring]", scene);
+    const arcs = $$("[data-arc]", scene);
+    const count = $("[data-count]", scene), prev = $("[data-prev]", scene), next = $("[data-next]", scene);
+    const N = slides.length, START = .42;
+    const H = () => window.innerHeight;
+    let idx = -1, started = false, timer = 0;
+
+    const tl = gsap.timeline({ scrollTrigger: scrubTo(scene), defaults: { ease: "none" } });
+    strips.forEach((b, i) => tl.fromTo(b, { scaleY: 0 }, { scaleY: 1, duration: .1, ease: "power3.out" }, .02 + order[i] * .0065));
+    tl.fromTo($("[data-intro]", scene), { y: 0, opacity: 1 }, { y: () => -H() * .5, opacity: 0, duration: .15, ease: "power1.inOut" }, .21)
+      .fromTo($$('[data-enter="fade"]', scene), { opacity: 0 }, { opacity: 1, duration: .2 }, .2)
+      .fromTo($$('[data-enter="card"]', scene), { y: () => H() * .85 }, { y: 0, duration: .17, ease: "power3.out" }, .22)
+      .fromTo($$('[data-enter="photo"]', scene), { y: () => H() * .95 }, { y: 0, duration: .17, ease: "power3.out" }, .28)
+      .fromTo($$('[data-enter="left"]', scene), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .12, ease: "power2.out" }, .35)
+      .to({}, { duration: .01 }, .99);
+
+    const setAfter = (on) => stage.classList.toggle("after", on);
+    const schedule = () => {
+      setAfter(false); clearTimeout(timer); timer = 0;
+      if (started) timer = setTimeout(() => { setAfter(true); timer = 0; }, 1100);
+    };
+    const show = (i) => {
+      if (i === idx) return;
+      idx = i;
+      slides.forEach((li, k) => { li.classList.toggle("is-on", k === i); li.classList.toggle("is-past", k < i); li.setAttribute("aria-hidden", k === i ? "false" : "true"); });
+      arcs.forEach((a) => { a.style.strokeDashoffset = (+a.dataset.arc === i) ? 100 * (1 - +a.dataset.frac) : 100; });
+      rings.forEach((m) => m.classList.toggle("is-on", m.dataset.ring.split(",").includes(String(i))));
+      if (count) count.textContent = `${i + 1} | ${N}`;
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === N - 1;
+      schedule();
+    };
+    const trig = ScrollTrigger.create({
+      trigger: scene, start: "top top", end: "bottom bottom", invalidateOnRefresh: true,
+      onUpdate: (self) => {
+        const p = self.progress;
+        if (p > .38 && !started) { started = true; schedule(); }
+        if (p < .3 && started) { started = false; schedule(); }
+        show(Math.min(N - 1, Math.floor(Math.min(Math.max((p - START) / (1 - START), 0), .9999) * N)));
+      },
+    });
+    const go = (i) => {
+      const y = trig.start + (START + ((Math.min(Math.max(i, 0), N - 1) + .5) / N) * (1 - START)) * (trig.end - trig.start);
+      const lenis = window.Glonari && window.Glonari.lenis;
+      if (lenis) lenis.scrollTo(y, { duration: 1.2 }); else window.scrollTo({ top: y, behavior: "smooth" });
+    };
+    const onPrev = () => go(idx - 1), onNext = () => go(idx + 1);
+    const onKey = (e) => { if (e.key === "ArrowRight") go(idx + 1); else if (e.key === "ArrowLeft") go(idx - 1); };
+    prev && prev.addEventListener("click", onPrev);
+    next && next.addEventListener("click", onNext);
+    scene.addEventListener("keydown", onKey);
+    show(0);
+    return () => {
+      prev && prev.removeEventListener("click", onPrev);
+      next && next.removeEventListener("click", onNext);
+      scene.removeEventListener("keydown", onKey);
+      clearTimeout(timer); setAfter(false);
+      slides.forEach((li) => { li.classList.remove("is-on", "is-past"); li.removeAttribute("aria-hidden"); });
+      arcs.forEach((a) => { a.style.strokeDashoffset = ""; });
+      rings.forEach((m) => m.classList.remove("is-on"));
+      trig.kill(); tl.kill();
+      gsap.set([...strips, ...$$("[data-intro], [data-enter]", scene)], { clearProps: "all" });
+    };
   }
 
   /* ---------- 03 the first questions (>=1024px) ---------- */
@@ -121,10 +198,11 @@
   mm.add("(min-width: 769px) and (prefers-reduced-motion: no-preference)", () => {
     doc.classList.add("has-scenes");
     heroScene();
+    const advOff = advScene();
     nextScene();
     doc.classList.remove("scenes-pending");
     ScrollTrigger.refresh();
-    return () => doc.classList.remove("has-scenes");
+    return () => { advOff(); doc.classList.remove("has-scenes"); };
   });
 
   const mmQ = gsap.matchMedia();

@@ -762,7 +762,8 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 .liv-gia__copy { max-width: 640px; color: var(--gh-ink-2); }
 /* disclaimer on plain paper under the pinned scene (never over the photo) */
 .liv-gia__note { max-width: 640px; margin: clamp(48px, 5vw, 72px) 0 0 calc((100% / 12) * 2); font-size: 16px; line-height: 1.6; color: var(--gh-ink-2); }
-@media (max-width: 768px) { .liv-gia__note { margin-left: 0; } }
+.liv-gia__cta { margin: 32px 0 0 calc((100% / 12) * 2); }
+@media (max-width: 768px) { .liv-gia__note, .liv-gia__cta { margin-left: 0; } }
 /* pause after the Gia screen: one line, offset right of the gold line that runs through it into the strip */
 .liv-pause {
   position: relative; background: var(--gh-paper);

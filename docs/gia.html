@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gia &middot; Glonari Homes</title>
+<meta name="description" content="Meet Gia, short for Glonari Intelligent Agent. Gia is your personal AI Home assistant. Ask in your own words, explore the answer and understand what happens next.">
+<script>
+  /* Wide screens with motion: hide the scene start states until GSAP takes over (no flash of the final layout).
+     Safety net: if the scripts never arrive, the static layout comes back after 4s. */
+  if (matchMedia("(min-width: 769px) and (prefers-reduced-motion: no-preference)").matches) {
+    document.documentElement.classList.add("scenes-pending");
+    setTimeout(function () { document.documentElement.classList.remove("scenes-pending"); }, 4000);
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/gia.css">
+</head>
+<body class="no-js gia-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- partial:header -->
+<header class="site-header" data-header>
+  <div class="site-header__in">
+    <a class="brand" href="index.html" aria-label="Glonari Homes, home page"><img src="assets/images/logo-glonari-homes.webp" alt="" width="540" height="170"></a>
+
+    <nav class="nav" id="site-nav" aria-label="Main" data-lenis-prevent>
+      <ul class="nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+        <li><a href="gia.html">Gia</a></li>
+        <li><a href="find-your-home.html">Find Your Home</a></li>
+        <li><a href="glonari-properties.html">Glonari Properties</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+      <a class="btn btn--small nav__cta-mobile" href="find-your-home.html">Find My Glonari Home</a>
+    </nav>
+
+    <a class="btn btn--small header-cta" href="find-your-home.html">Find My Glonari Home</a>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" data-burger>
+      <span class="visually-hidden">Menu</span>
+      <span class="burger__lines" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+<!-- /partial:header -->
+
+<main id="main">
+
+  <!-- ============ 01 Hero (scene, one pin ~240svh) ============
+       Layers, back to front: A the empty room (starts alone, slow parallax) · a1 Gia, a transparent cut-out on the SAME 2560x1600 canvas as A (appears, then moves a little faster than A: two-layer parallax) ·
+       "Gia makes it easier." (desktop only, while Gia is on screen) · photo B in the shared .find__arch slot (separates from a frame around Gia, flows down and right, rectangle -> arch) · the text on the left.
+       Phones and reduced motion: no pin, only the final layout (arch with photo B, text); A, a1 and the line are not shown. -->
+  <section class="gia-hero" aria-labelledby="gia-title">
+    <div class="scene" data-scene="gia-hero" style="--travel: 240svh">
+      <div class="scene__stage gia-hero__stage">
+        <div class="gia-hero__a">
+          <img class="gia-hero__layer" src="assets/images/gia-hero-a-1600.webp" srcset="assets/images/gia-hero-a-1600.webp 1600w, assets/images/gia-hero-a-2560.webp 2560w" sizes="100vw" width="2560" height="1600" alt="A sunlit dining room with an arched garden window and a long wooden table" fetchpriority="high">
+        </div>
+        <div class="gia-hero__a1">
+          <img class="gia-hero__layer gia-hero__woman" src="assets/images/gia-hero-a1-1600.webp" srcset="assets/images/gia-hero-a1-1600.webp 1600w, assets/images/gia-hero-a1-2560.webp 2560w" sizes="100vw" width="2560" height="1600" alt="Gia, a smiling woman in a cream sweater, leaning on a dining chair">
+        </div>
+        <p class="gia-hero__make" data-make>Gia makes it easier.</p>
+        <div class="container gia-hero__grid">
+          <div class="gia-hero__head">
+            <p class="eyebrow" data-in>Meet Gia&trade;</p>
+            <h1 class="gia-hero__title" id="gia-title" data-in>Home Is Easier With Gia.</h1>
+            <p class="gia-hero__p" data-in>Meet Gia&trade;, short for Glonari Intelligent Agent. Gia is your personal AI Home assistant. Ask in your own words, explore the answer and understand what happens next.</p>
+            <div data-in><a class="btn" href="#fixing">See How Gia Helps</a></div>
+          </div>
+          <div class="find__arch" data-find-arch>
+            <img class="find__video gia-hero__still" src="assets/images/gia-hero-b-800.webp" srcset="assets/images/gia-hero-b-800.webp 800w, assets/images/gia-hero-b-1200.webp 1200w" sizes="(min-width: 769px) 470px, 100vw" width="1200" height="1800" alt="Gia, a smiling woman in a cream sweater, in a sunlit dining room with an arched garden window" fetchpriority="high">
+            <img class="gia-hero__b" src="assets/images/gia-hero-b-1200.webp" width="1200" height="1800" alt="" aria-hidden="true">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 When something needs fixing ============ -->
+  <section class="gia-fix" id="fixing" aria-labelledby="fixing-title">
+    <div class="container">
+      <div class="gia-fix__grid">
+        <h2 class="h2 gia-fix__title" id="fixing-title" data-reveal>Something Needs Fixing? Tell Gia.</h2>
+        <div class="chat gia-fix__chat" role="group" aria-label="Example conversation with Gia" data-reveal>
+          <div class="chat__head">
+            <img src="assets/images/gia-avatar-256.webp" width="40" height="40" alt="">
+            <div><strong>Gia</strong><span>Your Glonari AI</span></div>
+          </div>
+          <div class="chat__body">
+            <p class="msg msg--you">&ldquo;The faucet is leaking. Is that covered?&rdquo;</p>
+            <p class="msg msg--gia">&ldquo;Let us check your Home coverage and the process for getting help. I can help you organize the request.&rdquo;</p>
+          </div>
+        </div>
+        <ol class="gia-steps">
+          <li class="gia-step gia-step--1" data-reveal><span class="gia-step__no" aria-hidden="true">01</span><div><h3 class="gia-step__t">Describe the issue.</h3><p>You can choose to share a photo.</p></div></li>
+          <li class="gia-step gia-step--2" data-reveal><span class="gia-step__no" aria-hidden="true">02</span><div><h3 class="gia-step__t">Confirm the next step.</h3><p>The property team checks scope and coverage.</p></div></li>
+          <li class="gia-step gia-step--3" data-reveal><span class="gia-step__no" aria-hidden="true">03</span><div><h3 class="gia-step__t">Get human help.</h3><p>An approved professional performs the work.</p></div></li>
+        </ol>
+      </div>
+      <div class="gia-fix__foot">
+        <p class="gia-fix__big" data-reveal>One place to ask for help.</p>
+        <p class="gia-note" data-reveal>Estimated example: a basic repair such as a leaking faucet is about $350 and is usually scheduled within a few days. Coverage comes first; you pay only any agreed separate charge. Urgent water or safety issues use the direct emergency process. Coverage and service availability vary. No response-time guarantee.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 Everyday home needs: evening-room photo pause, text on a paper panel ============ -->
+  <section class="gia-needs" id="needs" aria-labelledby="needs-title">
+    <div class="gia-needs__photo"><img src="assets/images/home-gia-room-flipped-800.webp" srcset="assets/images/home-gia-room-flipped-800.webp 800w, assets/images/home-gia-room-flipped-1376.webp 1376w" sizes="100vw" width="1376" height="768" alt="A warm living room in the evening with a sofa, a reading lamp and books" loading="lazy"></div>
+    <h2 class="h2 gia-needs__h" id="needs-title">Everyday Home Needs, in One Place.</h2>
+    <div class="gia-needs__panel" data-reveal>
+      <p class="gia-needs__lead">Gia remembers your preferences and helps coordinate services, maintenance, scheduling, shopping, and personal assistance.</p>
+      <p>Gia manages what needs to be maintained and the everyday needs of your Home. Gia makes it easier.</p>
+      <p>Gia is part of Glonari technologies and services; human providers do the physical work.</p>
+    </div>
+  </section>
+
+  <!-- ============ 04 Repair or improve: Repair small on the left, Update large on the right ============ -->
+  <section class="gia-imp" id="improve" aria-labelledby="improve-title">
+    <div class="container">
+      <div class="gia-imp__grid">
+        <h2 class="h2 gia-imp__title" id="improve-title" data-reveal>Fix Something Broken. Or Plan Something Different.</h2>
+        <div class="gia-imp__a" data-reveal><h3>Repair the faucet.</h3><p>Restore something that is not working. Check coverage and the agreed repair process.</p></div>
+        <div class="gia-imp__b" data-reveal><h3>Update the kitchen.</h3><p>Better storage. A different counter. Get scope, quotes, owner approval and an agreement about who pays.</p></div>
+        <div class="gia-imp__org">
+          <p class="gia-imp__big" data-reveal>Gia helps organize the path. The member and property owner approve the commitments.</p>
+          <p class="gia-note" data-reveal>Estimated example: a kitchen update is about $25,000 and takes about 10 weeks. Funding, permissions, fee effects and rights to improvements need written terms. A project does not automatically add equal property value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 Final: night photo, copy on its dark left, the AI line on a solid strip ============ -->
+  <section class="gia-final" id="final" aria-labelledby="final-title">
+    <div class="gia-final__photo">
+      <img src="assets/images/home-07-cta-900.webp" srcset="assets/images/home-07-cta-900.webp 900w, assets/images/home-07-cta-1672.webp 1672w" sizes="100vw" width="1672" height="940" alt="" loading="lazy">
+      <div class="container gia-final__in">
+        <h2 class="gia-final__h" id="final-title">Start With a Question.</h2>
+        <p class="gia-final__p">Gia helps you understand your Home services, bring next steps together and explore the choices ahead.</p>
+        <a class="btn gia-final__btn" href="find-your-home.html">Find My Glonari Home</a>
+      </div>
+    </div>
+    <div class="gia-final__strip"><div class="container"><p>Gia is an AI agent within Glonari technologies and services. Confirm live features. You approve commitments. Gia does not replace qualified legal, tax or financial advice.</p></div></div>
+  </section>
+
+</main>
+
+<!-- partial:footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--light" href="index.html"><img src="assets/images/logo-glonari-homes.webp" alt="Glonari Homes" width="540" height="170"></a>
+        <p>AI for Human Prosperity™</p>
+        <a class="btn btn--light btn--small" href="find-your-home.html">Find My Glonari Home</a>
+      </div>
+      <nav class="site-footer__cols" aria-label="Footer">
+        <div>
+          <p class="site-footer__h">Explore</p>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+            <li><a href="gia.html">Gia</a></li>
+            <li><a href="find-your-home.html">Find Your Home</a></li>
+            <li><a href="glonari-properties.html">Glonari Properties</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__h">Legal</p>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Legal &amp; Disclosures</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="site-footer__disclosure">Glonari Homes is a proposed program. Figures on this site are estimated examples and modeled scenarios, subject to definitive agreements and approval. They are not guarantees or cash sale proceeds. Investment values can change. Credit is not assured. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities.</p>
+    <p class="site-footer__legal">© 2026 Glonari. All rights reserved.</p>
+  </div>
+</footer>
+<!-- /partial:footer -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/gia.js" defer></script>
+</body>
+</html>

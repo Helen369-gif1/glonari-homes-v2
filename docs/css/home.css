@@ -672,7 +672,7 @@
 .gia__note { margin: 0; font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); padding-top: 16px; border-top: 1px solid var(--gh-line); }
 
 /* the typing dots share the cell of Gia's (still invisible) answer, so the card never changes height while it types */
-.gia .chat__body > .msg--gia.msg--first { grid-row: 1; grid-column: 1; }
+.gia .chat__body > .msg--first { grid-row: 1; grid-column: 1; }
 .gia .chat__body > .msg--typing, .gia .chat__body > .msg--gia { grid-row: 2; grid-column: 1; align-self: start; }
 .js .gia .chat [data-msg] { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
 .js .gia .chat [data-msg].is-shown { opacity: 1; transform: none; }

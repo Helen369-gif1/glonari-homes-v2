@@ -511,3 +511,21 @@ Finish the remaining pages (see Not started above; the Already Own a Home? page 
 - Document is now v3.5.2: Gia (03B) has 5 screens (life in the home only); former Gia screen 05 is Find Your Home 02B (full screen, replaces "Gia Searches With You."). "Explore Your Home Options" is deferred (`DEFERRED-2026-11-25-gia-split.md`); "Meet Gia" stays as a small link. Gia final button -> find-your-home.html. Old file: `masters/retired/Glonari_Homes_All_Pages_v3_5-before-gia-split-2026-11-25.md`. SITE-STRUCTURE.md updated.
 - Prototypes (scroll in a browser, `python -m http.server 5180` from the project root): `review/mocks/18a-gia-hero-arch.html`, `18b-find-02b-scene.html`, `18c-gia-02-cards.html` (+ `18-proto.js`, `18-proto.css`).
 - Open: owner picks which effects to build; pin count on Find (see report); captions "The listing." / "What it could become." are not in v3.5.2.
+
+## 2026-11-25 (later) — prototypes redone
+- 18c (cards) withdrawn, moved with the old 18b to `review/mocks/retired-18c/`. Find 03 loses its pin: Find pins = hero, 02B, 06; Gia pins = hero only. Captions "The listing." / "What it could become." approved.
+- 18a: photo A parallax, photo B flows into the shared arch (clip-path inset+round, translate+scale). 18b: layout measured from the reference (card 58.3-100%, photo 33.4-58.3% x 57% high), strips dissolve, plan with rings, arc circle. 19a / 19b: two static versions of Gia 02 (no cards, no icons). Waiting for the owner's choice. Missing in review/refs: ВЫБОР_НЕДВИЖИМОСТИ_1.mp4, ПОИСК_ДОМА_.png (placeholders used).
+
+## 2026-11-25 (implementation) — Gia page, Find 02B, menu
+- Built `docs/gia.html` (+ `css/gia.css`, `js/gia.js`): 01 hero (prototype 18a: photo A parallax, photo B flows into the shared `.find__arch`; ONE pin), 02 fixing (chat top right, steps stepping down and right 3 columns at a time on the 12-col grid), 03 everyday needs, 04 repair or improve (15c), 05 final (-> find-your-home.html).
+- Find Your Home: new 02B scene (prototype 18b, one pin); the pin of 03 was taken out and RESTORED the same day at the owner's request (the arch stays). Pins: Gia 1; Find 4 (hero, 02B, 03, 06).
+- Menu/footer: "Gia" between Living and Find (partials synced). Open nav panel: max-height + scroll; 1101-1240px tighter gaps so seven items fit. Home chat now shows the faucet pair; Home "Meet Gia" and Living "See How Gia Helps" (new button) -> gia.html. FAQs: three new questions in "Gia & Everyday Living".
+- Images: temporary copies under the final names (see report). Drop real files in `docs/assets/images/incoming/` under the same names (any extension); they get converted to webp and the originals move to `masters/`.
+- Checked: spacing table, 1440/1024/768/375, no console errors, reduced motion, menu at 1440/1101/1024/390, forbidden-words search (clean). Perf: per-frame script+layout ~1 ms at 4x CPU throttle; real fps and paint of clip-path could not be measured here (rAF is throttled in the headless browser).
+- Open: real photos; Gia hero text is below the photo A at the very start (first screen is the photo only); owner's go-ahead for commit.
+
+## 2026-11-25 (real images) — Gia hero two-layer parallax, Find 02B real photos
+- Real files from `masters/incoming/` (kept there). Temporary copies moved to `masters/retired/placeholders-2026-11-25/`. Converted to webp: `gia-hero-a` (empty room), `gia-hero-a1` (Gia, alpha, same canvas as A), `gia-hero-b`, `find-02b-bg`, `find-02b-after-*` / `find-02b-before-*`. `gia-hero-a2` is the reference only.
+- Gia hero (one pin ~240svh): empty room + parallax -> Gia + "Gia makes it easier." (owner's exception, desktop only; note added to v3_5.md) -> two-layer parallax -> pause -> photo B replaces her and flows into the arch (clip-path; `?lite` = fallback without clip-path) -> text.
+- Find 02B: "before" is grey by CSS filter, the colour "after" fades in over it (~1.1s). Find pins: 4 (hero, 02B, 03, 06), the 03 arch pin was restored at the owner's request.
+- Open: no `find-02b-plan` file (SVG plan stays); A's safe zones (see report); B figure ~10px outside the central 840px.

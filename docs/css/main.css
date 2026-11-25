@@ -249,6 +249,12 @@ html.lenis, html.lenis body { height: auto; }
 .nav-open .burger__lines::before { transform: translateY(7px) rotate(45deg); }
 .nav-open .burger__lines::after { transform: translateY(-7px) rotate(-45deg); }
 
+/* seven menu items (Gia added 2026-11-25): between 1101 and 1240px the gaps tighten so the nav and the button stay inside the window */
+@media (min-width: 1101px) and (max-width: 1240px) {
+  .site-header__in { gap: 14px; }
+  .nav__list { gap: 13px; }
+}
+
 @media (max-width: 1100px) {
   .header-cta { display: none; }
   .burger { display: block; }
@@ -258,6 +264,9 @@ html.lenis, html.lenis body { height: auto; }
     display: grid;
     gap: 28px;
     padding: 28px var(--page-pad) 36px;
+    max-height: calc(100svh - var(--header-h));   /* short windows: the open panel scrolls inside itself */
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background: var(--gh-cream);
     color: var(--gh-ink);
     box-shadow: 0 1px 0 var(--gh-line), 0 24px 40px rgba(31, 26, 20, .12);
