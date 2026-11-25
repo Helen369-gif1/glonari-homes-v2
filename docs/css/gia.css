@@ -18,7 +18,7 @@
 
 /* ---------- 01 hero ---------- */
 .gia-hero { padding-top: var(--header-h); }
-.gia-hero__a, .gia-hero__a1, .gia-hero__make, .gia-hero__b { display: none; }
+.gia-hero__g, .gia-hero__make { display: none; }
 .gia-hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) calc(min(78svh, 820px) * 2 / 3);
@@ -28,7 +28,7 @@
 }
 .gia-hero__head { min-width: 0; padding-bottom: 8px; }
 .gia-hero__head .eyebrow { margin: 0 0 20px; }
-.gia-hero__title {
+.gia-hero__title, .gia-hero__make {
   margin: 0 0 28px; max-width: 11ch;
   font-family: var(--font-display); font-weight: 500;
   font-size: clamp(44px, 5.6vw, 84px); line-height: 1.02; letter-spacing: -.015em; text-wrap: balance;
@@ -43,24 +43,21 @@
 .has-scenes .gia-hero { padding-top: 0; }
 .has-scenes .gia-hero__stage { padding-top: var(--header-h); display: flex; align-items: center; }
 .has-scenes .gia-hero__grid { width: min(100%, calc(var(--container) + 2 * var(--page-pad))); padding-block: 0; align-items: center; position: relative; z-index: 3; }
-.has-scenes .gia-hero__a, .has-scenes .gia-hero__a1 { display: block; position: absolute; left: 0; right: 0; top: var(--header-h); bottom: 0; overflow: hidden; }
-.has-scenes .gia-hero__a { z-index: 1; will-change: opacity; }
-.has-scenes .gia-hero__a1 { z-index: 2; opacity: 0; transform-origin: 50% 100%; will-change: transform, opacity; }
-/* A and a1 share ONE canvas (2560x1600) and the same box and object-fit, so Gia always sits where she was cut out; the 108% box leaves room for the parallax */
-.has-scenes .gia-hero__layer { position: absolute; left: 0; top: -4%; width: 100%; height: 108%; max-width: none; object-fit: cover; object-position: 50% 50%; will-change: transform; }
+/* the group G (room + Gia): the whole picture area under the header. gia.js clips it (clip-path) and moves it (transform) into the arch slot.
+   Inside, the canvas is the 2560x1600 picture at "cover" size, so the layers need no object-fit maths and the arch crop is the same rectangle on every screen. */
+.has-scenes .gia-hero__g { display: block; position: absolute; left: 0; right: 0; top: var(--header-h); bottom: 0; z-index: 1; transform-origin: 0 0; will-change: transform, clip-path; --gh: calc(100svh - var(--header-h)); }
+.has-scenes .gia-hero__canvas { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: max(100%, calc(var(--gh) * 1.6)); aspect-ratio: 16 / 10; }
+.has-scenes .gia-hero__layer { position: absolute; left: 0; top: 0; width: 100%; height: 100%; max-width: none; display: block; will-change: transform; }
+.has-scenes .gia-hero__a1 { position: absolute; inset: 0; opacity: 0; transform-origin: 50% 100%; will-change: transform, opacity; }
 .has-scenes .gia-hero__woman { transform-origin: 50% 100%; }
-/* the line that appears with Gia: desktop only, on a flat, calm veil (no gradient, no glow); it leaves before photo B starts to move */
+/* the line that appears with Gia: the same type as the H1, dark ink straight on the light wall, no panel */
 .has-scenes .gia-hero__make {
-  display: block; position: absolute; z-index: 3; margin: 0; opacity: 0; will-change: transform, opacity;
+  display: block; position: absolute; z-index: 3; opacity: 0; will-change: transform, opacity;
   right: clamp(12px, 1.2vw, 24px); top: calc(var(--header-h) + 14px);
-  max-width: min(max(27vw, 236px), 560px); padding: 12px clamp(18px, 1.9vw, 30px) 16px;
-  background: rgba(31, 26, 20, .62); border-radius: 4px;
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(40px, 5vw, 76px); line-height: 1.04; letter-spacing: -.01em; text-wrap: balance;
-  color: var(--gp-text);
+  margin: 0; max-width: min(max(27vw, 300px), 560px); text-align: right;   /* flush right: the lines stay clear of the lamp */
+  color: var(--gh-ink);
 }
-.has-scenes .gia-hero__b { display: block; position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; z-index: 2; opacity: 0; will-change: transform, clip-path, opacity; }
-.has-scenes .gia-hero__still { visibility: hidden; }
-.has-scenes.gia-lite .gia-hero__still { visibility: visible; opacity: 0; }   /* fallback without clip-path: see gia.js (LITE) */
+.has-scenes .gia-hero__still { visibility: hidden; }   /* gia.js shows it the moment G has landed on the slot */
 .has-scenes [data-in] { opacity: 0; will-change: transform, opacity; }
 .scenes-pending .gia-hero__grid { visibility: hidden; }
 

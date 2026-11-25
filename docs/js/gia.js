@@ -3,13 +3,15 @@
    One pinned scene (motion allowed, >=769px, .has-scenes): 01 hero, ~240svh. Progress 0..1:
      0 - .12   the empty room (layer A) alone: slow parallax, scale 1 -> 1.04
      .12 - .32 Gia (layer a1, a cut-out on the same 2560x1600 canvas) comes in: opacity 0 -> 1, lift 24px, scale .985 -> 1,
-               together with the line "Gia makes it easier." (desktop only); then A and Gia move at different speeds (A scale 1.04, Gia 1.06: ~2.8% of the frame)
-     .52 - .56 a short pause on the full composition; the line leaves
-     .56 - .90 photo B (inside the shared .find__arch slot) takes the place of Gia (a1 fades out in the same instant), then flows down and right (x / y / scale)
-               while its shape turns from a rectangle into the arch (clip-path inset + round); A dissolves into the paper
-     .82 - 1   the arch outline and the text come in on the left
-   <=768px, motion allowed: no pin; the photo flows into the arch while the arch scrolls into view.
-   Reduced motion / no JS: the static final layout (CSS only; A, a1 and the line are not shown).
+               together with the line "Gia makes it easier." (desktop only); then the room and Gia move at different speeds (1.04 / 1.06: ~2.8% of the frame)
+     .52 - .58 a short pause on the full composition; the line has left by .56
+     .58 - .90 the group G (room + Gia, never another picture) is clipped (clip-path inset + round) and moved (translate + scale) until its clip is
+               exactly the arch slot, with the same scene inside (the parallax settles back to rest on the way, so the arch shows the plain composite);
+               the paper opens around it. At .90 G hands over to the real .find__arch (the same composite as a 2:3 crop, gia-hero-arch-*).
+     .84 - .92 the gold outline of the arch; .85 - 1 the headline and text on the left
+   The arch shows this rectangle of the 2560x1600 canvas: x 200..1266.67, y 0..1600 (2:3): the window and Gia in the middle.
+   <=768px, motion allowed: no pin; the arch photo flows into its shape while the arch scrolls into view.
+   Reduced motion / no JS: the static final layout (CSS only; G and the line are not shown).
    Scrubbed timelines use fromTo only (from breaks on refresh).
    ========================================================== */
 (() => {
@@ -22,70 +24,62 @@
   gsap.registerPlugin(ScrollTrigger);
 
   /* ---------- 01 hero, wide ---------- */
-  // Gia's frame on the 2560x1600 canvas: the alpha bounding box of the cut-out (418,404 - 1015,1599) plus 60px of room, as a 2:3 rectangle
   const CANVAS = { w: 2560, h: 1600 };
-  const FRAME = { x: 277.8, y: 344, w: 877.3, h: 1316 };
-  const A_SCALE = 1.04, WOMAN_SCALE = 1.06;       // end-of-parallax scales (the pause state)
-  // Fallback without clip-path (transform + opacity only): add ?lite to the address, or the class "gia-lite" to <html>.
-  // Photo B then travels as a plain rectangle and the arch-shaped still in the slot fades in over it as it lands
-  // (a cross-fade instead of the shape morph).
-  const LITE = /[?&]lite\b/.test(location.search) || doc.classList.contains("gia-lite");
+  const CROP = { x: 200, y: 0, w: 1600 * 2 / 3, h: 1600 };      // the part of the canvas the arch shows
+  const A_SCALE = 1.04, WOMAN_SCALE = 1.06;                      // end-of-parallax scales (the pause state)
 
   function heroScene() {
     const scene = $('[data-scene="gia-hero"]');
     if (!scene) return;
     const stage = $(".scene__stage", scene);
-    const a = $(".gia-hero__a", scene), aImg = $("img", a);
-    const a1 = $(".gia-hero__a1", scene), woman = $("img", a1);
+    const g = $(".gia-hero__g", scene), canvas = $(".gia-hero__canvas", g);
+    const room = $(".gia-hero__room", g);
+    const a1 = $(".gia-hero__a1", g), woman = $("img", a1);
     const make = $("[data-make]", scene);
-    const slot = $(".find__arch", scene), b = $(".gia-hero__b", scene), still = $(".gia-hero__still", scene);
+    const slot = $(".find__arch", scene), still = $(".gia-hero__still", scene);
     const kids = $$("[data-in]", scene);
-    if (LITE) doc.classList.add("gia-lite");
 
-    // photo B starts as a 2:3 rectangle exactly over Gia as she stands in the PAUSE state (layout maths, independent of the playhead)
-    const frame = () => {
-      const st = stage.getBoundingClientRect();
-      const top = a1.offsetTop, wh = st.height - top;             // the layer box: full width, header to bottom
-      const bw = st.width, bh = wh * 1.08, bTop = top - wh * .04;  // the image box inside it (top -4%, height 108%)
-      const k = Math.max(bw / CANVAS.w, bh / CANVAS.h);            // object-fit: cover
-      const ox = (bw - CANVAS.w * k) / 2, oy = (bh - CANVAS.h * k) / 2;
-      let fx = ox + FRAME.x * k, fy = oy + FRAME.y * k, fw = FRAME.w * k, fh = FRAME.h * k;
-      fx = bw / 2 + (fx - bw / 2) * WOMAN_SCALE; fy = bh + (fy - bh) * WOMAN_SCALE;   // scale about the bottom centre
-      fw *= WOMAN_SCALE; fh *= WOMAN_SCALE;
-      return { cx: fx + fw / 2, cy: bTop + fy + fh / 2, w: fw };
+    // where G has to end up so that the CROP rectangle of the canvas sits exactly on the arch slot (layout maths, independent of the playhead)
+    const geo = () => {
+      const st = stage.getBoundingClientRect(), sl = slot.getBoundingClientRect();
+      const top = g.offsetTop, W = st.width, H = st.height - top;                // G: full width, header to bottom
+      const cw = Math.max(W, H * CANVAS.w / CANVAS.h), k = cw / CANVAS.w;       // the canvas at cover size
+      const px = (W - cw) / 2 + k * CROP.x, py = (H - k * CANVAS.h) / 2 + k * CROP.y;   // crop top-left, in G coordinates
+      const cwd = k * CROP.w, chd = k * CROP.h;
+      const sc = sl.width / cwd;
+      return {
+        s: sc,
+        x: (sl.left - st.left) - sc * px,
+        y: (sl.top - st.top - top) - sc * py,
+        inset: { t: py, r: W - (px + cwd), b: H - (py + chd), l: px },
+        r: cwd / 2,
+      };
     };
-    const slotBox = () => {
-      const s = stage.getBoundingClientRect(), r = slot.getBoundingClientRect();
-      return { cx: r.left - s.left + r.width / 2, cy: r.top - s.top + r.height / 2, w: r.width };
-    };
-    const R = () => slot.getBoundingClientRect().width / 2;
-    const clip = (r) => `inset(0px round ${r}px ${r}px 0px 0px)`;
+    const end = () => { const q = geo(); return `inset(${q.inset.t}px ${q.inset.r}px ${q.inset.b}px ${q.inset.l}px round ${q.r}px ${q.r}px 0px 0px)`; };
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: scene, start: "top top", end: "bottom bottom", scrub: .6, invalidateOnRefresh: true },
       defaults: { ease: "none" },
     });
     // the empty room: slow parallax from the first pixel of scroll
-    tl.fromTo(aImg, { scale: 1, yPercent: 0 }, { scale: A_SCALE, yPercent: -.55, duration: .52 }, 0)
+    tl.fromTo(room, { scale: 1, yPercent: 0 }, { scale: A_SCALE, yPercent: -.55, duration: .52 }, 0)
     // Gia comes in, then moves a little faster than the room
       .fromTo(a1, { opacity: 0, y: 24, scale: .985 }, { opacity: 1, y: 0, scale: 1, duration: .2, ease: "power2.out" }, .12)
       .fromTo(woman, { scale: 1 + (A_SCALE - 1) * .12 / .52 }, { scale: WOMAN_SCALE, duration: .4 }, .12)
-    // the line: with Gia, gone before photo B starts to move
+    // the line: with Gia, gone before the flow starts
       .fromTo(make, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .2, ease: "power2.out" }, .12)
       .fromTo(make, { opacity: 1 }, { opacity: 0, duration: .06, immediateRender: false }, .5)
-    // photo B takes Gia's place (a1 fades in the same instant), then flows down and right to the arch slot
-      .fromTo(a1, { opacity: 1 }, { opacity: 0, duration: .04, immediateRender: false }, .56)
-      .fromTo(b, { opacity: 0 }, { opacity: 1, duration: .04, immediateRender: false }, .56)
-      .fromTo(b, { x: () => frame().cx - slotBox().cx, y: () => frame().cy - slotBox().cy, scale: () => frame().w / slotBox().w },
-                 { x: 0, y: 0, scale: 1, duration: .34, ease: "power2.inOut", immediateRender: false }, .56)
-      .add(LITE ? gsap.timeline() : gsap.fromTo(b, { clipPath: clip(0) }, { clipPath: () => clip(R()), duration: .3, ease: "power2.inOut", immediateRender: false }), .58)
-    // the room dissolves into the paper
-      .fromTo(a, { opacity: 1 }, { opacity: 0, duration: .24, ease: "power1.inOut", immediateRender: false }, .62)
-    // lite only: the arch-shaped still takes over from the rectangle, no clip-path
-      .add(LITE ? gsap.timeline().fromTo(still, { opacity: 0 }, { opacity: 1, duration: .05, immediateRender: false }, 0).fromTo(b, { opacity: 1 }, { opacity: 0, duration: .05, immediateRender: false }, 0) : gsap.timeline(), .86)
-    // the outline of the arch and the text
-      .fromTo(slot, { "--o": 0 }, { "--o": 1, duration: .12 }, .88)
-      .fromTo(kids, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: .12, stagger: .02, ease: "power2.out" }, .81);
+    // the group flows into the arch: clip and move together; the parallax settles to rest so the arch shows the plain composite
+      .fromTo(g, { x: 0, y: 0, scale: 1, clipPath: "inset(0px 0px 0px 0px round 0px 0px 0px 0px)" },
+                 { x: () => geo().x, y: () => geo().y, scale: () => geo().s, clipPath: end, duration: .32, ease: "power2.inOut", immediateRender: false }, .58)
+      .fromTo(room, { scale: A_SCALE, yPercent: -.55 }, { scale: 1, yPercent: 0, duration: .32, ease: "power2.inOut", immediateRender: false }, .58)
+      .fromTo(woman, { scale: WOMAN_SCALE }, { scale: 1, duration: .32, ease: "power2.inOut", immediateRender: false }, .58)
+    // hand-over: G has landed exactly on the slot; the real arch (same composite, 2:3 crop) takes its place
+      .set(g, { visibility: "hidden", immediateRender: false }, .9)
+      .set(still, { visibility: "visible", immediateRender: false }, .9)
+    // the outline of the arch, then the text on the left
+      .fromTo(slot, { "--o": 0 }, { "--o": 1, duration: .08 }, .84)
+      .fromTo(kids, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: .1, stagger: .015, ease: "power2.out" }, .85);
   }
 
   /* ---------- 01 hero, phones: no pin ---------- */

@@ -418,7 +418,7 @@ See how Glonari Homes could fit your life today—and understand the questions t
 
 *Headline proposed, from Kert’s “Gia makes it easier”.*
 
-*Exception (owner, 2026-11-25): a line on the photo when Gia appears in the hero parallax — “Gia makes it easier.” (Kert’s words). Desktop only, and only while the parallax runs. Not part of the page copy; the main hero text is unchanged.*
+*Exception (owner, 2026-11-25): a line on the photo when Gia appears in the hero parallax — “Gia makes it easier.” (Kert’s words). Desktop only, and only while the parallax runs. The line stands on the photo without a panel, at the H1 size. Photo B is not used: the arch is taken from the composite of the room (a) and Gia (a1). Not part of the page copy; the main hero text is unchanged.*
 
 Meet Gia™, short for Glonari Intelligent Agent. Gia is your personal AI Home assistant. Ask in your own words, explore the answer and understand what happens next.
 

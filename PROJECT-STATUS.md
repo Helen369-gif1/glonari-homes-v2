@@ -529,3 +529,9 @@ Finish the remaining pages (see Not started above; the Already Own a Home? page 
 - Gia hero (one pin ~240svh): empty room + parallax -> Gia + "Gia makes it easier." (owner's exception, desktop only; note added to v3_5.md) -> two-layer parallax -> pause -> photo B replaces her and flows into the arch (clip-path; `?lite` = fallback without clip-path) -> text.
 - Find 02B: "before" is grey by CSS filter, the colour "after" fades in over it (~1.1s). Find pins: 4 (hero, 02B, 03, 06), the 03 arch pin was restored at the owner's request.
 - Open: no `find-02b-plan` file (SVG plan stays); A's safe zones (see report); B figure ~10px outside the central 840px.
+
+## 2026-11-25 (hero rebuilt) — Gia hero: one group flows into the arch
+- Owner's corrections: no second photo (two women), no milky dissolve, the arch must flow out of the scene; the line must be dark H1-size text on the wall with no panel.
+- Now: group G = room (a) + Gia (a1) on one 2560x1600 canvas. After the pause G is clipped (clip-path inset + round) and moved (translate + scale) until its clip equals the `.find__arch` slot (measured: within 0.1 px), the parallax settling to rest on the way; then the real arch (`gia-hero-arch-*` = the same composite, canvas crop x 200..1267, y 0..1600) takes over (mean diff 4/255). `gia-hero-b` is out (moved to `masters/retired/`). The line "Gia makes it easier." uses the same rule as the H1 (Playfair 500, clamp(44px,5.6vw,84px)), `--gh-ink`, right-aligned on the wall, desktop only.
+- No `?lite` fallback any more (it belonged to the old B-based version).
+- Open: if clip-path stutters on weak GPUs the fallback would be an iris of four paper panels moved by transform (not built).

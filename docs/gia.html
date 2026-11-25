@@ -54,17 +54,21 @@
 <main id="main">
 
   <!-- ============ 01 Hero (scene, one pin ~240svh) ============
-       Layers, back to front: A the empty room (starts alone, slow parallax) · a1 Gia, a transparent cut-out on the SAME 2560x1600 canvas as A (appears, then moves a little faster than A: two-layer parallax) ·
-       "Gia makes it easier." (desktop only, while Gia is on screen) · photo B in the shared .find__arch slot (separates from a frame around Gia, flows down and right, rectangle -> arch) · the text on the left.
-       Phones and reduced motion: no pin, only the final layout (arch with photo B, text); A, a1 and the line are not shown. -->
+       ONE group G = the room (layer A) + Gia (a transparent cut-out a1 on the same 2560x1600 canvas). G is never swapped for another picture:
+       the parallax plays inside it, then G itself is clipped (inset + round) and moved (translate + scale) until its clip is exactly the arch slot, with the scene unchanged inside.
+       "Gia makes it easier." is real text on the wall, dark, no panel, desktop only, only while Gia is on screen.
+       The real .find__arch holds the same composite as a 2:3 crop (gia-hero-arch-*): it is what phones and reduced motion show, and what takes over when G lands.
+       Both layers are temporary stand-ins for the owner's final photos; any background can be put in layer A. -->
   <section class="gia-hero" aria-labelledby="gia-title">
     <div class="scene" data-scene="gia-hero" style="--travel: 240svh">
       <div class="scene__stage gia-hero__stage">
-        <div class="gia-hero__a">
-          <img class="gia-hero__layer" src="assets/images/gia-hero-a-1600.webp" srcset="assets/images/gia-hero-a-1600.webp 1600w, assets/images/gia-hero-a-2560.webp 2560w" sizes="100vw" width="2560" height="1600" alt="A sunlit dining room with an arched garden window and a long wooden table" fetchpriority="high">
-        </div>
-        <div class="gia-hero__a1">
-          <img class="gia-hero__layer gia-hero__woman" src="assets/images/gia-hero-a1-1600.webp" srcset="assets/images/gia-hero-a1-1600.webp 1600w, assets/images/gia-hero-a1-2560.webp 2560w" sizes="100vw" width="2560" height="1600" alt="Gia, a smiling woman in a cream sweater, leaning on a dining chair">
+        <div class="gia-hero__g">
+          <div class="gia-hero__canvas">
+            <img class="gia-hero__layer gia-hero__room" src="assets/images/gia-hero-a-1600.webp" srcset="assets/images/gia-hero-a-1600.webp 1600w, assets/images/gia-hero-a-2560.webp 2560w" sizes="100vw" width="2560" height="1600" alt="A sunlit dining room with an arched garden window and a long wooden table" fetchpriority="high">
+            <div class="gia-hero__a1">
+              <img class="gia-hero__layer gia-hero__woman" src="assets/images/gia-hero-a1-1600.webp" srcset="assets/images/gia-hero-a1-1600.webp 1600w, assets/images/gia-hero-a1-2560.webp 2560w" sizes="100vw" width="2560" height="1600" alt="Gia, a smiling woman in a cream sweater, leaning on a dining chair">
+            </div>
+          </div>
         </div>
         <p class="gia-hero__make" data-make>Gia makes it easier.</p>
         <div class="container gia-hero__grid">
@@ -75,8 +79,7 @@
             <div data-in><a class="btn" href="#fixing">See How Gia Helps</a></div>
           </div>
           <div class="find__arch" data-find-arch>
-            <img class="find__video gia-hero__still" src="assets/images/gia-hero-b-800.webp" srcset="assets/images/gia-hero-b-800.webp 800w, assets/images/gia-hero-b-1200.webp 1200w" sizes="(min-width: 769px) 470px, 100vw" width="1200" height="1800" alt="Gia, a smiling woman in a cream sweater, in a sunlit dining room with an arched garden window" fetchpriority="high">
-            <img class="gia-hero__b" src="assets/images/gia-hero-b-1200.webp" width="1200" height="1800" alt="" aria-hidden="true">
+            <img class="find__video gia-hero__still" src="assets/images/gia-hero-arch-800.webp" srcset="assets/images/gia-hero-arch-800.webp 800w, assets/images/gia-hero-arch-1200.webp 1200w" sizes="(min-width: 769px) 470px, 100vw" width="1200" height="1800" alt="Gia, a smiling woman in a cream sweater, in a sunlit dining room with an arched garden window" fetchpriority="high">
           </div>
         </div>
       </div>
