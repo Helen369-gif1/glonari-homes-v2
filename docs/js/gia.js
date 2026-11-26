@@ -8,7 +8,7 @@
      .58 - .90 the group G (room + Gia, never another picture) is clipped (clip-path inset + round) and moved (translate + scale) until its clip is
                exactly the arch slot, with the same scene inside (the parallax settles back to rest on the way, so the arch shows the plain composite);
                the paper opens around it. At .90 G hands over to the real .find__arch (the same composite as a 2:3 crop, gia-hero-arch-*).
-     .84 - .92 the gold outline of the arch; .85 - 1 the headline and text on the left
+     .90 - .96 the gold outline of the arch (hidden by opacity AND visibility until G has landed at .90); .85 - 1 the headline and text on the left
    The arch shows this rectangle of the 2560x1600 canvas: x 200..1266.67, y 0..1600 (2:3): the window and Gia in the middle.
    <=768px, motion allowed: no pin; the arch photo flows into its shape while the arch scrolls into view.
    Reduced motion / no JS: the static final layout (CSS only; G and the line are not shown).
@@ -78,7 +78,9 @@
       .set(g, { visibility: "hidden", immediateRender: false }, .9)
       .set(still, { visibility: "visible", immediateRender: false }, .9)
     // the outline of the arch, then the text on the left
-      .fromTo(slot, { "--o": 0 }, { "--o": 1, duration: .08 }, .84)
+      .set(slot, { "--v": "hidden", "--o": 0 }, 0)
+      .set(slot, { "--v": "visible" }, .9)
+      .fromTo(slot, { "--o": 0 }, { "--o": 1, duration: .06, immediateRender: false }, .9)
       .fromTo(kids, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: .1, stagger: .015, ease: "power2.out" }, .85);
   }
 

@@ -354,8 +354,8 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
    light card x 58.3% -> 100%, flush right; photo card x 33.4% -> 58.3% (24.9% wide, 57% tall), its right edge = the card's left edge,
    hangs ~20% of the window below the card; small text x 9.4%, y 20%; outline circle centre x 20.8%, y 49%, diameter 12.4% of the width;
    a faint line plan behind, lower left.
-   Pin: strips dissolve the photo into the dark, headline + paragraphs stay on the dark and then leave upwards, the scene opens
-   (find.js advScene). Default (phones, reduced motion): no pin, no strips; the four slides one after another (card, photo pair, text).
+   Pin (owner chose prototype B + the lines of C, 2026-11-26): the full photo is clipped and scaled into the photo card, the rest is dark at once, the gold plan is drawn meanwhile, headline + paragraphs leave upwards, the scene opens
+   (find.js advScene). Default (phones, reduced motion): no pin; the four slides one after another (card, photo pair, text).
    The section starts with a full-bleed photo: the gap above is its margin (--section-y). The paper strip after the scene is part of it
    (hard dark -> paper edge). Small text 16px+.
    ========================================================== */
@@ -369,7 +369,6 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
 .find-adv-photo { position: absolute; inset: 0; overflow: hidden; }
 .find-adv-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .find-adv-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,12,6,.82) 0%, rgba(20,12,6,.55) 45%, rgba(20,12,6,.08) 85%); }
-.find-adv-strip { display: none; }
 .find-adv-intro { position: relative; z-index: 2; padding-block: 96px; }
 .find-adv-intro .find-adv-h { max-width: 9em; margin-bottom: 32px; }
 .find-adv-intro .find-adv-lead { max-width: 24em; margin-bottom: 20px; }
@@ -409,7 +408,6 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
 
 /* ---------- live: one pin ---------- */
 .has-scenes .find-adv .find-adv-head { position: absolute; inset: 0; min-height: 0; z-index: 1; }
-.has-scenes .find-adv .find-adv-strip { display: block; position: absolute; z-index: 1; top: 0; bottom: 0; width: calc(100% / 12 + 1px); background: var(--gh-brown); transform: scaleY(0); transform-origin: 50% 100%; will-change: transform; }
 .has-scenes .find-adv .find-adv-intro { will-change: transform, opacity; }
 .has-scenes .find-adv .find-adv-intro .find-adv-h, .has-scenes .find-adv .find-adv-intro .find-adv-lead, .has-scenes .find-adv .find-adv-intro .find-adv-p { text-shadow: 0 1px 24px rgba(20,12,6,.5); }
 .has-scenes .find-adv .find-adv-list { display: contents; }
@@ -436,15 +434,20 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
 .has-scenes .find-adv .find-adv-fig { position: absolute; inset: 0; }
 .has-scenes .find-adv .find-adv-img { position: absolute; inset: 0; aspect-ratio: auto; border-radius: 0; }
 .has-scenes .find-adv .find-adv-fig figcaption { position: absolute; left: 0; top: 100%; margin: 12px 0 0; white-space: nowrap; }
-.has-scenes .find-adv .find-adv-fig.after .find-adv-img { transition: opacity 1.1s var(--ease); }   /* the colour frame comes up over the grey one in ~1.1s */
-.has-scenes .find-adv .find-adv-fig figcaption { transition: opacity .6s var(--ease); }
-.has-scenes .find-adv .find-adv-fig.after .find-adv-img, .has-scenes .find-adv .find-adv-fig.after figcaption { opacity: 0; }
-.has-scenes .find-adv-stage.after .find-adv-fig.after .find-adv-img, .has-scenes .find-adv-stage.after .find-adv-fig.after figcaption { opacity: 1; }
-.has-scenes .find-adv-stage.after .find-adv-fig.before figcaption { opacity: 0; }   /* the grey frame stays under the colour one; only its caption leaves */
+/* colour by scroll progress (find.js setColour sets --c on the stage: 0 grey ... 1 colour); captions swap one after the other inside the ramp */
+.has-scenes .find-adv .find-adv-fig.after .find-adv-img { opacity: var(--c, 0); }
+.has-scenes .find-adv .find-adv-fig.after figcaption { opacity: clamp(0, calc(2 * var(--c, 0) - 1), 1); }
+.has-scenes .find-adv .find-adv-fig.before figcaption { opacity: clamp(0, calc(1 - 2 * var(--c, 0)), 1); }   /* the grey frame stays under the colour one; only its caption leaves */
 .has-scenes .find-adv .find-adv-time { margin: 0; }
-.has-scenes .find-adv .find-adv-part, .has-scenes .find-adv .find-adv-phin, .has-scenes .find-adv .find-adv-time { opacity: 0; transform: translate3d(0, 28px, 0); transition: opacity .6s var(--ease), transform .6s var(--ease); pointer-events: none; }
-.has-scenes .find-adv .find-adv-s.is-on .find-adv-part, .has-scenes .find-adv .find-adv-s.is-on .find-adv-phin, .has-scenes .find-adv .find-adv-s.is-on .find-adv-time { opacity: 1; transform: none; pointer-events: auto; }
-.has-scenes .find-adv .find-adv-s.is-past .find-adv-part, .has-scenes .find-adv .find-adv-s.is-past .find-adv-phin, .has-scenes .find-adv .find-adv-s.is-past .find-adv-time { transform: translate3d(0, -28px, 0); }
+/* slide change = opacity only: nothing moves, so no element shifts by a pixel (measured, tools/adv-jitter.mjs) */
+.has-scenes .find-adv .find-adv-part, .has-scenes .find-adv .find-adv-phin, .has-scenes .find-adv .find-adv-time { opacity: 0; transition: opacity .45s var(--ease); pointer-events: none; }
+.has-scenes .find-adv .find-adv-s.is-on .find-adv-part, .has-scenes .find-adv .find-adv-s.is-on .find-adv-phin, .has-scenes .find-adv .find-adv-s.is-on .find-adv-time { opacity: 1; pointer-events: auto; }
+/* fixed boxes: the figure fills the circle's width (same box for $12,000 and $55,000), the name and the time reserve two lines on every slide */
+.find-adv-circ { grid-template-columns: 100%; }
+.find-adv-circ b { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum" 1, "lnum" 1; justify-self: stretch; }
+.has-scenes .find-adv .find-adv-part .find-adv-name { min-height: 2.3em; }
+.has-scenes .find-adv .find-adv-time { min-height: calc(27px + 2.5em); }
+@media (max-width: 900px) { .has-scenes .find-adv .find-adv-time { min-height: calc(27px + 3.75em); } }   /* narrow left column: three lines possible */
 .has-scenes .find-adv .find-adv-s .arc { stroke-dashoffset: 100; }
 .find-adv-meet { display: grid; place-items: center; width: 100%; aspect-ratio: 1; border: 1px solid var(--gp-champagne); border-radius: 50%; color: var(--gp-text); font: 500 18px/1.2 var(--font-ui); text-align: center; text-decoration: none; }
 .find-adv-meet:hover { background: rgba(235,201,158,.12); }
@@ -466,3 +469,13 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
   .find-adv-end__in { display: block; }
   .find-adv-end__side { margin-top: 28px; }
 }
+
+/* ---------- 02B entry: photo -> card, plan drawn (find.js advScene) ---------- */
+.has-scenes .find-adv-photo { isolation: isolate; }
+.has-scenes .find-adv-photo img { transform-origin: 0 0; }
+.has-scenes .find-adv-photo::after { opacity: var(--sh, 1); }
+.has-scenes .find-adv .find-adv-head { align-items: flex-start; }   /* the copy sits high: the plan (lower left) does not run through it */
+.has-scenes .find-adv .find-adv-intro { padding-top: calc(var(--header-h) + 24px); padding-bottom: 0; }
+.has-scenes .find-adv .find-adv-map path { vector-effect: none; stroke: var(--gp-gold-mid); stroke-opacity: .8; stroke-width: 1; }   /* 1px gold, drawn by stroke-dashoffset (box keeps 700:380) */
+.has-scenes .find-adv .find-adv-pt i { background: var(--gp-gold-mid); }
+.has-scenes .find-adv .find-adv-pt span { color: var(--gp-text); }

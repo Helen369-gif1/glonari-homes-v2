@@ -21,6 +21,8 @@
   --gh-ink-2: #5C5145;
   --gh-gold-ink: #8A6628;      /* gold that reads on cream (small text) */
   --gh-brown: #2B1A0C;
+  /* soft warm lift for paper panels that sit on a photo (warm ink, never grey/black) */
+  --shadow-panel: 0 1px 2px rgba(31, 22, 12, .08), 0 14px 34px -10px rgba(31, 22, 12, .28);
   /* step colours (Living With Glonari, TBYB timeline) */
   --gh-honey: #D9BE85;
   --gh-honey-ink: #4A3712;
