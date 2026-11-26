@@ -86,6 +86,36 @@
     </div>
   </section>
 
+  <!-- ============ 01B Experience Gia: interactive demonstration (standalone app in gia-demo/, embedded as a responsive iframe) ============
+       Own full screen: heading + sentence on paper, then the demo on a full-bleed brown band. The demo says "Demonstration" inside the frame and in the 16px strip under it. -->
+  <section class="gia-demo" id="experience" aria-labelledby="demo-title">
+    <div class="container">
+      <div class="gia-demo__head">
+        <h2 class="gia-demo__title" id="demo-title" data-reveal>Experience Gia.</h2>
+        <p class="gia-demo__sub" data-reveal>Explore how Gia helps you find, improve and care for your home.</p>
+      </div>
+    </div>
+    <div class="gia-demo__band">
+      <iframe class="gia-demo__frame" src="gia-demo/index.html" title="Interactive demonstration of Gia: find a home, compare homes, plan a renovation, request a repair" loading="lazy" allow="fullscreen"></iframe>
+    </div>
+  </section>
+  <script>
+    /* Experience Gia embed: the demo reports its height; when it runs by itself in the frame it asks the page to scroll its target into view */
+    (function () {
+      var f = document.querySelector(".gia-demo__frame");
+      if (!f) return;
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)");
+      window.addEventListener("message", function (e) {
+        if (e.source !== f.contentWindow || !e.data) return;
+        if (e.data.type === "gia-demo-height" && e.data.height > 200) f.style.height = e.data.height + "px";
+        if (e.data.type === "gia-demo-reveal") {
+          var y = f.getBoundingClientRect().top + e.data.y;
+          if (y < 140 || y > innerHeight - 100) window.scrollBy({ top: y - innerHeight / 2, behavior: reduce.matches ? "auto" : "smooth" });
+        }
+      });
+    })();
+  </script>
+
   <!-- ============ 02 When something needs fixing ============ -->
   <section class="gia-fix" id="fixing" aria-labelledby="fixing-title">
     <div class="container">

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experience Gia · Glonari Homes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app" data-mode="idle">
+  <div class="fit" id="fit">
+    <div class="stage" id="stage">
+      <picture class="scene" aria-hidden="true">
+        <source media="(max-width: 767px)" srcset="assets/mobile-800.webp 800w, assets/mobile-1086.webp 1086w" sizes="100vw">
+        <img src="assets/office-1586.webp" srcset="assets/office-1200.webp 1200w, assets/office-1586.webp 1586w" sizes="(min-width: 1200px) 1440px, 100vw" width="1586" height="992" alt="" fetchpriority="high">
+      </picture>
+
+      <header class="bar">
+        <span class="bar__brand">Glonari <small>Homes</small></span>
+        <span class="bar__crumb" id="crumb">Your office</span>
+        <div class="bar__tools">
+          <div class="seg" role="group" aria-label="Demonstration mode">
+            <button type="button" data-k="mode-watch" aria-pressed="false">Watch Demo</button>
+            <button type="button" data-k="mode-try" aria-pressed="false">Try It Yourself</button>
+          </div>
+          <button type="button" class="tool" data-k="pause" hidden>Pause</button>
+          <button type="button" class="tool" data-k="restart" hidden>Restart</button>
+          <button type="button" class="tool" data-k="focus" aria-pressed="false">Focus view</button>
+          <div class="menu">
+            <button type="button" class="tool" data-k="menu" aria-expanded="false" aria-controls="menu-list">Menu</button>
+            <ul class="menu__list" id="menu-list" hidden></ul>
+          </div>
+        </div>
+      </header>
+
+      <div class="badge-demo" id="badge-demo">Demonstration</div>
+      <span class="pill" id="pill">Gia · AI advisor</span>
+
+      <main class="main" id="main">
+        <div class="head">
+          <p class="eyebrow" id="eyebrow"></p>
+          <h2 class="headline" id="headline" tabindex="-1"></h2>
+        </div>
+        <div class="display" id="display"></div>
+        <div class="actions" id="actions"></div>
+      </main>
+
+      <section class="shelf" aria-label="Conversation with Gia">
+        <div class="shelf__top">
+          <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <div class="turns">
+            <p class="turn turn--you" id="you" hidden></p>
+            <p class="turn turn--gia"><b>Gia</b> <span id="gia-line" aria-hidden="true"></span></p>
+          </div>
+        </div>
+        <div class="shelf__bar">
+          <form class="composer" id="composer" autocomplete="off">
+            <label class="visually-hidden" for="composer-in">Reply to Gia</label>
+            <input id="composer-in" type="text" placeholder="Type a reply…">
+          </form>
+          <span class="shelf__opt">Voice off</span>
+          <span class="shelf__opt">Transcript</span>
+          <span class="shelf__opt">Quiet mode</span>
+        </div>
+        <p class="visually-hidden" id="live" aria-live="polite"></p>
+      </section>
+
+      <div class="sheet-wrap" id="sheet" hidden></div>
+      <div class="guard" id="guard" hidden></div>
+      <div class="cursor" id="cursor" aria-hidden="true"><svg viewBox="0 0 24 28" width="26" height="30"><path d="M3 2l17 12.5-7.4 1.3 4.4 8.2-3.6 1.9-4.3-8.3L3 21.5z" fill="#fff" stroke="#1F1A14" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="cursor__ring"></span></div>
+    </div>
+  </div>
+  <p class="notice" id="notice">Interactive demonstration. Sample homes, a scripted conversation and no real data, requests or payments.</p>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

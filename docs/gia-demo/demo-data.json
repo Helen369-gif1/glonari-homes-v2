@@ -1,0 +1,627 @@
+{
+  "meta": {
+    "title": "Experience Gia",
+    "notice": "Interactive demonstration. Sample homes, a scripted conversation and no real data, requests or payments.",
+    "gia": "Gia · AI advisor"
+  },
+  "intro": {
+    "eyebrow": "Sample experience",
+    "headline": "Come in. Let’s begin.",
+    "sub": "Choose something to explore.",
+    "brief": "Watch me show you around, or try it yourself. Nothing here is real, and nothing is sent."
+  },
+  "scenarios": [
+    {
+      "id": "find",
+      "name": "Find a home",
+      "crumb": "Find a home",
+      "steps": [
+        {
+          "screen": "S01",
+          "primary": "Meet with Gia",
+          "sends": "Let’s explore them.",
+          "reply": "Of course. First, let’s confirm what matters to you.",
+          "auto": [
+            {
+              "wait": 1100
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S02",
+          "auto": [
+            {
+              "wait": 900
+            },
+            "prio-0",
+            "prio-1",
+            "prio-2",
+            {
+              "wait": 500
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S27",
+          "primary": "Explore this home",
+          "auto": [
+            {
+              "wait": 900
+            },
+            "pin-0",
+            {
+              "wait": 500
+            },
+            "home-0",
+            {
+              "wait": 900
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S03",
+          "auto": [
+            {
+              "wait": 1800
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S04",
+          "primary": "Review evidence",
+          "auto": [
+            {
+              "wait": 1800
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S29",
+          "primary": "Save to journey",
+          "auto": [
+            {
+              "wait": 2600
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S28",
+          "saved": [
+            0
+          ],
+          "end": true,
+          "brief": "Oak Ridge is saved to your journey. We can compare these homes or turn your shortlist into a touring plan.",
+          "auto": [
+            {
+              "wait": 1800
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "name": "Compare homes",
+      "crumb": "Compare homes",
+      "steps": [
+        {
+          "screen": "S28",
+          "pickable": true,
+          "primary": "Compare homes",
+          "requires": "picks",
+          "guard": "Choose at least two homes to compare.",
+          "auto": [
+            {
+              "wait": 1500
+            },
+            "pick-0",
+            "pick-1",
+            "pick-2",
+            {
+              "wait": 500
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S06",
+          "primary": "Check commute",
+          "auto": [
+            {
+              "wait": 2200
+            },
+            "row-commute"
+          ]
+        },
+        {
+          "screen": "S05",
+          "auto": [
+            {
+              "wait": 900
+            },
+            "dest-0",
+            {
+              "wait": 1800
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S06",
+          "focus": "commute",
+          "primary": "Save comparison",
+          "final": true,
+          "brief": "Oak Ridge meets the guest-room goal. Willow costs less, but its estimated commute is longer.",
+          "done": {
+            "note": "Comparison saved to your journey (sample).",
+            "brief": "Saved. You can change the assumptions and compare again at any time."
+          },
+          "auto": [
+            {
+              "wait": 2400
+            },
+            "primary",
+            {
+              "wait": 1400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "renovate",
+      "name": "Plan a renovation",
+      "crumb": "Plan a renovation",
+      "steps": [
+        {
+          "screen": "S07",
+          "requires": "concept",
+          "guard": "Let’s add a photo and make a concept first.",
+          "sheet": "reno",
+          "final": true,
+          "done": {
+            "note": "Approved in this demo. A contractor must still verify cost and feasibility.",
+            "brief": "Your request is prepared. Nothing was sent, and a contractor must verify cost and feasibility before any quote."
+          },
+          "auto": [
+            {
+              "wait": 1400
+            },
+            "photo",
+            {
+              "wait": 700
+            },
+            "gen",
+            {
+              "wait": 2100
+            },
+            {
+              "drag": "slider",
+              "to": 6
+            },
+            {
+              "wait": 300
+            },
+            {
+              "drag": "slider",
+              "to": 94
+            },
+            {
+              "wait": 500
+            },
+            {
+              "drag": "slider",
+              "to": 50
+            },
+            "mat-1",
+            {
+              "wait": 700
+            },
+            "primary",
+            {
+              "wait": 1500
+            },
+            "approve",
+            {
+              "wait": 1400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repair",
+      "name": "Request a repair",
+      "crumb": "Request a repair",
+      "steps": [
+        {
+          "screen": "S19",
+          "primary": "Ask Gia about my home",
+          "sends": "The faucet is leaking. Is that covered?",
+          "reply": "Let us check your Home coverage and the process for getting help. I can help you organize the request.",
+          "auto": [
+            {
+              "wait": 1300
+            },
+            "primary"
+          ]
+        },
+        {
+          "screen": "S39",
+          "requires": "issue",
+          "guard": "Tell me what needs attention first.",
+          "sheet": "repair",
+          "auto": [
+            {
+              "wait": 900
+            },
+            {
+              "type": "Kitchen faucet dripping",
+              "into": "issue"
+            },
+            {
+              "wait": 400
+            },
+            "attach",
+            {
+              "wait": 500
+            },
+            "acc-0",
+            {
+              "wait": 800
+            },
+            "primary",
+            {
+              "wait": 1500
+            },
+            "approve"
+          ],
+          "brief": "Describe what needs attention. I’ll organize the request, and you review everything before it is submitted."
+        },
+        {
+          "screen": "S21",
+          "end": true,
+          "auto": [
+            {
+              "wait": 1800
+            }
+          ],
+          "brief": "The faucet request is assigned. No quote approval is pending, and access still follows your consent."
+        }
+      ]
+    }
+  ],
+  "screens": {
+    "S01": {
+      "id": "S01",
+      "layout": "arrival",
+      "crumb": "Executive office arrival",
+      "headline": "Come in. Let’s continue.",
+      "sub": "A familiar face. A thoughtful next step.",
+      "label": "Prepared for you",
+      "items": [
+        "Continue your search",
+        "Three saved homes",
+        "Your next tour: Saturday"
+      ],
+      "primary": "Meet with Gia",
+      "brief": "I have your three saved homes ready. Would you like to explore them or talk first?"
+    },
+    "S02": {
+      "id": "S02",
+      "layout": "priorities",
+      "crumb": "Gia consultation",
+      "headline": "Let’s start with your life.",
+      "label": "Saved priorities",
+      "items": [
+        "Budget up to $1.2M",
+        "Commute under 25 min",
+        "Guest room needed"
+      ],
+      "hint": "Review each priority, then confirm.",
+      "primary": "Confirm preferences",
+      "brief": "You mentioned space for guests and a shorter commute. Shall we keep these priorities?"
+    },
+    "S27": {
+      "id": "S27",
+      "layout": "map",
+      "crumb": "Search map & list",
+      "headline": "Let’s explore around your life.",
+      "label": "Your context",
+      "primary": "Explore this home",
+      "brief": "These homes match the price filter. Commute estimates and source details are available for review."
+    },
+    "S03": {
+      "id": "S03",
+      "layout": "theater",
+      "crumb": "Property theater",
+      "headline": "Let me show you Oak Ridge.",
+      "badge": "Sample property",
+      "title": "Oak Ridge Residence",
+      "lines": [
+        "$985,000 asking",
+        "Matches 3 confirmed priorities"
+      ],
+      "note": "Sample listing · evidence and unknowns available",
+      "primary": "Explore this home",
+      "brief": "It meets three of your confirmed priorities. I’ll show you the tradeoffs as we explore."
+    },
+    "S04": {
+      "id": "S04",
+      "layout": "theater",
+      "crumb": "Property detail & evidence",
+      "headline": "A closer look, together.",
+      "badge": "Sample property",
+      "title": "$985,000 asking",
+      "lines": [
+        "4 beds · 3 baths",
+        "2,480 sq ft (listing)"
+      ],
+      "note": "Sample listing · evidence and unknowns available",
+      "primary": "Save to journey",
+      "brief": "The listing reports four bedrooms. There is a source conflict we should review before relying on that."
+    },
+    "S29": {
+      "id": "S29",
+      "layout": "evidence",
+      "crumb": "Source evidence",
+      "headline": "Here’s what we know—and don’t.",
+      "label": "Bedroom count • source conflict",
+      "rows": [
+        [
+          "Listing sample",
+          "4 beds",
+          "Reported by listing; not independently verified"
+        ],
+        [
+          "Assessor sample",
+          "3 beds",
+          "Conflicts with listing; unresolved"
+        ],
+        [
+          "Inspection",
+          "Unavailable",
+          "No inspection report supplied"
+        ]
+      ],
+      "hint": "Review source, effective date and license before relying on a fact.",
+      "primary": "Review evidence",
+      "brief": "The listing says four bedrooms; the assessor says three. I won’t resolve that without evidence."
+    },
+    "S28": {
+      "id": "S28",
+      "layout": "shortlist",
+      "crumb": "Shortlist",
+      "headline": "Your shortlist, ready to discuss.",
+      "badge": "Sample property",
+      "items": [
+        "Oak Ridge Residence",
+        "Cedar Lane",
+        "Willow Court"
+      ],
+      "hint": "Choose a home to discuss, compare or tour.",
+      "primary": "Plan a tour",
+      "brief": "We can compare these homes, share selected details or turn your shortlist into a touring plan."
+    },
+    "S06": {
+      "id": "S06",
+      "layout": "compare",
+      "crumb": "Compare homes",
+      "headline": "Let’s weigh the tradeoffs.",
+      "primary": "Save comparison",
+      "brief": "Oak Ridge meets the guest-room goal. Willow costs less, but its estimated commute is longer."
+    },
+    "S05": {
+      "id": "S05",
+      "layout": "destinations",
+      "crumb": "Neighborhood explorer",
+      "headline": "Picture your everyday life.",
+      "label": "Your destinations",
+      "rows": [
+        [
+          "Office",
+          "22–28 min est."
+        ],
+        [
+          "Grocery",
+          "8–12 min est."
+        ],
+        [
+          "School boundary",
+          "Verify district"
+        ]
+      ],
+      "hint": "Estimates only. Compare your own destinations, not demographic profiles.",
+      "primary": "Compare destinations",
+      "brief": "Your office journey is estimated at 22–28 minutes. That may exceed your 25-minute preference."
+    },
+    "S07": {
+      "id": "S07",
+      "layout": "renovation",
+      "crumb": "Renovation studio",
+      "headline": "Imagine what could change.",
+      "primary": "Request contractor estimate",
+      "brief": "We can explore a concept within your target. A contractor must verify cost and feasibility."
+    },
+    "S19": {
+      "id": "S19",
+      "layout": "arrival",
+      "crumb": "Home concierge",
+      "headline": "Welcome home. What can I help with?",
+      "sub": "A familiar face. A thoughtful next step.",
+      "label": "Prepared for you",
+      "items": [
+        "HVAC service due",
+        "One open maintenance request",
+        "Home Fee summary"
+      ],
+      "primary": "Ask Gia about my home",
+      "brief": "We can review your service request, prepare for HVAC maintenance or look at this month’s fee."
+    },
+    "S39": {
+      "id": "S39",
+      "layout": "request",
+      "crumb": "Home service request",
+      "headline": "Tell me what needs attention.",
+      "label": "Prepared with Gia",
+      "hint": "If there is immediate danger, contact emergency services.",
+      "primary": "Submit service request",
+      "brief": "I’ve drafted the faucet request. Review the photo and access instructions before submitting."
+    },
+    "S21": {
+      "id": "S21",
+      "layout": "progress",
+      "crumb": "Repairs & vendors",
+      "headline": "Let’s get this resolved.",
+      "label": "Service progress",
+      "items": [
+        "Kitchen faucet • assigned",
+        "HVAC tune-up • upcoming",
+        "Quote approval • none"
+      ],
+      "hint": "Review details and dependencies before continuing.",
+      "primary": "Report an issue",
+      "brief": "The faucet request is assigned. No quote approval is pending, and access still follows your consent."
+    }
+  },
+  "homes": [
+    {
+      "name": "Oak Ridge",
+      "price": "$985,000",
+      "short": "$985k",
+      "img": "assets/house-480.webp",
+      "commute": "22–28 min",
+      "space": "4 beds / 3 baths",
+      "trade": "Kitchen review"
+    },
+    {
+      "name": "Cedar Lane",
+      "price": "$1,080,000",
+      "short": "$1.08M",
+      "img": "assets/cottage-548.webp",
+      "commute": "20–25 min",
+      "space": "4 beds / 3 baths",
+      "trade": "Higher price"
+    },
+    {
+      "name": "Willow Court",
+      "price": "$940,000",
+      "short": "$940k",
+      "img": "assets/house-480.webp",
+      "commute": "30–38 min",
+      "space": "3 beds / 2 baths",
+      "trade": "Longer commute"
+    }
+  ],
+  "reno": {
+    "slotA": {
+      "label": "Source capture",
+      "text": "Upload the original room photo to compare.",
+      "wait": "Awaiting source image",
+      "btn": "Use sample photo"
+    },
+    "slotB": {
+      "label": "Generated concept",
+      "text": "A labeled concept will appear here.",
+      "btn": "Generate concept",
+      "busy": "Preparing a labeled concept…",
+      "stop": "Stop"
+    },
+    "badge": "Generated concept",
+    "caption": "Concept preview • original reference retained",
+    "budget": "Target budget $25,000 · no contractor quote",
+    "mats": [
+      [
+        "#D9CDB8",
+        "Limewash"
+      ],
+      [
+        "#B9976E",
+        "Oak"
+      ],
+      [
+        "#8B7A5E",
+        "Brass"
+      ],
+      [
+        "#33463F",
+        "Moss"
+      ]
+    ],
+    "matLabel": "Materials to discuss"
+  },
+  "sheets": {
+    "reno": {
+      "title": "Review before sending",
+      "rows": [
+        [
+          "Concept",
+          "Kitchen update, labeled as a concept"
+        ],
+        [
+          "Original photo",
+          "Shared as provided, not edited"
+        ],
+        [
+          "Target budget",
+          "$25,000"
+        ],
+        [
+          "Recipient",
+          "An approved contractor, after your consent"
+        ]
+      ],
+      "foot": "Nothing is sent in this demonstration.",
+      "approve": "Approve",
+      "decline": "Decline"
+    },
+    "repair": {
+      "title": "Review your request",
+      "rows": [
+        [
+          "Issue",
+          "Kitchen faucet dripping"
+        ],
+        [
+          "Photo",
+          "Attached"
+        ],
+        [
+          "Access",
+          "Ask me first"
+        ],
+        [
+          "Emergency",
+          "Not an emergency"
+        ]
+      ],
+      "foot": "Nothing is sent in this demonstration.",
+      "approve": "Approve",
+      "decline": "Decline"
+    }
+  },
+  "ui": {
+    "placeholder": "Type a reply…",
+    "voice": "Voice off",
+    "transcript": "Transcript",
+    "quiet": "Quiet mode",
+    "canned": "In this demonstration I answer prepared examples. Use the buttons to continue.",
+    "watch": "Watch Demo",
+    "try": "Try It Yourself",
+    "pause": "Pause",
+    "play": "Play",
+    "restart": "Restart",
+    "takeover": "Take over",
+    "focus": "Focus view",
+    "menu": "Menu",
+    "replay": "Replay",
+    "start": "Back to start",
+    "next": "Next"
+  }
+}

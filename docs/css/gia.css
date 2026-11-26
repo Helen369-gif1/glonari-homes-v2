@@ -191,3 +191,16 @@
   .gia-final__stage { aspect-ratio: 4 / 3; }
   .gia-final__layer img { object-position: 39% 50%; }
 }
+
+/* ---------- 01B Experience Gia: interactive demonstration (iframe to gia-demo/) ---------- */
+.gia-demo { padding-top: var(--section-y); }
+.gia-demo__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: end; margin-bottom: clamp(48px, 6vw, 80px); }
+.gia-demo__title { grid-column: 1 / 8; margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(46px, 7vw, 104px); line-height: 1.02; letter-spacing: -.015em; }
+.gia-demo__sub { grid-column: 9 / 13; margin: 0 0 8px; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.55; color: var(--gh-ink-2); }
+.gia-demo__band { background: var(--gh-brown); }
+.gia-demo__frame { display: block; width: 100%; height: min(62.5vw + 80px, 1020px); border: 0; background: var(--gh-brown); }
+@media (max-width: 900px) {
+  .gia-demo__head { display: block; }
+  .gia-demo__sub { margin-top: 20px; }
+}
+@media (max-width: 767px) { .gia-demo__frame { height: 1100px; } }
