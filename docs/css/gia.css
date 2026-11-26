@@ -164,12 +164,18 @@
   .gia-imp__org .gia-note { margin-top: 18px; }
 }
 
-/* ---------- 05 final: night photo, copy on the calm dark left, the AI line on a solid strip (never on the photo) ---------- */
-.gia-final { margin-top: var(--section-y); color: var(--gp-text); }
-.gia-final__photo { position: relative; min-height: clamp(780px, 66.7vw, 1100px); display: grid; align-items: start; }
-.gia-final__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.gia-final__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 12, 6, .62) 0%, rgba(20, 12, 6, .58) 36%, rgba(20, 12, 6, 0) 56%); }
-.gia-final__in { position: relative; z-index: 2; padding-block: 40px 0; text-align: center; }
+/* ---------- 05 final: heading on its own brown band, the living room (room + family layers, clear parallax) directly under it, the AI line on a solid strip ---------- */
+.gia-final { margin-top: var(--section-y); color: var(--gp-text); background: var(--gh-brown); }
+.gia-final__in { padding-block: clamp(72px, 8vw, 120px); text-align: center; }
+.gia-final__stage { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--gh-brown); }
+.gia-final__zoom, .gia-final__layer { position: absolute; inset: 0; }
+.gia-final__zoom { will-change: transform; }
+.gia-final__layer { will-change: transform, opacity; }
+.gia-final__layer img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 25% 50%; }
+/* pinned (>=769px, motion allowed): the stage is the screen; the layers are 3% taller so the vertical drift never shows an edge */
+.has-scenes .gia-final__stage { aspect-ratio: auto; }
+.has-scenes .gia-final__layer { inset: -1.5% 0; }
+.scenes-pending .gia-final__zoom [data-final-family] { opacity: 0; }
 .gia-final__h {
   max-width: 8em; margin: 0 auto 20px;
   font-family: var(--font-display); font-weight: 500;
@@ -179,9 +185,9 @@
 .gia-final__btn { background: var(--gp-gold); border-color: var(--gp-gold); color: var(--gh-ink); }
 .gia-final__btn:hover { background: var(--gp-champagne); border-color: var(--gp-champagne); }
 .gia-final__strip { background: var(--gh-brown); padding: 40px 0 48px; }
-.gia-final__strip p { margin: 0; max-width: 64ch; font-size: 16px; line-height: 1.6; color: var(--gp-text-2); }
-@media (max-width: 860px) {
-  .gia-final__photo { min-height: 740px; }
-  .gia-final__photo::after { background: linear-gradient(180deg, rgba(20, 12, 6, .88) 0%, rgba(20, 12, 6, .7) 45%, rgba(20, 12, 6, .15) 100%); }
-  .gia-final__in { padding-block: 40px 0; }
+.gia-final__strip p { margin: 0 auto; text-align: center; max-width: 64ch; font-size: 16px; line-height: 1.6; color: var(--gp-text-2); }
+@media (max-width: 768px) {
+  /* phones: static composite, 4:3 crop around the family (it spans ~72% of the 16:9 width), both layers cropped the same way */
+  .gia-final__stage { aspect-ratio: 4 / 3; }
+  .gia-final__layer img { object-position: 39% 50%; }
 }

@@ -100,13 +100,48 @@
     return () => gsap.set(img, { clearProps: "all" });
   }
 
+  /* ---------- 05 final: pinned scene (sticky stage 100svh, --travel 180svh), room first, then the family sits down on the rug ----------
+     One progress p 0..1 (scrubbed .6 = smoothed; every value is a continuous function of p, no thresholds). Only transform and opacity.
+     Both layers sit in one wrapper that carries the ONLY scale, so sofa and rug can never part by zoom; they differ by translateY alone.
+       0   - .30  room alone: zoom 1.02 -> 1.06, room y -1.5% -> +1% of the frame height
+       .28 - .55  family fades in (0 -> 1) and rises from +6% to 0 relative to the room: registered exactly like the reference at .55
+       .55 - .85  pause on the finished picture: zoom 1.06 -> 1.08, family drifts 0.7% of the frame height against the room (8 px at 1440x900)
+       .85 - 1    the stage is released (sticky ends); the last state is held.
+     Phones, reduced motion, no JS: no pin, the CSS composite (both layers at once, like the reference). */
+  function finalScene() {
+    const scene = $('[data-scene="gia-final"]');
+    if (!scene) return () => {};
+    const zoom = $("[data-final-zoom]", scene), bg = $("[data-final-bg]", scene), fam = $("[data-final-family]", scene);
+    const clamp01 = (v) => Math.min(1, Math.max(0, v));
+    const seg = (p, a, b) => clamp01((p - a) / (b - a));
+    const sineOut = (t) => Math.sin(t * Math.PI / 2), sineIO = (t) => (1 - Math.cos(t * Math.PI)) / 2;
+    const apply = (p) => {
+      const t1 = sineOut(seg(p, 0, .30)), t3 = sineIO(seg(p, .55, .85)), tf = sineIO(seg(p, .28, .55));
+      const z = p < .55 ? 1.02 + .04 * t1 : 1.06 + .02 * t3;
+      const room = (-1.5 + 2.5 * t1) + .5 * t3;                    // % of the frame height
+      const rel = 6 * (1 - tf) - .7 * t3;                          // family against the room
+      gsap.set(zoom, { scale: z });
+      gsap.set(bg, { yPercent: room / 1.03 });                     // layers are 103% tall: % of the layer -> % of the frame
+      gsap.set(fam, { yPercent: (room + rel) / 1.03, opacity: tf });
+    };
+    const proxy = { p: 0 };
+    gsap.set(zoom, { transformOrigin: "39% 80%" });
+    apply(0);
+    const tween = gsap.to(proxy, {
+      p: 1, ease: "none", onUpdate: () => apply(proxy.p),
+      scrollTrigger: { trigger: scene, start: "top top", end: "bottom bottom", scrub: .6, invalidateOnRefresh: true },
+    });
+    return () => { tween.scrollTrigger && tween.scrollTrigger.kill(); tween.kill(); gsap.set([zoom, bg, fam], { clearProps: "all" }); };
+  }
+
   const mm = gsap.matchMedia();
   mm.add("(min-width: 769px) and (prefers-reduced-motion: no-preference)", () => {
     doc.classList.add("has-scenes");
     heroScene();
+    const undoFinal = finalScene();
     doc.classList.remove("scenes-pending");
     ScrollTrigger.refresh();
-    return () => doc.classList.remove("has-scenes");
+    return () => { undoFinal(); doc.classList.remove("has-scenes"); };
   });
   mm.add("(max-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
     const undo = heroPhone();
