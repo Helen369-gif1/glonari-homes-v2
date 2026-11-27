@@ -2,6 +2,10 @@
 
 Last updated: 2026-11-22 (Home design pass). Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-27 (Home 05: link to the Gia demo) — not committed
+
+- Owner approved (option 1 only, screen 05): Home screen 05 "Meet Gia" now has a solid `.btn` "Watch Gia in Action" → `gia.html#experience`, next to the text link "Meet Gia →" (wrapper `.gia__links` in `index.html` / `css/home.css`). Hero and final screen unchanged. Not in the hero (it keeps the single CTA), not in the menu or footer. Checked: links side by side at 1024 and 375 px, no horizontal overflow, no console errors.
+
 ## 2026-11-27 (Gia: "Experience Gia." interactive demo, new screen 01B) — not committed
 
 New standalone app `docs/gia-demo/` (index.html, style.css, app.js, demo-data.json, assets/ 0.8 MB), embedded in `docs/gia.html` right after the hero as `#experience` (responsive iframe on a full-bleed brown band; heading "Experience Gia." + sentence). Additions only: section + small embed script in gia.html, block appended to the end of `css/gia.css`. Source kit v1.2 (Desktop, not modified, not copied): office.jpg, mobile.jpg, house.jpg, cottage.jpg (cropped: the original had page text in its top 90 px).

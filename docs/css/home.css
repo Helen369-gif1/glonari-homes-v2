@@ -653,7 +653,8 @@
 .gia__lead { margin: 0 0 18px; font-family: var(--font-display); font-weight: 500; font-size: 24px; line-height: 1.3; color: var(--gh-ink); }
 .gia__text > p:not(.eyebrow) { margin: 0 0 16px; color: var(--gh-ink-2); }
 .gia__text > p.gia__lead { color: var(--gh-ink); }
-.gia__text .link-arrow { margin-top: 12px; color: var(--gh-ink); }
+.gia__links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; margin-top: 20px; }
+.gia__text .link-arrow { margin-top: 0; color: var(--gh-ink); }
 
 .gia__photo { grid-column: 5 / 13; grid-row: 1; position: relative; min-width: 0; }
 .gia__room { display: block; width: 100%; aspect-ratio: 859 / 520; object-fit: cover; object-position: 50% 58%; border-radius: var(--radius); }
