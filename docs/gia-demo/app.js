@@ -32,7 +32,7 @@
     el.app.dataset.layout = L;
     if (L === "wide") {
       let s = Math.min(w / 1440, 1600 / 1440);
-      if (isFinite(S.maxH)) s = Math.min(s, Math.max(0.8, (S.maxH - el.notice.offsetHeight) / 900));
+      if (isFinite(S.maxH)) s = Math.min(s, Math.max(0.72, (S.maxH - el.notice.offsetHeight) / 900));
       S.scale = s;
       el.fit.style.width = Math.round(1440 * s) + "px";
       el.fit.style.height = Math.round(900 * s) + "px";

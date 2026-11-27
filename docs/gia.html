@@ -105,6 +105,13 @@
       var f = document.querySelector(".gia-demo__frame");
       if (!f) return;
       var reduce = matchMedia("(prefers-reduced-motion: reduce)");
+      /* tell the demo how much window height is free under the fixed site header, so the whole stage (bar to conversation) fits on one screen */
+      function sendViewport() {
+        var hd = document.querySelector(".site-header"); var h = hd ? hd.getBoundingClientRect().height : 76;
+        try { f.contentWindow.postMessage({ type: "gia-demo-viewport", height: Math.round(innerHeight - h - 12) }, "*"); } catch (e) {}
+      }
+      f.addEventListener("load", sendViewport);
+      addEventListener("resize", sendViewport);
       window.addEventListener("message", function (e) {
         if (e.source !== f.contentWindow || !e.data) return;
         if (e.data.type === "gia-demo-height" && e.data.height > 200) f.style.height = e.data.height + "px";
